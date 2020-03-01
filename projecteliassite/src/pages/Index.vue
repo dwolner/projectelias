@@ -16,8 +16,6 @@
             </video>
         </div>
 
-        <!-- <InstaFeed /> -->
-
         <Team />
 
         <BuyersSellers />
@@ -30,8 +28,12 @@
 
         <Testimonials />
 
-        <!-- <Lender /> -->
-        
+        <NewsInner showLength="3" />
+
+        <OpenhousesInner showLength="3" />
+
+        <InstaFeed />
+
         <Contact />
         
     </q-page>
@@ -46,6 +48,8 @@ import Team from '../components/Team'
 import Testimonials from '../components/Testimonials'
 import Homebot from '../components/Homebot'
 import Lender from '../components/Lender'
+import NewsInner from '../components/NewsInner'
+import OpenhousesInner from '../components/OpenhousesInner'
 import Contact from '../components/Contact'
 
 export default {
@@ -59,6 +63,8 @@ export default {
         Team,
         Testimonials,
         Lender,
+        NewsInner,
+        OpenhousesInner,
         Homebot,
         Contact
     },

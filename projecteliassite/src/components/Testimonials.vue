@@ -2,10 +2,10 @@
     <div id="testimonials" class="container bg-black q-py-xl">
         <div class="row well">
             <div class="col-xs-12 q-py-sm q-px-xl">
-                <h3 class="Compass-Serif-Regular q-mb-md text-white" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
+                <h3 class="Compass-Serif-Regular q-mb-md text-white" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
             </div>
 
-            <div class="col-xs-12 q-mb-xl">
+            <div class="col-xs-12 col-md-6" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
                 <q-carousel 
                     v-model="slideIndex" 
                     class="rounded-borders"
@@ -18,11 +18,11 @@
                     padding 
                     arrows
                     infinite
-                    style="max-width: 800px; margin: 0 auto; background: rgba(0, 0, 0, 0)"
+                    style="max-width: 800px; height: 100%; margin: 0 auto; background: rgba(0, 0, 0, 0)"
                 >
-                    <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center">
-                        <div class="text-center shadow-2 q-pa-sm bg-white" :style="`max-width: 100%; margin: 0 auto; border-radius: .25rem;`">
-                            <div class="q-mt-md q-pa-md text-center" style="max-width: 540px;">
+                    <q-carousel-slide v-for="(slide, index) in textSlides" :key="index" :name="slide.author" class="column no-wrap flex-center" style="padding-bottom: 75px;">
+                        <div class="text-center shadow-2" :style="`max-width: 100%; margin: 0 auto; border-radius: .25rem; background-image: url('statics/photos/curvy_lines.jpg'); background-size: cover; background-position: 50%;`">
+                            <div class="q-my-md q-pa-md text-center" style="max-width: 560px;">
                                 <q-icon class="q-mb-lg" name="fas fa-quote-right" color="primary" size="md" />
 
                                 <p style="font-size: 1rem;">{{ slide.text }}</p>
@@ -35,7 +35,7 @@
                 </q-carousel>
             </div>
 
-            <div class="col-xs-12">
+            <div class="col-xs-12 col-md-6" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
                 <q-carousel 
                     v-model="videoSlideIndex" 
                     class="rounded-borders"
@@ -105,32 +105,32 @@ export default {
                     date: '01/19/2019',
                 },
             ],
-            videoSlideIndex: 'x0my8qD-x4U',
+            videoSlideIndex: 'MK00gMTL6X4',
             videoSlides: [
                 {
-                    id: 'x0my8qD-x4U'
+                    id: 'MK00gMTL6X4'
                 },
                 {
-                    id: 'BCcUohRDjr0'
+                    id: 'P46UWzVF1So'
                 },
                 {
-                    id: 'Z0qWj-aqhII'
+                    id: '17xf9Cb8eqY'
                 },
                 {
-                    id: '_35q8_RBLYc'
+                    id: 'rBi2FN1LWpA'
                 },
                 {
-                    id: 'NVArUyrNXzw'
+                    id: 'cP2STCCiRrQ'
                 },
             ],
 
-            videoOffset: 130
+            videoOffset: 137
         }
     },
 
     computed: {
         videoWidth() {
-            let width = this.$q.screen.width - this.videoOffset
+            let width = (this.$q.screen.width > 1023 ? this.$q.screen.width / 2 : this.$q.screen.width ) - this.videoOffset
             return width < 540 ? width : 540
         },
 
