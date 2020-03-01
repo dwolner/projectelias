@@ -5,37 +5,39 @@
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="row well justify-center q-pa-xl">
                         <div class="col-sm-12 q-pa-sm q-mb-md">
-                            <h3 class="Compass-Serif-Regular">Buying Or Selling?</h3>
+                            <h3 class="Compass-Serif-Regular" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Buying Or Selling?</h3>
                         </div>
 
-                        <div v-for="(item, index) in features" v-scroll-reveal.reset="{ delay: index * 75, easing: 'ease-in-out', distance: '100px', origin: 'left' }" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
+                        <div v-for="(item, index) in features" v-scroll-reveal="{ delay: index * 75, easing: 'ease-in-out', distance: '100px', origin: 'left' }" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm infoCard">
                             <div class="bg-white q-pa-md full-height">
                                 <q-icon :name="item.icon" style="font-size: 3rem;" />
                                 <h5 class="q-my-lg">{{ item.title }}</h5>
-                                <p>{{ item.desc }}</p>
+                                <p style="max-width: 300px;">{{ item.desc }}</p>
                             </div>
                         </div>
                     </div>
 
-
                     <q-expansion-item
                         v-model="showMoreInfo"
-                        class="well"
+                        color="white"
                         expand-icon=""
                         expanded-icon=""
+                        no-hover
                     >
                         <template v-slot:header>
-                            <div id="BuyersSellersButtons" class="full-width row justify-center q-px-xl">
-                                <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                                    <q-btn class="full-width" color="primary" size="lg" @click.stop="toggleMoreInfo('Buyers')">
-                                        I am a buyer
-                                    </q-btn>
-                                </div>
+                            <div id="BuyersSellersButtons" class="full-width justify-center q-px-xl">
+                                <div class="row" style="max-width: 750px; margin: 0 auto;">
+                                    <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                                        <q-btn class="full-width" color="primary" size="lg" @click.stop="toggleMoreInfo('Buyers')">
+                                            I am a buyer
+                                        </q-btn>
+                                    </div>
 
-                                <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                                    <q-btn class="full-width" color="primary" size="lg" @click.stop="toggleMoreInfo('Sellers')">
-                                        I am a seller
-                                    </q-btn>
+                                    <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                                        <q-btn class="full-width" color="primary" size="lg" @click.stop="toggleMoreInfo('Sellers')">
+                                            I am a seller
+                                        </q-btn>
+                                    </div>
                                 </div>
                             </div>
                         </template>
@@ -193,6 +195,16 @@ export default {
     height: 100%;
     overflow: hidden;
 }
+
+.infoCard {
+    transition: transform .5s;
+}
+
+.infoCard:hover {
+    transform: scale(1.25) !important;
+    z-index: 999;
+}
+
 </style>
 
 <style>

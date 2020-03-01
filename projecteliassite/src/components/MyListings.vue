@@ -5,12 +5,12 @@
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="row">
                         <div class="col-12 q-pt-xl q-px-xl" style="padding-bottom: 0;">
-                            <h3 class="text-white Compass-Serif-Regular">Listings</h3>
+                            <h3 class="text-white Compass-Serif-Regular" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Listings</h3>
                         </div>
 
                         <div v-if="$q.screen.width > 767" class="col-12 row justify-center q-pt-xl q-px-xl">
-                            <div v-for="(item, index) in listings" v-scroll-reveal.reset="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" @click="selectListing(item)">
-                                <div class="shadow-4 relative-position" :style="`height: 100%; background: url(' ${item.media[0].originalUrl}'; background-size: cover; background-position: 50%; height: 300px;`">
+                            <div v-for="(item, index) in listings" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" @click="selectListing(item)">
+                                <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('${ item.media[0].originalUrl }'); background-size: cover; background-position: 50%; height: 300px;`">
                                     <div class="centerHeaderHold q-pa-md">
                                         <div style="border: solid 2px white; height: 100%;">
                                             <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
@@ -42,7 +42,7 @@
                                 style="background: #080808;"
                             >
                                 <q-carousel-slide v-for="(item, index) in listings" :key="index" :name="item.location.prettyAddress" class="column no-wrap flex-center full-width" style="padding: 4rem 0 4rem;" @click="selectListing(item)">
-                                    <div class="shadow-4 relative-position" :style="`height: 100%; width: 100%; background: url(' ${item.media[0].originalUrl}'; background-size: cover; background-position: 50%; height: 300px;`">
+                                    <div class="shadow-4 relative-position" :style="`height: 100%; width: 100%; background-image: url('${ item.media[0].originalUrl }'); background-size: cover; background-position: 50%; height: 300px;`">
                                         <div class="centerHeaderHold q-pa-md">
                                             <div style="border: solid 2px white; height: 100%;">
                                                 <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />

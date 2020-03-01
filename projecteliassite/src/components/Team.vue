@@ -5,11 +5,17 @@
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="row">
                         <div class="col-xs-12 q-pt-xl q-px-xl">
-                            <h3 class="text-white Compass-Serif-Regular">The Team</h3>
+                            <h3 class="text-white Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal.reset="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">The Team</h3>
+                            
+                            <span class="gt-sm" v-for="(item, index) in 6" v-scroll-reveal.reset="{ delay: index * 75, scale: .75, rotate: { z: -90 }, easing: 'ease-in-out', distance: '100px', origin: 'left' }" style="float: left;">
+                                <svg version="1.1" id="svg" class="" width="50" height="50"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" :style="`transform: rotate(-${ 45 - index * 9 }deg);`">
+                                    <rect id="svgRectangle" class="animated" x="10" y="22" width="35" height="2" fill="#fff" />
+                                </svg>
+                            </span>
                         </div>
 
                         <div v-if="$q.screen.width > 767" class="col-xs-12 row q-pa-xl">
-                            <div v-for="(item, index) in team" v-scroll-reveal.reset="{ delay: index * 75, scale: .75, easing: 'ease-in-out'}" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
+                            <div v-for="(item, index) in team" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out'}" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
                                 <div class="bg-white full-width">
                                     <div :class="`q-pa-md full-height ${ item.mainman ? 'cx-dotGridBackground' : 'bg-white' }`" align="center" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
                                         <div class="relative-position cursor-pointer shadow-2">
@@ -26,7 +32,7 @@
                                         <h4 class="q-mt-lg q-mb-sm Compass-Serif-Regular text-black">{{ item.name }}</h4>
                                         <div class="q-mx-md" :style="`border-bottom: 1.5px solid ${ item.mainman ? '#d2b623' : '#999' };`"></div>
                                         <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
-                                        <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">{{ item.email }}</h6>
+                                        <h6 class="text-grey-8 q-my-sm" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1rem;`" v-html="item.email" />
                                         <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">{{ item.number }}</h6>
                                     </div>
                                 </div>
@@ -66,7 +72,7 @@
                                             <h4 class="q-mt-lg q-mb-sm Compass-Serif-Regular text-black">{{ item.name }}</h4>
                                             <div class="q-mx-md" :style="`border-bottom: 1.5px solid ${ item.mainman ? '#d2b623' : '#999' };`"></div>
                                             <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
-                                            <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.email }}</h6>
+                                            <h6 class="text-grey-8 q-my-sm" style="font-size: .9rem; line-height: 1rem;" v-html="item.email" />
                                             <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.number }}</h6>
                                         </div>
                                     </div>
@@ -94,7 +100,7 @@ export default {
                 name: 'Richard',
                 role: 'Lead Realtor',
                 number: '619.672.2020',
-                email: 'richard.elias@compass.com',
+                email: 'richard.elias<br />@compass.com',
                 slug: 'richard-elias',
                 mainman: true
             }, {
@@ -102,35 +108,35 @@ export default {
                 name: 'Christina',
                 role: 'Realtor',
                 number: '619.504.9236',
-                email: 'christina.battikha@compass.com',
+                email: 'christina.battikha<br />@compass.com',
                 slug: 'christina-battikha'
             }, {
                 filename: 'Sammie.jpg',
                 name: 'Sammie',
                 role: 'Realtor',
                 number: '559.288.9060',
-                email: 'samantha.lopez@compass.com',
+                email: 'samantha.lopez<br />@compass.com',
                 slug: 'samantha-lopez'
             }, {
                 filename: 'Mari.jpg',
                 name: 'Mari',
                 role: 'Realtor',
                 number: '619.344.1619',
-                email: 'mari.rosas@compass.com',
+                email: 'mari.rosas<br />@compass.com',
                 slug: 'mari-rosas'
             }, {
                 filename: 'Yann.jpg',
                 name: 'Yann',
                 role: 'Realtor',
                 number: '619.366.7343',
-                email: 'yann.crenn@compass.com',
+                email: 'yann.crenn<br />@compass.com',
                 slug: 'yann-crenn'
             }, {
                 filename: 'Diego.jpg',
                 name: 'Diego',
                 role: 'Realtor',
                 number: '619.205.9664',
-                email: 'diego.martinez@compass.com',
+                email: 'diego.martinez<br />@compass.com',
                 slug: 'diego-martinez'
             }]
         }
