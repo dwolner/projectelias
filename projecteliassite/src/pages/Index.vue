@@ -11,7 +11,7 @@
                     <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
                 </q-btn>
             </div>
-            <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted class="playing">
+            <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted playsinline class="playing">
                 <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
             </video>
         </div>
