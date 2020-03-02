@@ -1,6 +1,6 @@
 <template>
     <div id="news" class="cx-dotGridBackground">
-        <div class="row container" :style="showLength ? 'width: 100%; position: absolute; top: 50%; transform: translateY(-50%);' : ''">
+        <div class="row container" :style="showLength && $q.screen.width > 767? 'width: 100%; position: absolute; top: 50%; transform: translateY(-50%);' : ''">
             <div class="col-xs-12 q-mb-md">
                 <div class="row well q-py-lg">
                     <div class="col-12 q-pt-xl q-px-xl q-pb-md">
@@ -43,7 +43,7 @@
                             infinite
                             style="background: #fff;"
                         >
-                            <q-carousel-slide v-for="(item, index) in feed" :key="index" :name="item.title" class="column no-wrap flex-center full-width" style="padding: 0 0 4rem;" @click="selectItem(item)">
+                            <q-carousel-slide v-for="(item, index) in feed" :key="index" :name="item.title" class="column no-wrap flex-center full-width" style="padding: 4rem 0 4rem;" @click="selectItem(item)">
                                 <div class="shadow-4 relative-position" :style="`height: 100%; width: 100%; background-image: url('${ item.imageSrc }'); background-size: cover; background-position: 50%; height: 300px;`">
                                     <div class="centerHeaderHold q-pa-md">
                                         <div style="border: solid 2px white; height: 100%;">
