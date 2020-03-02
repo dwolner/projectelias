@@ -145,8 +145,8 @@ export default {
     methods: {
         nav(item) {
             console.log('nav: ', item)
-            // if (item.sectionID) {
-            //     if (this.$router.currentRoute.path !== '/') this.$router.push('/')
+            if (item.sectionID) {
+                if (this.$router.currentRoute.path !== '/') this.$router.push('/')
 
             //     if (item.sectionID === 'Homebot') {
             //         this.$root.$emit('goToHomebot', true)
@@ -157,7 +157,7 @@ export default {
             //         // var element = document.getElementById(item.sectionID)
             //         setTimeout(() => { this.scrollToElement(item.sectionID, 75) }, 1000)
             //     }
-            // }
+            }
             if (item.route) this.$router.push(item.route)
 
             this.leftDrawerOpen = false
