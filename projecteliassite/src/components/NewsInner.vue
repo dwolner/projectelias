@@ -197,9 +197,12 @@ export default {
         padding: 1rem 2.5rem;
     }
 
-    .centerHeaderHold:hover {
-        opacity: 0;
+    @media only screen (min-width: 768px) {
+        .centerHeaderHold:hover {
+            opacity: 0;
+        }
     }
+    
 </style>
 
 <style>

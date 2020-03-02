@@ -152,10 +152,10 @@ export default {
                     this.$root.$emit('goToHomebot', true)
                     var el = document.getElementById('BuyersSellers')
                     // var element = document.getElementById('BuyersSellersButtons')
-                    this.scrollToElement('BuyersSellersButtons', el.offsetTop)
+                    setTimeout(() => { this.scrollToElement('BuyersSellersButtons', el.offsetTop) }, 1000)
                 } else {
                     // var element = document.getElementById(item.sectionID)
-                    this.scrollToElement(item.sectionID, 75)
+                    setTimeout(() => { this.scrollToElement(item.sectionID, 75) }, 1000)
                 }
             }
             if (item.route) this.$router.push(item.route)
