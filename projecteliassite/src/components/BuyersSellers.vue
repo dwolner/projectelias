@@ -2,7 +2,7 @@
     <div id="buyerssellers" class="cx-dotGridBackground q-pb-xl" style="width: 100%;">
         <div class="row" style="min-height: 100vh; ">
             <div class="col-xs-12">
-                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                <div :style=" $q.screen.width > 767? 'width: 100%; position: absolute; top: 50%; transform: translateY(-50%);' : ''">
                     <div class="row well justify-center q-pa-xl">
                         <div class="col-sm-12 q-pa-sm q-mb-md">
                             <h3 class="Compass-Serif-Regular" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Buying Or Selling?</h3>
