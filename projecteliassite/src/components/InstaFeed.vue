@@ -26,7 +26,7 @@
                     @mouseleave="leaveVideoInsta(item)"
                 >
                     <div class="relative-position" style="height: 100%;">
-                        <video v-if="item.media_type === 'VIDEO'" :id="`instaVideo_${item.id}`" muted :src="`${item.media_url}`" style="height: 100%;" />
+                        <video v-if="item.media_type === 'VIDEO'" :id="`instaVideo_${item.id}`" :src="`${item.media_url}`" preload="metadata" loop="loop" muted playsinline style="height: 100%;" />
 
                         <img v-else :src="`${item.media_url}`" style="width: 100%;" />
 

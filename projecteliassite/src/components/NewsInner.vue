@@ -1,50 +1,17 @@
 <template>
-    <div id="news" class="cx-dotGridBackground">
-        <div class="row container" :style="showLength && $q.screen.width > 767? 'width: 100%; position: absolute; top: 50%; transform: translateY(-50%);' : ''">
-            <div class="col-xs-12 q-mb-md">
-                <div class="row well q-py-lg">
-                    <div class="col-12 q-pt-xl q-px-xl q-pb-md">
-                        <h3 class="text-black Compass-Serif-Regular">News</h3>
-                    </div>
+     <div id="news" class="cx-dotGridBackground">
+        <div class="row well container" style="min-height: calc(100vh - 75px);">
+            <div class="col-xs-12 q-py-xl">
+                <div style="position: relative; top: 50%; transform: translateY(-50%);">
 
-                    <div v-if="$q.screen.width > 767" class="q-px-lg col-12 row justify-center">
-                        <div v-if="!showLength || showLength && index < showLength" v-for="(item, index) in feed" v-scroll-reveal="{ delay: index * 75, scale: .75, opacity: 0, easing: 'ease-in-out'}" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm cursor-pointer" @click="selectItem(item)">
-                            <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('${item.imageSrc}'); background-size: cover; background-position: 50%; height: 300px;`">
-                                <div class="centerHeaderHold q-pa-md">
-                                    <div style="border: solid 2px white; height: 100%;">
-                                        <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
-
-                                        <div v-else class="centerHeader q-pa-md" align="center">
-                                            <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.title }}</h6>
-                                            <q-chip v-for="(cat, index) in item.categories" :key="cat + index" size="sm" style="color: white; background: transparent;">
-                                                <q-icon class="q-mr-xs" name="fas fa-tag" style="font-size: .6rem;" />
-                                                {{ cat }}
-                                            </q-chip>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row well q-py-lg">
+                        <div class="col-12 q-pt-xl q-px-xl q-pb-md">
+                            <h3 class="text-black Compass-Serif-Regular">News</h3>
                         </div>
-                    </div>
 
-                    <template v-else>
-                        <q-carousel
-                            v-model="slideIndex"
-                            class="col-12 rounded-borders"
-                            control-color="black"
-                            transition-prev="slide-right"
-                            transition-next="slide-left"
-                            dark
-                            animated
-                            swipeable
-                            navigation
-                            padding
-                            arrows
-                            infinite
-                            style="background: #fff;"
-                        >
-                            <q-carousel-slide v-for="(item, index) in feed" :key="index" :name="item.title" class="column no-wrap flex-center full-width" style="padding: 4rem 0 4rem;" @click="selectItem(item)">
-                                <div class="shadow-4 relative-position" :style="`height: 100%; width: 100%; background-image: url('${ item.imageSrc }'); background-size: cover; background-position: 50%; height: 300px;`">
+                        <div v-if="$q.screen.width > 767" class="q-px-xl col-12 row justify-center">
+                            <div v-if="!showLength || showLength && index < showLength" v-for="(item, index) in feed" v-scroll-reveal="{ delay: index * 75, scale: .75, opacity: 0, easing: 'ease-in-out'}" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm cursor-pointer" @click="selectItem(item)">
+                                <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('${item.imageSrc}'); background-size: cover; background-position: 50%; height: 300px;`">
                                     <div class="centerHeaderHold q-pa-md">
                                         <div style="border: solid 2px white; height: 100%;">
                                             <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
@@ -59,18 +26,54 @@
                                         </div>
                                     </div>
                                 </div>
-                            </q-carousel-slide>
-                        </q-carousel>
-                    </template>
+                            </div>
+                        </div>
 
-                    <div v-if="showLength" class="col-12 q-pa-md q-mb-xl" align="center">
-                        <q-btn class="bg-black" size="lg" @click="$router.push('/news')">
-                            <q-icon name="fas fa-envelope-open-text" class="q-mr-md text-white" style="font-size: 1.25rem;" />
-                            <h6 class="q-mt-xs text-white">See More</h6>
-                        </q-btn>
+                        <template v-else>
+                            <q-carousel
+                                v-model="slideIndex"
+                                class="col-12 rounded-borders"
+                                control-color="black"
+                                transition-prev="slide-right"
+                                transition-next="slide-left"
+                                dark
+                                animated
+                                swipeable
+                                navigation
+                                padding
+                                arrows
+                                infinite
+                                style="background: #fff;"
+                            >
+                                <q-carousel-slide v-for="(item, index) in feed" :key="index" :name="item.title" class="column no-wrap flex-center full-width" style="padding: 4rem 0 4rem;" @click="selectItem(item)">
+                                    <div class="shadow-4 relative-position" :style="`height: 100%; width: 100%; background-image: url('${ item.imageSrc }'); background-size: cover; background-position: 50%; height: 300px;`">
+                                        <div class="centerHeaderHold q-pa-md">
+                                            <div style="border: solid 2px white; height: 100%;">
+                                                <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
+
+                                                <div v-else class="centerHeader q-pa-md" align="center">
+                                                    <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.title }}</h6>
+                                                    <q-chip v-for="(cat, index) in item.categories" :key="cat + index" size="sm" style="color: white; background: transparent;">
+                                                        <q-icon class="q-mr-xs" name="fas fa-tag" style="font-size: .6rem;" />
+                                                        {{ cat }}
+                                                    </q-chip>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </q-carousel-slide>
+                            </q-carousel>
+                        </template>
+
+                        <div v-if="showLength" class="col-12 q-pa-md q-mb-xl" align="center">
+                            <q-btn class="bg-black" size="lg" @click="$router.push('/news')">
+                                <q-icon name="fas fa-envelope-open-text" class="q-mr-md text-white" style="font-size: 1.25rem;" />
+                                <h6 class="q-mt-xs text-white">See More</h6>
+                            </q-btn>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
 
@@ -171,9 +174,7 @@ export default {
 <style scoped>
     #news {
         width: 100%;
-        min-height: calc(100vh - 50px);
         position: relative;
-        overflow: hidden;
     }
 
     .centerHeaderHold {

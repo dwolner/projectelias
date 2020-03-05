@@ -15,7 +15,7 @@
 
             <div class="row q-py-md q-px-sm">
                 <div class="col-9">
-                    <q-btn label="Work with Richard" type="submit" class="full-width" color="primary" />
+                    <q-btn label="Work with us" type="submit" class="full-width" color="primary" />
                 </div>
                 <div class="col-3">
                     <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
