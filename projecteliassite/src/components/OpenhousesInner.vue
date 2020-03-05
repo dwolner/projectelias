@@ -2,7 +2,7 @@
     <div id="openhouses">
         <div class="row well container" style="min-height: calc(100vh - 75px);">
             <div class="col-xs-12 q-py-xl">
-                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
 
                     <div class="row q-pa-sm justify-center q-px-xl">
                         <div class="col-12 q-px-sm q-py-lg">

@@ -2,7 +2,7 @@
     <div id="team">
         <div class="row well container" style="min-height: 100vh; ">
             <div class="col-xs-12">
-                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
                     <div class="row">
                         <div class="col-xs-12 q-pt-xl q-px-xl">
                             <h3 class="text-white Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal.reset="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">The Team</h3>
@@ -21,7 +21,7 @@
                                         <div class="relative-position cursor-pointer shadow-2">
                                             <div class="learnMoreOverlay q-pa-md">
                                                 <div style="border: solid 2px white; height: 100%;">
-                                                    <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                                                    <div class="verticalCenter">
                                                         <h6 class="text-white">Learn More</h6>
                                                         <q-icon class="text-white" name="fas fa-external-link-alt" size="xs" />
                                                     </div>
@@ -61,7 +61,7 @@
                                             <div class="relative-position cursor-pointer shadow-2" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
                                                 <div class="learnMoreOverlay q-pa-md">
                                                     <div style="border: solid 2px white; height: 100%;">
-                                                        <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                                                        <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
                                                             <h6 class="text-white">Learn More</h6>
                                                             <q-icon class="text-white" name="fas fa-external-link-alt" size="xs" />
                                                         </div>
