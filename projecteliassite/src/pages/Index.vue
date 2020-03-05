@@ -6,7 +6,7 @@
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
                 <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
-                <q-btn flat color="light" @click="scrollIt('Concierge', null, -50)">
+                <q-btn flat color="light" @click="scrollToElement('team', 65)">
                     <div class="full-width" style="font-size: .8rem;">See More</div>
                     <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
                 </q-btn>
@@ -40,6 +40,9 @@
 </template>
 
 <script>
+import { scroll } from 'quasar'
+const { getScrollTarget, setScrollPosition, getScrollPosition } = scroll
+
 import Concierge from '../components/Concierge'
 import InstaFeed from '../components/InstaFeed'
 import MyListings from '../components/MyListings'
@@ -76,7 +79,22 @@ export default {
     },
 
     methods: {
-        
+        scrollToElement(id, extraOffset) {
+            console.log('scrollToElement: ', id, extraOffset)
+            let el = document.getElementById(id)
+            console.log('EL: ', el)
+
+            let target = getScrollTarget(el)
+            // let elOffset = el.offsetTop + (el.clientHeight * .5)
+            let elOffset = el.offsetTop
+            console.log('elOffset: ', elOffset)
+            
+            let offset = extraOffset ? elOffset + extraOffset : elOffset
+            let duration = 400
+
+            console.log('setScrollPosition: ', target, offset, duration)
+            setScrollPosition(target, offset, duration)
+        }
     },
 
     mounted() {

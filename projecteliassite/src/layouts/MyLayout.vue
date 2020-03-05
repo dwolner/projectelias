@@ -109,7 +109,6 @@
 </template>
 
 <script>
-
 import { scroll } from 'quasar'
 const { getScrollTarget, setScrollPosition, getScrollPosition } = scroll
 
