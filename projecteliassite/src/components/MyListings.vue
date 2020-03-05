@@ -1,11 +1,11 @@
 <template>
     <div id="mylistings">
-        <div class="row well container">
-            <div class="col-xs-12">
+        <div class="row well container" style="min-height: 100vh; ">
+            <div class="col-xs-12 q-py-xl">
                 <div style="position: relative; top: 50%; transform: translateY(-50%);">
                     <div class="row">
                         <div class="col-12 q-pt-xl q-px-xl" style="padding-bottom: 0;">
-                            <h3 class="text-white Compass-Serif-Regular" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Listings</h3>
+                            <h3 class="text-white Compass-Serif-Regular q-px-sm" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Listings</h3>
                         </div>
 
                         <div v-if="$q.screen.width > 767" class="col-12 row justify-center q-pt-xl q-px-xl">
@@ -212,10 +212,8 @@ export default {
 <style scoped>
 #mylistings {
     width: 100%;
-    /* min-height: 100vh; */
     background: #080808;
     position: relative;
-    overflow: hidden;
 }
 
 .container {

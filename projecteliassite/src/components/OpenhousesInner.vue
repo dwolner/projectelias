@@ -1,35 +1,41 @@
 <template>
     <div id="openhouses">
-        
-        <div class="row well q-pa-sm justify-center q-pt-xl q-px-lg">
-            <div class="col-12 q-pa-md">
-                <h3 class="text-white Compass-Serif-Regular">Open Houses</h3>
-            </div>
+        <div class="row well container" style="min-height: calc(100vh - 75px);">
+            <div class="col-xs-12 q-py-xl">
+                <div style="position: relative; top: 50%; transform: translateY(-50%);">
 
-            <div v-for="(item, index) in neighborhoods" v-scroll-reveal="{ delay: index * 75, scale: .75, opacity: 0, easing: 'ease-in-out'}" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm cursor-pointer" @click="selectItem(item)">
-                <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('statics/photos/${item.filename}'); background-size: cover; background-position: 50%; height: 300px;`">
-                    <div class="centerHeaderHold q-pa-md">
-                        <div style="border: solid 2px white; height: 100%;">
-                            <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
+                    <div class="row q-pa-sm justify-center q-px-xl">
+                        <div class="col-12 q-px-sm q-py-lg">
+                            <h3 class="text-white Compass-Serif-Regular">Open Houses</h3>
+                        </div>
 
-                            <div v-else class="centerHeader q-pa-md" align="center">
-                                <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.title }}</h6>
-                                <q-chip v-for="(cat, index) in item.categories" :key="cat + index" size="sm" style="color: white; background: transparent;">
-                                    <q-icon class="q-mr-xs" name="fas fa-tag" style="font-size: .6rem;" />
-                                    {{ cat }}
-                                </q-chip>
+                        <div v-for="(item, index) in neighborhoods" v-scroll-reveal="{ delay: index * 75, scale: .75, opacity: 0, easing: 'ease-in-out'}" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm cursor-pointer" @click="selectItem(item)">
+                            <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('statics/photos/${item.filename}'); background-size: cover; background-position: 50%; height: 300px;`">
+                                <div class="centerHeaderHold q-pa-md">
+                                    <div style="border: solid 2px white; height: 100%;">
+                                        <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
+
+                                        <div v-else class="centerHeader q-pa-md" align="center">
+                                            <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.title }}</h6>
+                                            <q-chip v-for="(cat, index) in item.categories" :key="cat + index" size="sm" style="color: white; background: transparent;">
+                                                <q-icon class="q-mr-xs" name="fas fa-tag" style="font-size: .6rem;" />
+                                                {{ cat }}
+                                            </q-chip>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="col-12 q-pa-md q-my-xl" align="center">
+                            <h6 class="text-white Compass-Serif-Regular q-my-md">Question about a propery you've seen? Interested in your own curated collection?</h6>
+                            <q-btn class="bg-white" size="lg" @click="$store.commit('globalInquiryType', 'Other'), $root.$emit('showContactFormOverlay')">
+                                <q-icon name="fas fa-envelope-open-text" class="q-mr-md" style="font-size: 1.25rem;" />
+                                <h6 class="q-mt-xs">Contact Us</h6>
+                            </q-btn>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-12 q-pa-md q-my-xl" align="center">
-                <h6 class="text-white Compass-Serif-Regular q-my-md">Question about a propery you've seen? Interested in your own curated collection?</h6>
-                <q-btn class="bg-white" size="lg" @click="$store.commit('globalInquiryType', 'Other'), $root.$emit('showContactFormOverlay')">
-                    <q-icon name="fas fa-envelope-open-text" class="q-mr-md" style="font-size: 1.25rem;" />
-                    <h6 class="q-mt-xs">Contact Us</h6>
-                </q-btn>
             </div>
         </div>
 
@@ -140,10 +146,8 @@ export default {
 <style scoped>
     #openhouses {
         width: 100%;
-        min-height: calc(100vh - 50px);
         background: #080808;
         position: relative;
-        overflow: hidden;
     }
 
     .centerHeaderHold {
