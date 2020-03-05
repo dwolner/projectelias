@@ -3,7 +3,7 @@
         <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container" style="min-height: 100vh; ">
 
             <div class="col-xs-12 col-md-6 q-pa-xl">
-                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
                     <div class="q-pa-sm">
                         <h3 class="Compass-Serif-Regular q-mb-md">Compass Concierge</h3>
                         <p>Get fronted for the cost of home improvement services with no interest — ever.</p>
@@ -116,36 +116,5 @@ export default {
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-}
-
-.hero .container {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    z-index: 100;
-}
-
-.hero video {
-    -webkit-transition: all 2s cubic-bezier(0.835, 0, 0.19, 1);
-    -o-transition: all 2s cubic-bezier(0.835, 0, 0.19, 1);
-    transition: all 2s cubic-bezier(0.835, 0, 0.19, 1);
-    opacity: 0.75;
-    filter: alpha(opacity=0);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 1;
-    transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    background: #171819;
-    background-size: cover;
-    display: inline-block;
 }
 </style>

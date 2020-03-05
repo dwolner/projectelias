@@ -2,7 +2,7 @@
     <div id="buyerssellers" class="cx-dotGridBackground">
         <div class="row well container" style="min-height: 100vh; ">
             <div class="col-xs-12 q-py-xl">
-                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
 
                     <div class="row well justify-center q-pa-xl">
                         <div class="col-sm-12 q-pa-sm q-mb-md">

@@ -2,7 +2,7 @@
     <div id="mylistings">
         <div class="row well container" style="min-height: 100vh; ">
             <div class="col-xs-12 q-py-xl">
-                <div style="position: relative; top: 50%; transform: translateY(-50%);">
+                <div  :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
                     <div class="row">
                         <div class="col-12 q-pt-xl q-px-xl" style="padding-bottom: 0;">
                             <h3 class="text-white Compass-Serif-Regular q-px-sm" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Listings</h3>
