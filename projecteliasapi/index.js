@@ -98,7 +98,7 @@ app.post('/contact', (req, expressRes) => {
         port: 25, //465
         auth: {
             user: 'richardeliasbot01@gmail.com',
-            pass: 'richardbot1'
+            pass: 'DwYwj*:b8haq3,U{'
         }, 
         tls: {
             rejectUnauthorized: false
