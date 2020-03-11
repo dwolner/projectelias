@@ -78,7 +78,8 @@
             </div>
         </q-form>
 
-        <p v-if="conciergeFormSuccess" class="q-my-md">Thank you! Richard will be in touch soon.</p>
+        <p v-if="conciergeFormSuccess" class="q-my-md">Thank you! The team will be in touch soon.</p>
+        <p v-if="conciergeFormFail" class="q-my-md">There was an issue sending your contact request, please try again or email <a href="mailto:richard.elias@compass.com"></a> directly.</p>
     </div>
 </template>
 
@@ -103,6 +104,7 @@ export default {
             inquiryType: 'General',
             otherText: '',
             conciergeFormSuccess: false,
+            conciergeFormFail: false
         }
     },
 
@@ -128,9 +130,16 @@ export default {
 
                 if (res.success) {
                     this.conciergeFormSuccess = true
+                    this.conciergeFormFail = false
                     this.onReset()
+
+                    this.setTimeout(() => {
+                        this.$root.$emit('showContactFormOverlay', false)
+                    }, 3000)
                 } else {
                     // error
+                    this.conciergeFormSuccess = false
+                    this.conciergeFormFail = true
                 }
             })
         },

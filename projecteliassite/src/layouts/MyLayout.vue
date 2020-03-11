@@ -60,7 +60,7 @@
             </q-list>
 
             <div class="full-width" align="center">
-                <q-btn round outline @click="$root.$emit('showContactFormOverlay')">
+                <q-btn round outline @click="$root.$emit('showContactFormOverlay', true)">
                     <q-icon size="xs" name="far fa-envelope" />
                 </q-btn>
             </div>
@@ -205,7 +205,7 @@ export default {
     mounted() {
         console.log('ROuter: ', this.$router.currentRoute)
 
-        this.$root.$on('showContactFormOverlay', () => { this.showContactFormOverlay = true })
+        this.$root.$on('showContactFormOverlay', (val) => { this.showContactFormOverlay = val })
 
         if (this.$router.currentRoute && this.$router.currentRoute.hash) {
             this.$nextTick(() => {

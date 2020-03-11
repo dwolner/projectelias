@@ -29,7 +29,7 @@
 
                         <div class="col-12 q-pa-md q-my-xl" align="center">
                             <h6 class="text-white Compass-Serif-Regular q-my-md">Question about a propery you've seen? Interested in your own curated collection?</h6>
-                            <q-btn class="bg-white" size="lg" @click="$store.commit('globalInquiryType', 'Other'), $root.$emit('showContactFormOverlay')">
+                            <q-btn class="bg-white" size="lg" @click="$store.commit('globalInquiryType', 'Other'), $root.$emit('showContactFormOverlay', true)">
                                 <q-icon name="fas fa-envelope-open-text" class="q-mr-md" style="font-size: 1.25rem;" />
                                 <h6 class="q-mt-xs">Contact Us</h6>
                             </q-btn>

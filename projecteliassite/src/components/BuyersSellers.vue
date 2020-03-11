@@ -69,7 +69,7 @@
                                     </div>
 
                                     <div class="col-12 q-pa-lg" align="center">
-                                        <q-btn color="primary" size="md" @click="$store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay')">
+                                        <q-btn color="primary" size="md" @click="$store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay', true)">
                                             Get Started on your preapproval
                                         </q-btn>
                                     </div>
