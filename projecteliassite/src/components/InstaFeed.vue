@@ -82,8 +82,8 @@ export default {
         },
 
         selectItem(item) {
-            window.open(`https://www.instagram.com/richardeliasteam/`, '_blank')
-            // window.open(`https://www.instagram.com/p/${ item.id }/`, '_blank')
+            console.log('select insta item: ', item)
+            window.open(item ? item.permalink : `https://www.instagram.com/richardeliasteam/`, '_blank')
         },
 
         scrollFeed(id, extraOffset) {

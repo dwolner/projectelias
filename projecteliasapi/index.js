@@ -145,7 +145,7 @@ app.listen(PORT, () => console.log(`listening on ${PORT}`))
 cron.schedule(' 30 7 * * * ', () => {
     console.log('Running Insta Feed Refresh: ' + instaToken)
 
-    axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp&access_token=${ instaToken }`)
+    axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp,permalink&access_token=${ instaToken }`)
         .then(response => {
             if (response.data) {
                 instaFeed = response.data.data
