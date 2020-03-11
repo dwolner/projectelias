@@ -65,15 +65,8 @@ export default {
 
     methods: {
         getInstaFeed(cb) {
-            this.api.get(`https://graph.instagram.com/me/media?fields=id,caption&access_token=${this.accessToken}`, res => {
+            this.api.get(`https://richardelias.com/api/instaFeed`, res => {
                 console.log('getInstaFeed: ', res)
-                cb(res)
-            })
-        },
-
-        getMediaForInstaID(id, cb) {
-            this.api.get(`https://graph.instagram.com/${id}?fields=id,media_type,media_url,username,timestamp&access_token=${this.accessToken}`, res => {
-                console.log('getMediaForInstaID: ', res)
                 cb(res)
             })
         },
@@ -119,6 +112,10 @@ export default {
         //         })
         //     })
         // })
+
+        this.getInstaFeed((res) => {
+            
+        })
 
         this.feed = dummyData.sort((a, b) => {
             return dayjs(b.timestamp).valueOf() - dayjs(a.timestamp).valueOf()
