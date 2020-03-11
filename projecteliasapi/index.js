@@ -1,13 +1,17 @@
-const express = require('express');
-const axios = require('axios');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
-const Parser = require('rss-parser');
-const cron = require('node-cron');
+const express = require('express')
+const axios = require('axios')
+const bodyParser = require('body-parser')
+const nodemailer = require('nodemailer')
+const Parser = require('rss-parser')
+const cron = require('node-cron')
+
+const db = require('diskdb')
+db.connect('./data', ['contactRequests'])
 
 const app = express()
 
 let instaFeed = null
+let instaToken = 'IGQVJWdWU3ZAXBqbVRaS2h2ekRESWQ2bGlxSE1XVzFqaXNTQmxpR0FxQ3I4WmFyaVRuaGkxUTlDVlFjTHRYLW1BZAzczOGxiaHVFNXNEMWJEeF9SOGZAQbXdqR3NEOVRrTFo2RlJrVjln'
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -121,6 +125,12 @@ app.post('/contact', (req, expressRes) => {
         replyTo: `${ req.body.email }`
     }
 
+    //add req to db
+    let emailObj = req.body
+    console.log('Adding new email: ', emailObj)
+
+    db.contactRequests.save(emailObj)
+
     transporter.sendMail(mailOptions, (err, res) => {
         if (err) {
             console.error('there was an error: ', err)
@@ -139,10 +149,13 @@ app.post('/contact', (req, expressRes) => {
     })
 })
 
-const PORT = 3001
-app.listen(PORT, () => console.log(`listening on ${PORT}`))
+app.get('/contactRequestsList', (req, res) => {
+    console.log('getting contactRequests')
 
-cron.schedule(' 30 7 * * * ', () => {
+    res.json(db.contactRequests.find())
+})
+
+cron.schedule('15 12 * * *', () => {
     console.log('Running Insta Feed Refresh: ' + instaToken)
 
     axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp,permalink&access_token=${ instaToken }`)
@@ -156,8 +169,7 @@ cron.schedule(' 30 7 * * * ', () => {
         })
 })
 
-let instaToken = 'IGQVJXMHE5ZAC00RDhCQzU0bUVmeXk2NDdsTVlPRVdsTF9qeUQzM3VmYXl4cWRhOGlDbG9MQ2dueU5yREpEcEVkdVJuZAHNCNW9Gd0VVc252aVpNNWJpNDI5MGpJcG9rOUFoQ3NDbjl3'
-cron.schedule(' * * 15 * * ', () => {
+cron.schedule('* * 15 * *', () => {
     console.log('Running Insta Token Refresh: ' + instaToken)
 
     axios.get(`https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${ instaToken }`)
@@ -174,3 +186,6 @@ cron.schedule(' * * 15 * * ', () => {
         console.log('Running Insta Token ERROR: ' + error)
     })
 })
+
+const PORT = 3001
+app.listen(PORT, () => console.log(`listening on ${PORT}`))
