@@ -1,5 +1,5 @@
 <template>
-    <div id="instafeed" style="width: 100%;position: relative;">
+    <div v-if="feed && feed.length" id="instafeed" style="width: 100%; position: relative;">
         <div style="position: absolute; right: 0; z-index: 999; height: 100%;">
             <q-btn @click="scrollFeed()" style="padding: .5rem 0; background: rgba(0, 0, 0, .5); height: 100%;">
                 <q-icon :name="`fas fa-chevron-right`" color="white" />
@@ -114,11 +114,11 @@ export default {
         // })
 
         this.getInstaFeed((res) => {
-            
-        })
-
-        this.feed = dummyData.sort((a, b) => {
-            return dayjs(b.timestamp).valueOf() - dayjs(a.timestamp).valueOf()
+            if (res.success) {
+                this.feed = res.body.sort((a, b) => {
+                    return dayjs(b.timestamp).valueOf() - dayjs(a.timestamp).valueOf()
+                })
+            }
         })
     },
 }
