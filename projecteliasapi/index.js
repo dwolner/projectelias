@@ -3,25 +3,28 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const Parser = require('rss-parser');
+const cron = require('node-cron');
 
-const app = express();
+const app = express()
+
+let instaFeed = null
 
 app.use(bodyParser.urlencoded({
     extended: true
-}));
+}))
 app.use(bodyParser.json());
 app.use(bodyParser.raw());
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
+    res.header('Access-Control-Allow-Origin', '*')
+    next()
+})
 
-app.get('/', function (req, res) {
-    res.send("api online!");
-});
+app.get('/', (req, res) => {
+    res.send("api online!")
+})
 
-app.get('/listings', function (req, res) {
+app.get('/listings', (req, res) => {
     axios.post('https://www.compass.com/api/v3/listings/search/list/relations', {
             searchQuery: {
                 start: 0,
@@ -43,15 +46,15 @@ app.get('/listings', function (req, res) {
             res.send({ success: true, body: response.data })
         })
         .catch(error => {
-            console.log(error);
+            console.log(error)
             res.send({
                 success: false,
                 body: error
             })
-        });
-});
+        })
+})
 
-app.get('/newsFeed', function (req, res) {
+app.get('/newsFeed', (req, res) => {
     let rssURL = 'https://www.simplifyingthemarket.com/en/feed/?a=35238-70afc3829d7f0cdac24400a255ace4ba'
     console.log(rssURL)
 
@@ -72,10 +75,19 @@ app.get('/newsFeed', function (req, res) {
                 body: feed
             })
         }
-    });
-});
+    })
+})
 
-app.post('/contact', function (req, expressRes) {
+app.get('/instaFeed', (req, res) => {
+    console.log('instaFeed: ' + instaFeed)
+
+    res.send({
+        success: instaFeed ? true : false,
+        body: instaFeed
+    })
+})
+
+app.post('/contact', (req, expressRes) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail', //smtp.gmail.com  //in place of service use host...
         secure: false, //true
@@ -109,7 +121,7 @@ app.post('/contact', function (req, expressRes) {
         replyTo: `${ req.body.email }`
     }
 
-    transporter.sendMail(mailOptions, function (err, res) {
+    transporter.sendMail(mailOptions, (err, res) => {
         if (err) {
             console.error('there was an error: ', err)
             expressRes.send({
@@ -125,7 +137,40 @@ app.post('/contact', function (req, expressRes) {
             })
         }
     })
-});
+})
 
-const PORT = 3001;
-app.listen(PORT, () => console.log(`listening on ${PORT}`));
+const PORT = 3001
+app.listen(PORT, () => console.log(`listening on ${PORT}`))
+
+cron.schedule(' 30 7 * * * ', () => {
+    console.log('Running Insta Feed Refresh: ' + instaToken)
+
+    axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp&access_token=${ instaToken }`)
+        .then(response => {
+            if (response.data) {
+                instaFeed = response.data.data
+            }
+        })
+        .catch(error => {
+            console.log('Running Insta Feed ERROR: ' + error)
+        })
+})
+
+let instaToken = 'IGQVJXMHE5ZAC00RDhCQzU0bUVmeXk2NDdsTVlPRVdsTF9qeUQzM3VmYXl4cWRhOGlDbG9MQ2dueU5yREpEcEVkdVJuZAHNCNW9Gd0VVc252aVpNNWJpNDI5MGpJcG9rOUFoQ3NDbjl3'
+cron.schedule(' * * 15 * * ', () => {
+    console.log('Running Insta Token Refresh: ' + instaToken)
+
+    axios.get(`https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${ instaToken }`)
+    .then(response => {
+        // {
+        //     "access_token": "{long-lived-user-access-token}",
+        //     "token_type": "bearer",
+        //     "expires_in": 5183944 // Number of seconds until token expires
+        // }
+        
+        if (response.data) instaToken = response.data.access_token
+    })
+    .catch(error => {
+        console.log('Running Insta Token ERROR: ' + error)
+    })
+})
