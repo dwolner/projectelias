@@ -19,7 +19,7 @@ curl -X GET \
 
 // get feed media
 curl -X GET \
-'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp&access_token=IGQVJXelNVX3BsYkJlcFdQUEdpRm1iUEZA6YklIeXpRT19IaUV4MF90aWk0a3FxYUxXSjJ1aThHak9JODZARc3AwN2QtZAjBfMDVoZAE5VbnlkekthSmo1OVdkbGszSDVZAem05R2VWRXl5YVR1b3dMcTAxOFZAQMVd1RkhlQVZAZA'
+'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp,permalink&access_token=IGQVJXMHE5ZAC00RDhCQzU0bUVmeXk2NDdsTVlPRVdsTF9qeUQzM3VmYXl4cWRhOGlDbG9MQ2dueU5yREpEcEVkdVJuZAHNCNW9Gd0VVc252aVpNNWJpNDI5MGpJcG9rOUFoQ3NDbjl3'
 
 //get long live token
 curl -i -X GET "https://graph.instagram.com/access_token?grant_type=ig_exchange_token&client_secret=d3798fde3e3abbd91b78d47a0f824fff&access_token=IGQVJYN0lwOTFKcWM0ZAElvbGhlYWk0a0wtYUpMNXJrZAGZAhS1VaVHRaa3ZAWMWJaX0tqVzh6Y3Y4dWQxTnRpUHpvcGJ6R2ItSzhpc21zdlZAxelg4aUVvQ0hIS2hHOTFESDVEanhUeTcwb3l2N29nWlE5d0tqNWZAjZAFF2ckRr"
