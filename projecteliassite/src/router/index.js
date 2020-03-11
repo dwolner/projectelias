@@ -39,6 +39,8 @@ Router.beforeEach((to, from, next) => {
 
 Router.afterEach((to, from, next) => {
 	console.log('after route: ', to, from)
+
+	fbq('track', 'PageView')
 })
 
 export default Router

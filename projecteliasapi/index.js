@@ -155,7 +155,7 @@ app.get('/contactRequestsList', (req, res) => {
     res.json(db.contactRequests.find())
 })
 
-cron.schedule('15 12 * * *', () => {
+cron.schedule('0 0 */2 * * *', () => {
     console.log('Running Insta Feed Refresh: ' + instaToken)
 
     axios.get(`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,timestamp,permalink&access_token=${ instaToken }`)
