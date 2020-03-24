@@ -66,7 +66,7 @@ app.get('/newsFeed', (req, res) => {
 
     parser.parseURL(rssURL, (err, feed) => {
         console.log('NEWS FEED: ')
-        console.log(feed.title)
+        console.log(feed)
 
         if (err) {
             res.send({

@@ -144,25 +144,26 @@ export default {
     methods: {
         nav(item) {
             console.log('nav: ', item)
+
             if (item.sectionID) {
                 if (this.$router.currentRoute.path !== '/') {
                     this.$router.push('/')
 
-                    if (item.sectionID === 'Homebot') {
+                    if (item.sectionID === 'homebot') {
                         this.$root.$emit('goToHomebot', true)
-                        var el = document.getElementById('BuyersSellers')
+                        var el = document.getElementById('buyerssellers')
                         // var element = document.getElementById('BuyersSellersButtons')
-                        setTimeout(() => { this.scrollToElement('BuyersSellersButtons', el.offsetTop) }, 1000)
+                        setTimeout(() => { this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000) }, 1000)
                     } else {
                         // var element = document.getElementById(item.sectionID)
                         setTimeout(() => { this.scrollToElement(item.sectionID, 75) }, 1000)
                     }
                 } else {
-                    if (item.sectionID === 'Homebot') {
+                    if (item.sectionID === 'homebot') {
                         this.$root.$emit('goToHomebot', true)
-                        var el = document.getElementById('BuyersSellers')
+                        var el = document.getElementById('buyerssellers')
                         // var element = document.getElementById('BuyersSellersButtons')
-                        this.scrollToElement('BuyersSellersButtons', el.offsetTop)
+                        setTimeout(() => { this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000) }, 1000)
                     } else {
                         // var element = document.getElementById(item.sectionID)
                         this.scrollToElement(item.sectionID, 75)
