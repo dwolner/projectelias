@@ -26,7 +26,7 @@
                         no-hover
                     >
                         <template v-slot:header>
-                            <div id="BuyersSellersButtons" class="full-width justify-center q-px-xl">
+                            <div id="buyerssellersbuttons" class="full-width justify-center q-px-xl">
                                 <div class="row" style="max-width: 750px; margin: 0 auto;">
                                     <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
                                         <q-btn class="full-width" color="primary" size="lg" @click.stop="toggleMoreInfo('Buyers')">
@@ -177,6 +177,7 @@ export default {
 
     created() {
         this.$root.$on('goToHomebot', () => {
+            console.log('goToHomebot')
             this.toggleMoreInfo('Sellers')
         })
     }
