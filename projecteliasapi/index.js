@@ -2,7 +2,7 @@ const express = require('express')
 const axios = require('axios')
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
-const Parser = require('rss-parser')
+const RSSParser = require('rss-parser')
 const cron = require('node-cron')
 
 const db = require('diskdb')
@@ -60,15 +60,47 @@ app.get('/listings', (req, res) => {
 
 app.get('/newsFeed', (req, res) => {
     let rssURL = 'https://www.simplifyingthemarket.com/en/feed/?a=35238-70afc3829d7f0cdac24400a255ace4ba'
+    // let rssURL = 'https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss'
     console.log(rssURL)
 
-    let parser = new Parser();
+    let rssparser = new RSSParser();
 
-    parser.parseURL(rssURL, (err, feed) => {
+    rssparser.parseURL(rssURL, (err, feed) => {
         console.log('NEWS FEED: ')
         console.log(feed)
 
         if (err) {
+            console.log('NEWS FEED ERROR: ')
+            console.log(err)
+
+            res.send({
+                success: false,
+                body: err
+            })
+        } else {
+            res.send({
+                success: true,
+                body: feed
+            })
+        }
+    })
+})
+
+app.get('/nasaFeed', (req, res) => {
+    // let rssURL = 'https://www.simplifyingthemarket.com/en/feed/?a=35238-70afc3829d7f0cdac24400a255ace4ba'
+    let rssURL = 'https://www.nasa.gov/rss/dyn/lg_image_of_the_day.rss'
+    console.log(rssURL)
+
+    let rssparser = new RSSParser();
+
+    rssparser.parseURL(rssURL, (err, feed) => {
+        console.log('NASA FEED: ')
+        console.log(feed)
+
+        if (err) {
+            console.log('NASA FEED ERROR: ')
+            console.log(err)
+
             res.send({
                 success: false,
                 body: err

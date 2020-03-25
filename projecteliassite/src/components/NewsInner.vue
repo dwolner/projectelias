@@ -1,7 +1,7 @@
 <template>
-     <div id="news" class="cx-dotGridBackground">
+     <div id="news" v-if="feed.length || !showLength" class="cx-dotGridBackground">
         <div class="row well container" style="min-height: calc(100vh - 75px);">
-            <div class="col-xs-12 q-py-xl">
+            <div v-if="feed.length" class="col-xs-12 q-py-xl">
                 <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
 
                     <div class="row well q-py-lg">
@@ -75,6 +75,10 @@
 
                 </div>
             </div>
+
+            <div v-if="!feed.length && !showLength" class="col-xs-12 q-pa-xl">
+                <h3 align="center" class="text-black Compass-Serif-Regular">No current news items, come back later!</h3>
+            </div>
         </div>
 
         <q-dialog v-model="showSelectedItem" style="width: 100%;">
@@ -141,7 +145,7 @@ export default {
                 if (res.success) {
                     cb(res.body)
                 } else {
-                    // error
+                    cb(false)
                 }
             })
         },
@@ -163,9 +167,11 @@ export default {
                     item.imageSrc = src
                     return item
                 })
+                this.feed = data.items
+                this.slideIndex = this.feed[0].title
+            } else {
+                
             }
-            this.feed = data.items
-            this.slideIndex = this.feed[0].title
         })
     }
 }
