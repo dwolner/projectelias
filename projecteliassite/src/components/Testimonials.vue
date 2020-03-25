@@ -70,8 +70,8 @@ export default {
             slideIndex: 'Tiffany Lien',
             textSlides: [
                 {
-                    text: 'Richard Elias was nothing short of a super hero when it came to selling our Carmel Valley home! Trust me, he is your go-to person to get the job done! ',
-                    author: 'Tiffany Lien',
+                    text: 'Richard Elias and his team were very professional and responsive. They were extremely focused on getting our home ready to sell and then using the best sales tools available. Our home was on the market less than three weeks before we had an offer.',
+                    author: 'Janis S.',
                     date: '08/15/2018',
                 },
                 {
@@ -81,9 +81,18 @@ export default {
                     date: '04/08/2019',
                 },
                 {
-                    text:
-                        'So grateful to have found Mari Rosas when we started our relocating process to San Diego. Our first impression was that she was very friendly and prepared. She spent all the time we needed to get familiar with our new city and make sure we found exactly what we needed. It was quite the journey to  get into our dream home and thanks to her, it was made possible. She was always there to answer our calls and texts,even if was just to vent! Her professionalism, hard work, and dedication are much respected and appreciated. We consider Mari a friend for life and highly recommend her to anyone we know.',
+                    text: 'Richard Elias was nothing short of a super hero when it came to selling our Carmel Valley home! Trust me, he is your go-to person to get the job done!',
+                    author: 'Tiffany Lien',
+                    date: '08/15/2018',
+                },
+                {
+                    text: 'So grateful to have found Mari Rosas when we started our relocating process to San Diego. Our first impression was that she was very friendly and prepared. She spent all the time we needed to get familiar with our new city and make sure we found exactly what we needed. It was quite the journey to  get into our dream home and thanks to her, it was made possible. She was always there to answer our calls and texts,even if was just to vent! Her professionalism, hard work, and dedication are much respected and appreciated. We consider Mari a friend for life and highly recommend her to anyone we know.',
                     author: 'Jessica Garcia',
+                    date: '01/23/2019',
+                },
+                {
+                    text: 'Richard Elias was recommended to me by a friend. I had interviewed three other realtors and decided on Rich. I am so glad I did. His knowledge of listing, terms and listing price were spot on. My house had 13 offers in 5 days. Closed escrow in 14 days with an all cash offer. $30,000.00 over listing price. Rich is very professional and friendly. I will recommend Rich to anyone who needs a realtor.',
+                    author: 'Tina C.',
                     date: '01/23/2019',
                 },
                 {
@@ -94,8 +103,20 @@ export default {
                 },
                 {
                     text:
+                        'Richard Elias and his team are extremely knowledgeable and helpful. They guided us through the process of buying our first home front to back. I would highly recommend them to anyone looking for a great team.',
+                    author: 'Z. Harrison',
+                    date: '01/17/2019',
+                },
+                {
+                    text:
                         'I reached out to Christina when my husband and I were interested in purchasing a home in California. My husband is active military and got orders in a different state so Christina picked up where we left off and found us a reliable realtor in Texas. She would check in periodically during our home  buying process and was always available when we had questions. After we purchased our home she continued to check in. She was very personable and I will be referring her to anyone I know wanting to buy/sell in San Diego.',
                     author: 'Astetler40',
+                    date: '01/27/2020',
+                },
+                {
+                    text:
+                        'Richard and his team are true professionals and exceeded our expectations. He knew our area, the comps, and marketing techniques that made our home sell very quickly! Thank you Richard and the Compass team!',
+                    author: 'Grace B.',
                     date: '01/27/2020',
                 },
                 {
@@ -105,8 +126,23 @@ export default {
                     date: '01/19/2019',
                 },
             ],
-            videoSlideIndex: 'MK00gMTL6X4',
+            videoSlideIndex: 'McOLc6YwmMw',
             videoSlides: [
+                {
+                    id: 'McOLc6YwmMw'
+                },
+                {
+                    id: 'gz3mRMpwSGs'
+                },
+                {
+                    id: 'kEX55YQIEJ8'
+                },
+                {
+                    id: '_lneDbg6bCs'
+                },
+                {
+                    id: 'CD-5V_we-Kk'
+                },
                 {
                     id: 'MK00gMTL6X4'
                 },
