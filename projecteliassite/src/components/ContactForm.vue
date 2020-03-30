@@ -133,6 +133,8 @@ export default {
                     this.conciergeFormFail = false
                     this.onReset()
 
+                    this.$emit('success')
+
                     this.setTimeout(() => {
                         this.$root.$emit('showContactFormOverlay', false)
                     }, 3000)
