@@ -7,7 +7,13 @@
                 <h6>Give us your info and we will start you off with our Seller's Guide!</h6>
             </div>
             <div class="col-12 q-pa-md">
-                <ContactForm inquiryTypeInput="Selling" @success="goToPDF()" />
+                <ContactForm inquiryTypeInput="Selling" @success="showPDFButton = true" />
+            </div>
+            <div class="col-12 q-pa-lg">
+                <q-btn v-if="showPDFButton" size="lg" class="full-width" color="primary" @click="goToPDF()">
+                    <h6>Get The Seller's Guide</h6>
+                    <q-icon size="sm" name="fas fa-external-link-square-alt" class="q-ml-sm" />
+                </q-btn>
             </div>
         </div>
 
@@ -26,7 +32,7 @@ export default {
 
     data() {
         return {
-          
+            showPDFButton: false
         }
     },
 
