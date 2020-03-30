@@ -1,10 +1,10 @@
-
-const routes = [
-  {
+const routes = [{
     path: '/',
     component: () => import('layouts/MyLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Index.vue') },
+    children: [{
+        path: '',
+        component: () => import('pages/Index.vue')
+      },
       {
         path: '/whycompass',
         component: () => import('pages/WhyCompass.vue')
@@ -17,10 +17,15 @@ const routes = [
         path: '/openhouses/:neighborhood?',
         component: () => import('pages/Openhouses.vue'),
         props: true
-      },
-      {
+      }, {
         path: '/search',
         component: () => import('components/CompassSearch.vue')
+      }, {
+        path: '/Buyers',
+        component: () => import('pages/Buyers.vue')
+      }, {
+        path: '/Sellers',
+        component: () => import('pages/Sellers.vue')
       }
     ]
   },
