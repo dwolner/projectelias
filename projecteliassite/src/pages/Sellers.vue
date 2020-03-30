@@ -1,10 +1,15 @@
 <template>
     <q-page class="flex flex-center">
         
-        <h3>Interested in selling?</h3> 
-        <h6>Give us your info and we will start you off with our Seller's Guide!</h6>
-
-        <ContactForm inquiryTypeInput="Selling" @success="goToPDF()" />
+        <div class="row well">
+            <div class="col-12 q-pa-lg">
+                <h3>Interested in selling?</h3> 
+                <h6>Give us your info and we will start you off with our Seller's Guide!</h6>
+            </div>
+            <div class="col-12 q-pa-md">
+                <ContactForm inquiryTypeInput="Selling" @success="goToPDF()" />
+            </div>
+        </div>
 
     </q-page>
 </template>
