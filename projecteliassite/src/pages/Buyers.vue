@@ -2,14 +2,14 @@
     <q-page class="flex flex-center">
         
         <div class="row well">
-            <div class="col-12 q-pa-lg">
+            <div class="col-12 q-px-lg q-pt-lg">
                 <h3>Interested in buying?</h3> 
                 <h6>Give us your info and we will start you off with our Buyer's Guide!</h6>
             </div>
             <div class="col-12 q-pa-md">
-                <ContactForm inquiryTypeInput="Buying" @success="showPDFButton = true" />
+                <ContactForm inquiryTypeInput="Buying" @success="success()" />
             </div>
-            <div class="col-12 q-pa-lg">
+            <div id="pdfbutton" class="col-12 q-pa-lg">
                 <q-btn v-if="showPDFButton" size="lg" class="full-width" color="primary" @click="goToPDF()">
                     <h6>Get The Buyer's Guide</h6>
                     <q-icon size="sm" name="fas fa-external-link-square-alt" class="q-ml-sm" />
@@ -41,6 +41,11 @@ export default {
     },
 
     methods: {
+        success() {
+            this.showPDFButton = true
+            this.scrollToElement('pdfbutton')
+        },
+
         goToPDF() {
             window.open('https://richardelias.com/statics/BuyingaHomeSpring2020.pdf', '_blank')
         }

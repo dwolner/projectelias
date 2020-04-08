@@ -2,14 +2,8 @@
     <q-layout view="hhh LpR fFf" @scroll="scrollHandler">
         <q-header reveal elevated>
             <q-toolbar style="height: 65px;">
-                <q-btn
-                    flat
-                    @click="leftDrawerOpen = !leftDrawerOpen"
-                    icon="fas fa-bars"
-                    aria-label="Menu"
-                    style="font-size: .7rem;"
-                />
-                
+                <q-btn flat @click="leftDrawerOpen = !leftDrawerOpen" icon="fas fa-bars" aria-label="Menu" style="font-size: .7rem;" />
+
                 <q-toolbar-title style="padding: 0;"></q-toolbar-title>
 
                 <q-btn dense size="sm" @click="$router.push('/search')">
@@ -27,29 +21,14 @@
                 </q-btn>
 
                 <q-btn dense @click="nav(menuItems[0])">
-                    <img
-                        src="statics/logos/RichardElias_CompassLockupHorizontal-White.png"
-                        style="max-height: 3.4rem;"
-                    />
+                    <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-height: 3.4rem;" />
                 </q-btn>
-
             </q-toolbar>
         </q-header>
 
-        <q-drawer
-            v-model="leftDrawerOpen"
-            overlay
-            side="left"
-        >
+        <q-drawer v-model="leftDrawerOpen" overlay side="left">
             <q-list class="navMenu" dark separator>
-                <q-item
-                    v-for="item in menuItems"
-                    :key="item.title"
-                    clickable
-                    tag="a"
-                    target="_blank"
-                    @click="nav(item)"
-                >
+                <q-item v-for="item in menuItems" :key="item.title" clickable tag="a" target="_blank" @click="nav(item)">
                     <!-- <q-item-section avatar>
             			<q-icon name="code" />
                     </q-item-section>-->
@@ -75,7 +54,7 @@
                 <q-btn class="absolute" round flat color="white" @click="showContactFormOverlay = false" style="top: .5rem; right: .5rem; z-index: 999;">
                     <q-icon name="fas fa-times" color="black" style="font-size: 1rem;" />
                 </q-btn>
-                
+
                 <div class="row q-pa-md">
                     <div class="col-12 q-pa-md">
                         <h6 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h6>
@@ -109,16 +88,13 @@
 </template>
 
 <script>
-import { scroll } from 'quasar'
-const { getScrollTarget, setScrollPosition, getScrollPosition } = scroll
-
 import ContactForm from '../components/ContactForm'
 
 export default {
     name: 'MyLayout',
 
     components: {
-        ContactForm
+        ContactForm,
     },
 
     data() {
@@ -128,8 +104,8 @@ export default {
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
                 { title: 'The Team', sectionID: 'team' },
-                { title: 'Buyers & Sellers', sectionID: 'buyerssellers'},
-                { title: 'My Listings', sectionID: 'mylistings'},
+                { title: 'Buyers & Sellers', sectionID: 'buyerssellers' },
+                { title: 'My Listings', sectionID: 'mylistings' },
                 { title: 'Concierge', sectionID: 'concierge' },
                 { title: 'Home Valuation', sectionID: 'homebot' },
                 { title: 'Testimonials', sectionID: 'testimonials' },
@@ -153,17 +129,23 @@ export default {
                         this.$root.$emit('goToHomebot', true)
                         var el = document.getElementById('buyerssellers')
                         // var element = document.getElementById('BuyersSellersButtons')
-                        setTimeout(() => { this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000) }, 1000)
+                        setTimeout(() => {
+                            this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000)
+                        }, 1000)
                     } else {
                         // var element = document.getElementById(item.sectionID)
-                        setTimeout(() => { this.scrollToElement(item.sectionID, 75) }, 1000)
+                        setTimeout(() => {
+                            this.scrollToElement(item.sectionID, 75)
+                        }, 1000)
                     }
                 } else {
                     if (item.sectionID === 'homebot') {
                         this.$root.$emit('goToHomebot', true)
                         var el = document.getElementById('buyerssellers')
                         // var element = document.getElementById('BuyersSellersButtons')
-                        setTimeout(() => { this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000) }, 1000)
+                        setTimeout(() => {
+                            this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000)
+                        }, 1000)
                     } else {
                         // var element = document.getElementById(item.sectionID)
                         this.scrollToElement(item.sectionID, 75)
@@ -184,29 +166,14 @@ export default {
             // console.log('scrollHandler: ', val)
             // console.log('scrollHandler position: ', val.position)
         },
-
-        scrollToElement(id, extraOffset) {
-            console.log('scrollToElement: ', id, extraOffset)
-            let el = document.getElementById(id)
-            console.log('EL: ', el)
-
-            let target = getScrollTarget(el)
-            // let elOffset = el.offsetTop + (el.clientHeight * .5)
-            let elOffset = el.offsetTop
-            console.log('elOffset: ', elOffset)
-            
-            let offset = extraOffset ? elOffset + extraOffset : elOffset
-            let duration = 400
-
-            console.log('setScrollPosition: ', target, offset, duration)
-            setScrollPosition(target, offset, duration)
-        }
     },
 
     mounted() {
         console.log('ROuter: ', this.$router.currentRoute)
 
-        this.$root.$on('showContactFormOverlay', (val) => { this.showContactFormOverlay = val })
+        this.$root.$on('showContactFormOverlay', val => {
+            this.showContactFormOverlay = val
+        })
 
         if (this.$router.currentRoute && this.$router.currentRoute.hash) {
             this.$nextTick(() => {
@@ -215,12 +182,12 @@ export default {
                 }, 1000)
             })
         }
-    }
+    },
 }
 </script>
 
 <style scoped>
-    .navMenu {
-        padding: 1rem;
-    }
+.navMenu {
+    padding: 1rem;
+}
 </style>

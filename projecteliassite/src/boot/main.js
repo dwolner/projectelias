@@ -1,8 +1,31 @@
 import Vue from 'vue'
 import axios from 'axios'
 import {
-	Platform
+	Platform, scroll
 } from 'quasar'
+
+const {
+  getScrollTarget,
+  setScrollPosition,
+  getScrollPosition
+} = scroll
+
+Vue.prototype.scrollToElement = (id, extraOffset) => {
+  console.log('scrollToElement: ', id, extraOffset)
+  let el = document.getElementById(id)
+  console.log('EL: ', el)
+
+  let target = getScrollTarget(el)
+  // let elOffset = el.offsetTop + (el.clientHeight * .5)
+  let elOffset = el.offsetTop
+  console.log('elOffset: ', elOffset)
+
+  let offset = extraOffset ? elOffset + extraOffset : elOffset
+  let duration = 400
+
+  console.log('setScrollPosition: ', target, offset, duration)
+  setScrollPosition(target, offset, duration)
+}
 
 // Vue.prototype.scrollIt = (id, selectorToScroll, customOffset) => {
 // 	var element = id ? document.getElementById(id) : false
