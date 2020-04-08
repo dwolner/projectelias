@@ -78,8 +78,10 @@
             </div>
         </q-form>
 
-        <p v-if="conciergeFormSuccess" class="q-my-md">Thank you! The team will be in touch soon.</p>
-        <p v-if="conciergeFormFail" class="q-my-md">There was an issue sending your contact request, please try again or email <a href="mailto:richard.elias@compass.com"></a> directly.</p>
+        <div class="q-pa-sm">
+            <p v-if="conciergeFormSuccess">Thank you! The team will be in touch soon.</p>
+            <p v-if="conciergeFormFail">There was an issue sending your contact request, please try again or email <a href="mailto:richard.elias@compass.com"></a> directly.</p>
+        </div>
     </div>
 </template>
 
@@ -96,10 +98,10 @@ export default {
 
     data() {
         return {
-            name: '',
-            zip: '',
-            email: '',
-            phone: '',
+            name: null,
+            zip: null,
+            email: null,
+            phone: null,
             options: ['General', 'Buying', 'Selling', 'Concierge', 'Other'],
             inquiryType: 'General',
             otherText: '',
@@ -147,10 +149,10 @@ export default {
         },
 
         onReset() {
-            this.name = ''
-            this.zip = ''
-            this.email = ''
-            this.phone = ''
+            // this.name = null
+            // this.zip = null
+            // this.email = null
+            // this.phone = null
         },
     },
 

@@ -1,11 +1,10 @@
 <template>
     <q-page class="flex flex-center">
-
         <div id="top" class="hero">
             <div class="container text-white q-pa-lg" align="center">
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
-                <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
+                <h5 class="q-my-md">Here to help however we can, even in unprecedented times.</h5>
                 <q-btn flat color="light" @click="scrollToElement('team', 65)">
                     <div class="full-width" style="font-size: .8rem;">See More</div>
                     <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
@@ -19,11 +18,11 @@
         <Team />
 
         <BuyersSellers />
-        
+
         <MyListings />
 
         <Concierge />
-        
+
         <!-- <Homebot /> -->
 
         <Testimonials />
@@ -35,14 +34,10 @@
         <InstaFeed />
 
         <Contact />
-        
     </q-page>
 </template>
 
 <script>
-import { scroll } from 'quasar'
-const { getScrollTarget, setScrollPosition, getScrollPosition } = scroll
-
 import Concierge from '../components/Concierge'
 import InstaFeed from '../components/InstaFeed'
 import MyListings from '../components/MyListings'
@@ -69,37 +64,16 @@ export default {
         NewsInner,
         OpenhousesInner,
         Homebot,
-        Contact
+        Contact,
     },
 
     data() {
-        return {
-            
-        }
+        return {}
     },
 
-    methods: {
-        scrollToElement(id, extraOffset) {
-            console.log('scrollToElement: ', id, extraOffset)
-            let el = document.getElementById(id)
-            console.log('EL: ', el)
+    methods: {},
 
-            let target = getScrollTarget(el)
-            // let elOffset = el.offsetTop + (el.clientHeight * .5)
-            let elOffset = el.offsetTop
-            console.log('elOffset: ', elOffset)
-            
-            let offset = extraOffset ? elOffset + extraOffset : elOffset
-            let duration = 400
-
-            console.log('setScrollPosition: ', target, offset, duration)
-            setScrollPosition(target, offset, duration)
-        }
-    },
-
-    mounted() {
-        
-    }
+    mounted() {},
 }
 </script>
 

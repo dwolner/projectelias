@@ -7,9 +7,9 @@
                 <h6>Give us your info and we will start you off with our Seller's Guide!</h6>
             </div>
             <div class="col-12 q-pa-md">
-                <ContactForm inquiryTypeInput="Selling" @success="showPDFButton = true" />
+                <ContactForm inquiryTypeInput="Selling" @success="success()" />
             </div>
-            <div class="col-12 q-pa-lg">
+            <div id="pdfbutton" class="col-12 q-pa-lg">
                 <q-btn v-if="showPDFButton" size="lg" class="full-width" color="primary" @click="goToPDF()">
                     <h6>Get The Seller's Guide</h6>
                     <q-icon size="sm" name="fas fa-external-link-square-alt" class="q-ml-sm" />
@@ -41,6 +41,11 @@ export default {
     },
 
     methods: {
+        success() {
+            this.showPDFButton = true
+            this.scrollToElement('pdfbutton')
+        },
+
         goToPDF() {
             window.open('https://richardelias.com/statics/SellingYourHouseSpring2020.pdf', '_blank')
         }
