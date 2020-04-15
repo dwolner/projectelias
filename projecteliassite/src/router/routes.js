@@ -29,10 +29,14 @@ const routes = [{
       {
         path: '/Sellers',
         component: () => import('pages/Sellers.vue')
-      }, 
-      {
+      }, {
+
         path: '/meetme',
         component: () => import('pages/Calendly.vue')
+      }, 
+      {
+        path: '/privateexclusives',
+        component: () => import('pages/PrivateExclusives.vue')
       }
     ]
   },
