@@ -15,9 +15,9 @@
                 <p><a @click="showMap = true">Get directions</a></p>
             </div>
             <div class="col-xs-12 q-pa-sm" align="center">
-                <q-btn color="primary" @click="launchCalendar()">
-                    <q-icon name="fas fa-calendar" class="q-mr-md" size="xs" />
-                    <h6 class="q-mt-xs">Meet with me</h6>
+                <q-btn dense color="primary" @click="$router.push('/meetme')">
+                    <q-icon name="fas fa-calendar" class="q-ma-xs" style="font-size: .8rem;" />
+                    <span class="gt-sm q-mt-sm q-mb-xs q-mx-xs" style="line-height: 1.3rem;">Virtual appointment</span>
                 </q-btn>
             </div>
             <div class="col-xs-12 q-pa-sm" align="center">
@@ -76,9 +76,7 @@ export default {
     },
 
     methods: {
-        launchCalendar() {
-            this.$router.push('/meetme')
-        }
+
     },
 
     created() {
