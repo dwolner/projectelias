@@ -4,7 +4,7 @@
             <div class="container text-white q-pa-lg" align="center">
                 <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
                 <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
-                <h5 class="q-my-md">Here to help however we can, even in unprecedented times.</h5>
+                <h5 class="q-my-md">Here to help however we can, in these uncertain times.</h5>
                 <q-btn flat color="light" @click="scrollToElement('team', 65)">
                     <div class="full-width" style="font-size: .8rem;">See More</div>
                     <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />

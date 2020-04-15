@@ -15,6 +15,12 @@
                 <p><a @click="showMap = true">Get directions</a></p>
             </div>
             <div class="col-xs-12 q-pa-sm" align="center">
+                <q-btn color="primary" @click="launchCalendar()">
+                    <q-icon name="fas fa-calendar" class="q-mr-md" size="xs" />
+                    <h6 class="q-mt-xs">Meet with me</h6>
+                </q-btn>
+            </div>
+            <div class="col-xs-12 q-pa-sm" align="center">
                 <span v-for="(item, index) in compassLocations"><a :href="item.url" target="_blank">{{ item.title }}</a> <span v-if="(index + 1) !== compassLocations.length"> • </span></span>
             </div>
             <div class="col-xs-12 q-py-md q-px-md" align="center">
@@ -70,7 +76,13 @@ export default {
     },
 
     methods: {
-        
+        launchCalendar() {
+            this.$router.push('/meetme')
+        }
+    },
+
+    created() {
+
     }
 }
 </script>

@@ -17,15 +17,22 @@ const routes = [{
         path: '/openhouses/:neighborhood?',
         component: () => import('pages/Openhouses.vue'),
         props: true
-      }, {
+      }, 
+      {
         path: '/search',
         component: () => import('components/CompassSearch.vue')
-      }, {
+      }, 
+      {
         path: '/Buyers',
         component: () => import('pages/Buyers.vue')
-      }, {
+      }, 
+      {
         path: '/Sellers',
         component: () => import('pages/Sellers.vue')
+      }, 
+      {
+        path: '/meetme',
+        component: () => import('pages/Calendly.vue')
       }
     ]
   },
