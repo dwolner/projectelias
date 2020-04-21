@@ -8,7 +8,7 @@
 
                 <q-btn dense size="sm" @click="$router.push('/meetme')">
                     <q-icon name="fas fa-calendar" class="q-ma-xs" style="font-size: .8rem;" />
-                    <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Virtual appointment</span>
+                    <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Let's talk</span>
                 </q-btn>
 
                 <q-btn dense size="sm" @click="$router.push('/search')">
@@ -57,7 +57,7 @@
                     <q-icon size="xs" name="far fa-calendar" />
                 </q-btn>
                 <br /> 
-                <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Virtual appointment</span>
+                <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Let's talk</span>
             </div>
         </q-drawer>
 
