@@ -6,7 +6,7 @@
 
                 <q-toolbar-title style="padding: 0;"></q-toolbar-title>
 
-                <q-btn dense size="sm" @click="$router.push('/meetme')">
+                <q-btn dense size="sm" @click="$router.push('/letstalk')">
                     <q-icon name="fas fa-calendar" class="q-ma-xs" style="font-size: .8rem;" />
                     <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Let's talk</span>
                 </q-btn>
@@ -52,7 +52,7 @@
                 <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Email me</span>
             </div>
 
-            <div class="full-width q-my-sm" align="center" @click="$router.push('/meetme')">
+            <div class="full-width q-my-sm" align="center" @click="$router.push('/letstalk')">
                 <q-btn round outline>
                     <q-icon size="xs" name="far fa-calendar" />
                 </q-btn>
