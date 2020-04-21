@@ -76,12 +76,21 @@
                                 </template>
                             </div>
 
-                            <div class="row well justify-center relative-position q-mt-lg">
+                            <div class="row well justify-center relative-position" style="margin: 2rem 0;">
                                 <div class="col-xs-12 q-pa-sm" align="center">
                                     <h5>Top Videos For {{currentMoreInfoType}}</h5>
                                 </div>
                                 <div class="col-xs-12 col-sm-4 q-pa-sm" v-for="item in currentMoreInfo" align="center">
                                     <iframe sandbox="allow-scripts" :src="item" frameborder="0" allowfullscreen :width="videoEmbedWidth" :height="videoEmbedHeight"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="row well justify-center relative-position">
+                                <div class="col-xs-12 q-pa-sm" align="center">
+                                    <q-btn size="lg" color="primary" @click="goToPDF()">
+                                        <h6>Get The {{currentMoreInfoType}} Guide</h6>
+                                        <q-icon size="sm" name="fas fa-external-link-square-alt" class="q-ml-sm" />
+                                    </q-btn>
                                 </div>
                             </div>
                         </div>
@@ -172,6 +181,10 @@ export default {
                 }
             })
             
+        },
+
+        goToPDF() {
+            window.open(`https://richardelias.com/statics/${ this.currentMoreInfoType === 'Buyers' ? 'BuyingaHomeSpring2020.pdf' : 'SellingYourHouseSpring2020.pdf' }`, '_blank')
         }
     },
 

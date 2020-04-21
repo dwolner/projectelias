@@ -31,7 +31,7 @@ const routes = [{
         component: () => import('pages/Sellers.vue')
       }, {
 
-        path: '/meetme',
+        path: '/letstalk',
         component: () => import('pages/Calendly.vue')
       }, 
       {
