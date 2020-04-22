@@ -102,7 +102,7 @@ export default {
             zip: null,
             email: null,
             phone: null,
-            options: ['General', 'Buying', 'Selling', 'Concierge', 'Other'],
+            options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Other'],
             inquiryType: 'General',
             otherText: '',
             conciergeFormSuccess: false,

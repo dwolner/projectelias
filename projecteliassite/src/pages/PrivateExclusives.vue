@@ -1,120 +1,125 @@
 <template>
-    <div id="concierge" class="bg-grey-2" style="width: 100%;">
-        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container">
+    <div id="concierge" style="width: 100%;">
+        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="container bg-grey-2">
+            <div class="row well">
 
-            <div class="col-xs-12 col-md-6 q-pa-xl">
-                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
-                    <div class="q-pa-sm">
-                        <h5 class="Compass-Serif-Regular">Compass</h5>
-                        <h5 class="q-mb-md uppercase" style="font-weight: 100;">Private Exclusives</h5>
-                        <h4 class="q-mb-md Compass-Serif-Regular">Work with Richard to sell your home as a Compass Private Exclusive</h4>
-                        <h6>Listing your home as a private exclusive allows you to control what information is shared about you and your home while still getting exposure to over 15,000 top agents.</h6>
+                <div class="col-xs-12 col-md-6 q-pa-xl">
+                    <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
+                        <div class="q-pa-sm">
+                            <h5 class="Compass-Serif-Regular">Compass</h5>
+                            <h5 class="q-mb-md uppercase" style="font-weight: 100;">Private Exclusives</h5>
+                            <h4 class="q-mb-md Compass-Serif-Regular">Work with Richard to sell your home as a Compass Private Exclusive</h4>
+                            <h6>Listing your home as a private exclusive allows you to control what information is shared about you and your home while still getting exposure to over 15,000 top agents.</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="col-xs-12 col-md-6 relative-position"
+                    style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
+                >
+                    
+                </div>
+            </div>
+        </div>
+
+        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="container bg-white">
+            <div class="row well">
+                <div class="col-xs-12 col-sm-6 q-pa-xl row">
+                    <div class="col-xs-12 col-sm-6 q-pa-sm">
+                        <img src="statics/team/richard_square.jpg" style="max-width: 100%;" />
+                    </div>
+                    <div class="col-xs-12 col-sm-6 q-pa-sm">
+                        <div>
+                            <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
+                            <p class="q-my-sm">richard.elias@compass.com</p>
+                            <p class="q-my-sm">M: 619.672.2020</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 q-pa-xl">
+                    <ContactForm inquiryTypeInput="Private Exclusive" />
+                </div>
+            </div>
+        </div>
+
+        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="container bg-white">
+            <div class="row well">
+                <div class="col-xs-12 q-pa-xl" align="center">
+                    <h4 class="q-mb-md uppercase Compass-Serif-Regular" style="font-weight: 100;">What to expect</h4>
+                    <h6>A private exclusive listing is an off-market home that can be shared by a Compass agent directly with their colleagues and their buyers. Property details aren’t disseminated widely and won’t appear on public home search websites.</h6>
+                </div>
+                <div class="col-xs-12 q-pa-lg q-mb-xl row" align="center">
+                    <div v-for="(item, index) in qualities" class="col-xs-12 col-sm-6 col-md-3 q-pa-md" align="center" :style="index && $q.screen.width > 992 ? `border-left: 1px solid #ccc;` : ''">
+                        <h4 style="font-size: 1.75rem;">{{ item.title }}</h4>
+                        <h6 class="q-mt-md">{{ item.desc }}</h6>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div
-                class="col-xs-12 col-md-6 relative-position"
-                style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
-            >
+        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="container bg-grey-2">
+            <div class="row well q-py-xl">
                 
-            </div>
-        </div>
-
-        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container bg-white">
-            <div class="col-xs-12 col-sm-6 q-pa-xl row">
-                <div class="col-xs-12 col-sm-6 q-pa-sm">
-                    <img src="statics/team/richard_square.jpg" style="max-width: 100%;" />
+                <div
+                    class="col-xs-12 col-md-6 q-pa-xl relative-position"
+                >
+                    <q-img src="statics/photos/seller_reasons.jpg" style="max-width: 100%;" />
                 </div>
-                <div class="col-xs-12 col-sm-6 q-pa-sm">
-                    <div>
-                        <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                        <p class="q-my-sm">richard.elias@compass.com</p>
-                        <p class="q-my-sm">M: 619.672.2020</p>
+
+                <div class="col-xs-12 col-md-6 q-pa-xl">
+                    <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
+                        <div class="q-pa-sm">
+                        <h4 class="Compass-Serif-Regular">Reasons why you might choose to sell your home as a private exclusive:</h4>
+                            <ul>
+                                <li><h6>New job or relocation</h6></li>
+                                <li><h6>Family changes like marriage or divorce</h6></li>
+                                <li><h6>Evolving financial circumstances</h6></li>
+                                <li><h6>Health issues</h6></li>
+                                <li><h6>Valuable belongings like art or furniture</h6></li>
+                                <li><h6>Opposition to holding open houses</h6></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 q-pa-xl">
-                <ContactForm inquiryTypeInput="Concierge" />
+
             </div>
         </div>
 
-        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container bg-white">
-            <div class="col-xs-12 q-pa-xl" align="center">
-                <h4 class="q-mb-md uppercase Compass-Serif-Regular" style="font-weight: 100;">What to expect</h4>
-                <h6>A private exclusive listing is an off-market home that can be shared by a Compass agent directly with their colleagues and their buyers. Property details aren’t disseminated widely and won’t appear on public home search websites.</h6>
-            </div>
-            <div class="col-xs-12 q-pa-lg row" align="center">
-                <div v-for="(item, index) in qualities" class="col-xs-12 col-sm-6 col-md-3 q-pa-md" align="center" :style="index ? `border-left: 1px solid #ccc;` : ''">
-                    <h4>{{ item.title }}</h4>
-                    <h6 class="q-mt-md">{{ item.desc }}</h6>
-                </div>
-            </div>
-        </div>
+        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="container">
+            <div class="row well q-py-xl">
 
-        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container">
-
-            <div class="col-xs-12 col-md-6 q-pa-xl">
-                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
-                    <div class="q-pa-sm">
-                        <h5 class="Compass-Serif-Regular">Compass</h5>
-                        <h5 class="q-mb-md uppercase" style="font-weight: 100;">Private Exclusives</h5>
-                        <h4 class="q-mb-md Compass-Serif-Regular">Work with Richard to sell your home as a Compass Private Exclusive</h4>
-                        <h6>Listing your home as a private exclusive allows you to control what information is shared about you and your home while still getting exposure to over 15,000 top agents.</h6>
+                <div class="col-xs-12 col-md-6 q-pa-xl">
+                    <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
+                        <div class="q-pa-sm">
+                            <h6 class="Compass-Serif-Regular">Richard Elias was recommended to me by a friend. I had interviewed three other realtors and decided on Rich. I am so glad I did. His knowledge of listing, terms and listing price were spot on. My house had 13 offers in 5 days. Closed escrow in 14 days with an all cash offer. $30,000.00 over listing price. Rich is very professional and friendly. I will recommend Rich to anyone who needs a realtor.</h6>
+                            <h6 class="q-mt-lg">Tina C.</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div
-                class="col-xs-12 col-md-6 relative-position"
-                style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
-            >
-                
-            </div>
-        </div>
-
-        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container">
-
-            <div class="col-xs-12 col-md-6 q-pa-xl">
-                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
-                    <div class="q-pa-sm">
-                        <h5 class="Compass-Serif-Regular">Compass</h5>
-                        <h5 class="q-mb-md uppercase" style="font-weight: 100;">Private Exclusives</h5>
-                        <h4 class="q-mb-md Compass-Serif-Regular">Work with Richard to sell your home as a Compass Private Exclusive</h4>
-                        <h6>Listing your home as a private exclusive allows you to control what information is shared about you and your home while still getting exposure to over 15,000 top agents.</h6>
-                    </div>
+                <div
+                    class="col-xs-12 col-md-6 q-pa-xl relative-position"
+                >
+                    <q-img src="statics/photos/testimony.jpg" style="max-width: 100%;" />
                 </div>
-            </div>
 
-            <div
-                class="col-xs-12 col-md-6 relative-position"
-                style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
-            >
-                
             </div>
         </div>
-
-        <q-dialog v-model="showConciergePromo" @show="showVideo = true" @hide="showVideo = false">
-            <q-card>
-                <q-card-section>
-                    <q-btn class="absolute" round size="sm" color="white" @click="showConciergePromo = false" style="top: .5rem; right: .5rem; z-index: 999;">
-                        <q-icon name="fas fa-times" color="black" />
-                    </q-btn>
-                    <video v-if="showVideo" autoplay controls src="statics/30secondprogramoverview.mp4" style="width: 100%;" />
-                </q-card-section>
-            </q-card>
-        </q-dialog>
+        
+        <Contact />
     </div>
 </template>
 
 <script>
 import ContactForm from '../components/ContactForm'
+import Contact from '../components/Contact'
 
 export default {
     name: 'PrivateExclusives',
 
     components: {
-        ContactForm
+        ContactForm, Contact
     },
 
     data() {
