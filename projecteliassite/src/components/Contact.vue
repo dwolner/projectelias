@@ -17,7 +17,7 @@
             <div class="col-xs-12 q-pa-sm" align="center">
                 <q-btn dense color="primary" @click="$router.push('/letstalk')">
                     <q-icon name="fas fa-calendar" class="q-ma-xs" style="font-size: .8rem;" />
-                    <span class="gt-sm q-mt-sm q-mb-xs q-mx-xs" style="line-height: 1.3rem;">Let's talk</span>
+                    <span class="q-mt-sm q-mb-xs q-mx-xs" style="line-height: 1.3rem;">Let's talk</span>
                 </q-btn>
             </div>
             <div class="col-xs-12 q-pa-sm" align="center">
