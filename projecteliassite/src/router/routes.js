@@ -37,6 +37,10 @@ const routes = [{
       {
         path: '/privateexclusives',
         component: () => import('pages/PrivateExclusives.vue')
+      },
+      {
+        path: '/videos',
+        component: () => import('pages/Videos.vue')
       }
     ]
   },
