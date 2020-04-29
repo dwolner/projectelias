@@ -10,6 +10,7 @@
                 <!-- <h6 class="Compass-Serif-Regular q-my-md">COMPASS</h6> -->
                 <p>San Diego Real Estate</p>
                 <p>Richard Elias Team | Compass</p>
+                <p>✆: 619-562-6800</p>
                 <p>Realtor® DRE #01104411</p>
                 <p style="margin-bottom: 0;">655 W Broadway #1650, San Diego, CA, 92101</p>
                 <p><a @click="showMap = true">Get directions</a></p>

@@ -6,18 +6,21 @@
 
                 <q-toolbar-title style="padding: 0;"></q-toolbar-title>
 
-                <q-btn dense size="sm" @click="$router.push('/letstalk')">
+                <q-btn dense size="md" @click="$router.push('/letstalk')">
                     <q-icon name="fas fa-calendar" class="q-ma-xs" style="font-size: .8rem;" />
                     <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Let's talk</span>
                 </q-btn>
 
-                <q-btn dense size="sm" @click="$router.push('/search')">
+                <q-btn dense size="md" @click="$router.push('/search')">
                     <q-icon name="fas fa-search" class="q-ma-xs" style="font-size: .8rem;" />
                     <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Search for homes</span>
                 </q-btn>
 
                 <q-btn dense size="xs" @click="openWindow('https://www.instagram.com/richardeliasteam/')">
                     <q-icon name="fab fa-instagram" class="q-ma-xs" />
+                </q-btn>
+                <q-btn dense size="xs" @click="openWindow('https://www.youtube.com/channel/UCXsNhXcS4RLEBW18Mrh1Lxg')">
+                    <q-icon name="fab fa-youtube" class="q-ma-xs" />
                 </q-btn>
                 <q-btn dense size="xs" @click="openWindow('https://www.facebook.com/RichardEliasTeam/')">
                     <q-icon name="fab fa-facebook" class="q-ma-xs" />
@@ -127,6 +130,7 @@ export default {
                 { title: 'Testimonials', sectionID: 'testimonials' },
                 { title: 'News', route: '/news' },
                 { title: 'Open Houses', route: '/openhouses' },
+                { title: 'Videos', route: '/videos' },
                 { title: 'Contact', sectionID: 'contact' },
                 // { title: 'Compass Search', route: '/search' }
             ],

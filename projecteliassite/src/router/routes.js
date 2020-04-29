@@ -41,6 +41,10 @@ const routes = [{
       {
         path: '/videos',
         component: () => import('pages/Videos.vue')
+      },
+      {
+        path: '/howcanwehelp',
+        component: () => import('pages/HowCanWeHelp.vue')
       }
     ]
   },
