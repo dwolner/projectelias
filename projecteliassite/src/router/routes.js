@@ -10,6 +10,10 @@ const routes = [{
         component: () => import('pages/WhyCompass.vue')
       },
       {
+        path: '/buyerspresentation',
+        component: () => import('pages/BuyersPresentation.vue')
+      },
+      {
         path: '/news',
         component: () => import('pages/News.vue')
       },
@@ -23,11 +27,11 @@ const routes = [{
         component: () => import('components/CompassSearch.vue')
       }, 
       {
-        path: '/Buyers',
+        path: '/buyers',
         component: () => import('pages/Buyers.vue')
       }, 
       {
-        path: '/Sellers',
+        path: '/sellers',
         component: () => import('pages/Sellers.vue')
       }, {
 

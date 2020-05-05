@@ -130,6 +130,7 @@ export default {
                 { title: 'Testimonials', sectionID: 'testimonials' },
                 { title: 'News', route: '/news' },
                 { title: 'Open Houses', route: '/openhouses' },
+                { title: 'Private Exclusives', route: '/privateexclusives' },
                 { title: 'Videos', route: '/videos' },
                 { title: 'Contact', sectionID: 'contact' },
                 // { title: 'Compass Search', route: '/search' }
