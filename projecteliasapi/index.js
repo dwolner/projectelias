@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
 const RSSParser = require('rss-parser')
 const cron = require('node-cron')
+var csv = require('csv-express')
 
 const db = require('diskdb')
 db.connect('./data', ['contactRequests'])
@@ -159,6 +160,7 @@ app.post('/contact', (req, expressRes) => {
 
     //add req to db
     let emailObj = req.body
+        emailObj.timestamp = Date.now()
     console.log('Adding new email: ', emailObj)
 
     db.contactRequests.save(emailObj)
@@ -184,7 +186,8 @@ app.post('/contact', (req, expressRes) => {
 app.get('/contactRequestsList', (req, res) => {
     console.log('getting contactRequests')
 
-    res.json(db.contactRequests.find())
+    res.csv(db.contactRequests.find())
+    // res.json(db.contactRequests.find())
 })
 
 cron.schedule('0 0 */2 * * *', () => {

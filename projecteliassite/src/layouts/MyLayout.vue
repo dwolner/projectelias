@@ -106,33 +106,37 @@
 
         <q-dialog v-model="homebotCTA" seamless position="right">
             <q-card dark style="width: 100%; max-width: 400px; background: rgba(11, 11, 11, .8);">
-                <q-card-section align="right">
-                    <q-btn flat round icon="close" v-close-popup />
+                <q-card-section class="row" style="padding: 0;">
+                    <div class="col-3"></div>
+                    <div class="col-6" align="center">
+                        <div class="homebot-face" style="margin: 1rem auto;"></div>
+                    </div>
+                    <div class="col-3" align="right">
+                        <q-btn flat round icon="close" v-close-popup />
+                    </div>
                 </q-card-section>
 
-                <q-card-section style="padding: 0 2rem;">
+                <q-card-section style="padding: 0 1rem;">
                     <h6>Interested in your home's worth?</h6>
-
-                    <div class="homebot-face" style="margin: 1rem auto;"></div>
 
                     <p>Sign up for our free <strong>HomeBot tool</strong> to get</p>
 
                     <ul style="font-family: 'Compass-Sans-Regular';">
                         <li>Estimated market value of your home</li>
-                        <li>Appreciation since you purchased your home</li>
-                        <li>Net worth/equity in your home</li>
                         <li>A breakdown of principal and interest paid</li>
-                        <li>Tips for how to save on interest payments</li>
-                        <li>Tips for how to save on interest payments</li>
+                        <li>And more! Click through for more details</li>
                     </ul>
 
                     <q-space />
                 </q-card-section>
 
-                <q-card-actions align="right" style="padding: 2rem;">
-                    <q-btn color="white" style="padding: .25rem;" v-close-popup @click="$router.push('/homebot')">
+                <q-card-actions align="right" style="padding: 0 1rem 1rem;">
+                    <q-btn class="full-width" size="sm" color="white" v-close-popup @click="$router.push('/homebot')">
                         <h6 class="q-mt-xs" style="font-size: .9rem; color: rgb(11, 11, 11);">Check it out</h6>
                         <q-icon class="q-ml-xs" name="fas fa-chevron-right" style="font-size: .6rem; color: rgb(11, 11, 11);" />
+                    </q-btn>
+                    <q-btn class="full-width q-mt-sm" size="sm" flat v-close-popup @click="hideHomeBotDialog()">
+                        <h6 class="q-mt-xs" style="font-size: .8rem;">Don't show again</h6>
                     </q-btn>
                 </q-card-actions>
             </q-card>
@@ -203,12 +207,16 @@ export default {
         showHomeBotDialog() {
             this.homebotCTA = true
         },
+
+        hideHomeBotDialog() {
+            localStorage.setItem('hideHomebotPopup', true)
+        }
     },
 
     mounted() {
         console.log('ROuter: ', this.$router.currentRoute)
 
-        this.showHomeBotDialog()
+        if (!localStorage.getItem('hideHomebotPopup')) this.showHomeBotDialog()
 
         this.$root.$on('showContactFormOverlay', val => {
             this.showContactFormOverlay = val
