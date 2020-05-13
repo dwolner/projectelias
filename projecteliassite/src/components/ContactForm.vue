@@ -78,7 +78,7 @@
             </div>
         </q-form>
 
-        <div class="q-pa-sm">
+        <div v-if="conciergeFormSuccess || conciergeFormFail" class="q-pa-sm">
             <p v-if="conciergeFormSuccess">Thank you! The team will be in touch soon.</p>
             <p v-if="conciergeFormFail">There was an issue sending your contact request, please try again or email <a href="mailto:richard.elias@compass.com"></a> directly.</p>
         </div>
