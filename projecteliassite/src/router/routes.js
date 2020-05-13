@@ -49,6 +49,10 @@ const routes = [{
       {
         path: '/howcanwehelp',
         component: () => import('pages/HowCanWeHelp.vue')
+      },
+      {
+        path: '/homebot',
+        component: () => import('pages/Homebot.vue')
       }
     ]
   },
