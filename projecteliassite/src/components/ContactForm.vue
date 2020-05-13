@@ -70,7 +70,7 @@
 
             <div class="row q-py-md q-px-sm">
                 <div class="col-9">
-                    <q-btn label="Work with us" type="submit" class="full-width" color="primary" />
+                    <q-btn :label="buttonLabel" type="submit" class="full-width" color="primary" />
                 </div>
                 <div class="col-3">
                     <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
@@ -92,7 +92,12 @@ export default {
     props: {
         inquiryTypeInput: {
             type: String,
-            default: '',
+            default: ''
+        },
+
+        buttonLabel: {
+            type: String,
+            default: 'Work with us'
         },
     },
 
@@ -102,7 +107,7 @@ export default {
             zip: null,
             email: null,
             phone: null,
-            options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Other'],
+            options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Homebot', 'Other'],
             inquiryType: 'General',
             otherText: '',
             conciergeFormSuccess: false,

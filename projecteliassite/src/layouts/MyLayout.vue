@@ -51,7 +51,7 @@
                 <q-btn round outline>
                     <q-icon size="xs" name="far fa-envelope" />
                 </q-btn>
-                <br /> 
+                <br />
                 <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Email me</span>
             </div>
 
@@ -59,7 +59,7 @@
                 <q-btn round outline>
                     <q-icon size="xs" name="far fa-calendar" />
                 </q-btn>
-                <br /> 
+                <br />
                 <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Let's talk</span>
             </div>
         </q-drawer>
@@ -103,6 +103,40 @@
                 </div>
             </div>
         </q-dialog>
+
+        <q-dialog v-model="homebotCTA" seamless position="right">
+            <q-card dark style="width: 100%; max-width: 400px; background: rgba(11, 11, 11, .8);">
+                <q-card-section align="right">
+                    <q-btn flat round icon="close" v-close-popup />
+                </q-card-section>
+
+                <q-card-section style="padding: 0 2rem;">
+                    <h6>Interested in your home's worth?</h6>
+
+                    <div class="homebot-face" style="margin: 1rem auto;"></div>
+
+                    <p>Sign up for our free <strong>HomeBot tool</strong> to get</p>
+
+                    <ul style="font-family: 'Compass-Sans-Regular';">
+                        <li>Estimated market value of your home</li>
+                        <li>Appreciation since you purchased your home</li>
+                        <li>Net worth/equity in your home</li>
+                        <li>A breakdown of principal and interest paid</li>
+                        <li>Tips for how to save on interest payments</li>
+                        <li>Tips for how to save on interest payments</li>
+                    </ul>
+
+                    <q-space />
+                </q-card-section>
+
+                <q-card-actions align="right" style="padding: 2rem;">
+                    <q-btn color="white" style="padding: .25rem;" v-close-popup @click="$router.push('/homebot')">
+                        <h6 class="q-mt-xs" style="font-size: .9rem; color: rgb(11, 11, 11);">Check it out</h6>
+                        <q-icon class="q-ml-xs" name="fas fa-chevron-right" style="font-size: .6rem; color: rgb(11, 11, 11);" />
+                    </q-btn>
+                </q-card-actions>
+            </q-card>
+        </q-dialog>
     </q-layout>
 </template>
 
@@ -120,18 +154,19 @@ export default {
         return {
             leftDrawerOpen: false,
             showContactFormOverlay: false,
+            homebotCTA: false,
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
                 { title: 'The Team', sectionID: 'team' },
-                { title: 'Buyers & Sellers', sectionID: 'buyerssellers' },
+                { title: 'Buyers', route: '/buyers' },
+                { title: 'Sellers', route: '/sellers' },
                 { title: 'My Listings', sectionID: 'mylistings' },
                 { title: 'Concierge', sectionID: 'concierge' },
-                { title: 'Home Valuation', sectionID: 'homebot' },
                 { title: 'Testimonials', sectionID: 'testimonials' },
                 { title: 'News', route: '/news' },
                 { title: 'Open Houses', route: '/openhouses' },
                 { title: 'Private Exclusives', route: '/privateexclusives' },
-                { title: 'Videos', route: '/videos' },
+                { title: 'Current Matters', route: '/videos' },
                 { title: 'Contact', sectionID: 'contact' },
                 // { title: 'Compass Search', route: '/search' }
             ],
@@ -143,35 +178,12 @@ export default {
             console.log('nav: ', item)
 
             if (item.sectionID) {
-                if (this.$router.currentRoute.path !== '/') {
-                    this.$router.push('/')
+                this.$router.push(`/#${item.sectionID}`)
 
-                    if (item.sectionID === 'homebot') {
-                        this.$root.$emit('goToHomebot', true)
-                        var el = document.getElementById('buyerssellers')
-                        // var element = document.getElementById('BuyersSellersButtons')
-                        setTimeout(() => {
-                            this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000)
-                        }, 1000)
-                    } else {
-                        // var element = document.getElementById(item.sectionID)
-                        setTimeout(() => {
-                            this.scrollToElement(item.sectionID, 75)
-                        }, 1000)
-                    }
-                } else {
-                    if (item.sectionID === 'homebot') {
-                        this.$root.$emit('goToHomebot', true)
-                        var el = document.getElementById('buyerssellers')
-                        // var element = document.getElementById('BuyersSellersButtons')
-                        setTimeout(() => {
-                            this.scrollToElement('buyerssellersbuttons', el.offsetTop + 1000)
-                        }, 1000)
-                    } else {
-                        // var element = document.getElementById(item.sectionID)
-                        this.scrollToElement(item.sectionID, 75)
-                    }
-                }
+                // var element = document.getElementById(item.sectionID)
+                setTimeout(() => {
+                    this.scrollToElement(item.sectionID, 75)
+                }, 1000)
             }
             if (item.route) this.$router.push(item.route)
 
@@ -187,10 +199,16 @@ export default {
             // console.log('scrollHandler: ', val)
             // console.log('scrollHandler position: ', val.position)
         },
+
+        showHomeBotDialog() {
+            this.homebotCTA = true
+        },
     },
 
     mounted() {
         console.log('ROuter: ', this.$router.currentRoute)
+
+        this.showHomeBotDialog()
 
         this.$root.$on('showContactFormOverlay', val => {
             this.showContactFormOverlay = val

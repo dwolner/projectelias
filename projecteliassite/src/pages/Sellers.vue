@@ -45,11 +45,11 @@
                         </q-carousel>
                     </div>
 
-                    <!-- <div class="col-xs-12 col-md-6 q-pa-sm" align="center">
+                    <div class="col-xs-12 q-pa-sm" align="center">
                         
                         <div id="homebot_homeowner"></div>
-                        
-                    </div> -->
+                         
+                    </div>
                 </div>
 
             </div>
@@ -98,7 +98,7 @@ export default {
         }
     },
 
-    created() {
+    mounted() {
         window.Homebot('#homebot_homeowner', '926161d8746a94461a4f2df4afa8ef7a1186cea8f0be1ff3')
     }
 }
