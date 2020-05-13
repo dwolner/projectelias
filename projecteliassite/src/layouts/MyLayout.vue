@@ -216,7 +216,7 @@ export default {
     mounted() {
         console.log('ROuter: ', this.$router.currentRoute)
 
-        if (!localStorage.getItem('hideHomebotPopup')) this.showHomeBotDialog()
+        if (!localStorage.getItem('hideHomebotPopup') && this.$router.currentRoute.path !== '/homebot') this.showHomeBotDialog()
 
         this.$root.$on('showContactFormOverlay', val => {
             this.showContactFormOverlay = val
