@@ -185,8 +185,10 @@ app.post('/contact', (req, expressRes) => {
 
 app.get('/contactRequestsList', (req, res) => {
     console.log('getting contactRequests')
+    let data = db.contactRequests.find()
+    console.log(data)
 
-    res.csv(db.contactRequests.find())
+    res.csv(data, true)
     // res.json(db.contactRequests.find())
 })
 
