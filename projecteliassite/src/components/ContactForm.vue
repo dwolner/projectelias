@@ -80,7 +80,7 @@
 
         <div v-if="conciergeFormSuccess || conciergeFormFail" class="q-pa-sm">
             <p v-if="conciergeFormSuccess">Thank you! The team will be in touch soon.</p>
-            <p v-if="conciergeFormFail">There was an issue sending your contact request, please try again or email <a href="mailto:richard.elias@compass.com"></a> directly.</p>
+            <p v-if="conciergeFormFail">There was an issue sending your contact request, please try again or email <a href="mailto:richard@richardelias.com"></a> directly.</p>
         </div>
     </div>
 </template>
@@ -107,7 +107,7 @@ export default {
             zip: null,
             email: null,
             phone: null,
-            options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Homebot', 'Other'],
+            options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Home Digest', 'Other'],
             inquiryType: 'General',
             otherText: '',
             conciergeFormSuccess: false,

@@ -51,7 +51,7 @@ const routes = [{
         component: () => import('pages/HowCanWeHelp.vue')
       },
       {
-        path: '/homebot',
+        path: '/homedigest',
         component: () => import('pages/Homebot.vue')
       }
     ]
