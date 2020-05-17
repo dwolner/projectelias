@@ -13,18 +13,6 @@
             />
 
             <q-input
-                v-model.number="zip"
-                type="zip"
-                mask="#####"
-                class="col-xs-12 col-sm-6 q-py-md q-px-sm"
-                filled
-                fill-mask
-                lazy-rules
-                label="Your zip"
-                :rules="[val => (val && val > 0) || 'Please enter your zip']"
-            />
-
-            <q-input
                 v-model="email"
                 type="email"
                 class="col-xs-12 col-sm-6 q-py-md q-px-sm"
@@ -33,6 +21,32 @@
                 lazy-rules
                 label="Your email"
                 :rules="[val => (val && val.length > 0) || 'Please enter your email']"
+            />
+
+            <q-input
+                ref="addressInput"
+                v-show="showHomeDigest"
+                v-model="streetAddress"
+                type="address"
+                class="col-xs-12 col-sm-6 q-py-md q-px-sm"
+                filled
+                fill-mask
+                lazy-rules
+                label="Your address"
+                :rules="[val => !showHomeDigest || (val && val.length > 0) || 'Please enter your address']"
+            />
+
+            <q-input
+                v-show="!showHomeDigest"
+                v-model.number="zip"
+                type="zip"
+                mask="#####"
+                class="col-xs-12 col-sm-6 q-py-md q-px-sm"
+                filled
+                fill-mask
+                lazy-rules
+                label="Your zip"
+                :rules="[val => showHomeDigest || (val && val > 0) || 'Please enter your zip']"
             />
 
             <q-input
@@ -46,6 +60,54 @@
                 label="Your number"
                 :rules="[val => (val && val > 0) || 'Please enter your number']"
             />
+
+            <q-select
+                v-if="showZips"
+                v-model="interestedZips"
+                v-show="showHomeDigest"
+                class="col-xs-12 q-py-md q-px-sm"
+                label="Zips you are interested in"
+                multiple
+                filled
+                emit-value
+                map-options
+                :options="cities"
+                :rules="[val => !showHomeDigest || (val && val.length > 0) || 'Please select some ZIPs you are interested in']"
+            >
+                <template v-slot:option="scope">
+                    <q-item v-bind="scope.itemProps" v-on="scope.itemEvents">
+                        <q-item-section>
+                            <q-item-label v-html="scope.opt.label"></q-item-label>
+                        </q-item-section>
+                        <q-item-section side>
+                            <q-icon v-show="interestedZips && interestedZips.includes(scope.opt.value)" name="fas fa-check-circle" color="green" style="font-size: .9rem;" />
+                        </q-item-section>
+                    </q-item>
+                </template>
+            </q-select>
+            <!-- 
+            <q-select
+                v-show="inquiryType === 'Home Digest'"
+                class="col-xs-12 q-py-md q-px-sm"
+                label="Zips you are interested in"
+                filled
+                :value="interestedZips"
+                use-input
+                hide-selected
+                fill-input
+                input-debounce="0"
+                :options="cities"
+                @filter="interestedZipFilter"
+                @input-value="setInterestedZips"
+            >
+                <template v-slot:no-option>
+                    <q-item>
+                        <q-item-section class="text-grey">
+                            No results
+                        </q-item-section>
+                    </q-item>
+                </template>
+            </q-select> -->
 
             <q-select
                 v-model="inquiryType"
@@ -86,38 +148,61 @@
 </template>
 
 <script>
+import { citiesList } from '../js/cities.js'
+
 export default {
     name: 'ContactForm',
 
     props: {
         inquiryTypeInput: {
             type: String,
-            default: ''
+            default: '',
         },
 
         buttonLabel: {
             type: String,
-            default: 'Work with us'
+            default: 'Work with us',
+        },
+
+        showZips: {
+            type: Boolean,
+            default: false,
         },
     },
 
     data() {
         return {
             name: null,
-            zip: null,
             email: null,
+            streetAddress: null,
+            zip: null,
             phone: null,
+            interestedZips: null,
             options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Home Digest', 'Other'],
             inquiryType: 'General',
             otherText: '',
             conciergeFormSuccess: false,
-            conciergeFormFail: false
+            conciergeFormFail: false,
         }
     },
 
     computed: {
         globalInquiryType() {
             return this.$store.state.globalInquiryType
+        },
+
+        showHomeDigest() {
+            return this.inquiryType === 'Home Digest'
+        },
+
+        cities() {
+            return citiesList.sort().map(
+                cityObj => {
+                    return { 
+                        label: `${ cityObj.city.toLowerCase().charAt(0).toUpperCase()}${cityObj.city.toLowerCase().slice(1)} (${cityObj.zip})`,
+                        value: cityObj.zip
+                    }
+                })
         },
     },
 
@@ -131,26 +216,29 @@ export default {
                 phone: this.phone,
                 type: this.inquiryType === 'Other' ? this.otherText : this.inquiryType,
             }
+            if (this.streetAddress) req.streetAddress = this.streetAddress
+            if (this.interestedZips) req.interestedZips = this.interestedZips
+            console.log('contact req: ', req)
 
-            this.api.post('https://richardelias.com/api/contact', req, res => {
-                console.log('contact res: ', res)
+            // this.api.post('https://richardelias.com/api/contact', req, res => {
+            //     console.log('contact res: ', res)
 
-                if (res.success) {
-                    this.conciergeFormSuccess = true
-                    this.conciergeFormFail = false
-                    this.onReset()
+            //     if (res.success) {
+            //         this.conciergeFormSuccess = true
+            //         this.conciergeFormFail = false
+            //         this.onReset()
 
-                    this.$emit('success')
+            //         this.$emit('success')
 
-                    this.setTimeout(() => {
-                        this.$root.$emit('showContactFormOverlay', false)
-                    }, 3000)
-                } else {
-                    // error
-                    this.conciergeFormSuccess = false
-                    this.conciergeFormFail = true
-                }
-            })
+            //         this.setTimeout(() => {
+            //             this.$root.$emit('showContactFormOverlay', false)
+            //         }, 3000)
+            //     } else {
+            //         // error
+            //         this.conciergeFormSuccess = false
+            //         this.conciergeFormFail = true
+            //     }
+            // })
         },
 
         onReset() {
@@ -159,14 +247,35 @@ export default {
             // this.email = null
             // this.phone = null
         },
+
+        interestedZipFilter(val, update, abort) {
+            update(() => {
+                const needle = val.toLocaleLowerCase()
+                this.options = this.cities.filter(v => v.toLocaleLowerCase().indexOf(needle) > -1)
+            })
+        },
+
+        setInterestedZips(val) {
+            console.log('setInterestedZips: ', val)
+            this.interestedZips = val
+        },
     },
 
-    created() {
+    mounted() {
         if (this.inquiryTypeInput) {
             this.inquiryType = this.inquiryTypeInput
         } else if (this.globalInquiryType) {
             this.inquiryType = this.globalInquiryType
         }
+
+        let addressInput = this.$refs.addressInput.$refs.input
+        // console.log('addressInput: ', addressInput)
+        var autocomplete = new google.maps.places.Autocomplete(addressInput)
+        google.maps.event.addListener(autocomplete, 'place_changed', () => {
+            var place = autocomplete.getPlace()
+            console.log('place selected: ', place)
+            this.streetAddress = place.formatted_address
+        })
     },
 }
 </script>

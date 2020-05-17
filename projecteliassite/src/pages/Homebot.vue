@@ -11,7 +11,7 @@
                         We invite you to join our free home digest tool to provide you with insight into your home's value. Keep going to learn more.
                     </h6>
 
-                    <ContactForm inquiryTypeInput="Home Digest" buttonLabel="Sign up!" @success="success()" style="margin: 0 -.5rem;" />
+                    <ContactForm inquiryTypeInput="Home Digest" buttonLabel="Sign up!" :showZips="false" @success="success()" style="margin: 0 -.5rem;" />
                 </div>
 
                 <div class="col-xs-12 col-md-6 q-pa-xl" style="padding-left: 2.5rem;">
@@ -34,9 +34,9 @@
                             <q-item-section avatar>
                                 <q-icon name="fas fa-home" style="font-size: .8rem;" />
                             </q-item-section>
-                            <q-item-section
-                                ><p style="margin: 0;">{{ item }}</p></q-item-section
-                            >
+                            <q-item-section>
+                                <p style="margin: 0;">{{ item }}</p>
+                            </q-item-section>
                         </q-item>
                     </q-list>
                 </div>
@@ -56,7 +56,7 @@
                         infinite
                         style="background: rgba(0, 0, 0, 0); max-width: 750px; margin: 0 auto;"
                     >
-                        <q-carousel-slide v-for="(item, index) in snapshots" :key="index" :name="item.id" class="column no-wrap flex-center items-center full-width" style="min-height: 580px;" @click="selectListing(item)">
+                        <q-carousel-slide v-for="(item, index) in snapshots" :key="index" :name="item.id" class="column no-wrap flex-center items-center full-width" style="min-height: 580px;">
                             <h6 class="q-mb-md">{{ item.title }}</h6>
 
                             <img :src="`statics/homebot/homebot_snapshot_${ item.id }.png`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
@@ -77,7 +77,7 @@ import ContactForm from '../components/ContactForm'
 import Contact from '../components/Contact'
 
 export default {
-    name: 'Sellers',
+    name: 'Homebot',
 
     components: {
         ContactForm,
