@@ -98,7 +98,7 @@
                         <p style="margin-bottom: 0;">655 W Broadway #1650, San Diego, CA, 92101</p>
                         <p><a @click="showMap = true">Get directions</a></p>
                         <p>619.672.2020</p>
-                        <p>richard.elias@compass.com</p>
+                        <p>richard@richardelias.com</p>
                     </div> -->
                 </div>
             </div>
@@ -119,7 +119,7 @@
                 <q-card-section style="padding: 0 1rem;">
                     <h6>Interested in your home's worth?</h6>
 
-                    <p>Sign up for our free <strong>HomeBot tool</strong> to get</p>
+                    <p>Sign up for our free <strong>Home Digest tool</strong> to get</p>
 
                     <ul style="font-family: 'Compass-Sans-Regular';">
                         <li>Estimated market value of your home</li>
@@ -131,7 +131,7 @@
                 </q-card-section>
 
                 <q-card-actions align="right" style="padding: 0 1rem 1rem;">
-                    <q-btn class="full-width" size="sm" color="white" v-close-popup @click="$router.push('/homebot')">
+                    <q-btn class="full-width" size="sm" color="white" v-close-popup @click="$router.push('/homedigest')">
                         <h6 class="q-mt-xs" style="font-size: .9rem; color: rgb(11, 11, 11);">Check it out</h6>
                         <q-icon class="q-ml-xs" name="fas fa-chevron-right" style="font-size: .6rem; color: rgb(11, 11, 11);" />
                     </q-btn>
@@ -162,6 +162,7 @@ export default {
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
                 { title: 'The Team', sectionID: 'team' },
+                { title: 'Home Digest', route: '/homedigest' },
                 { title: 'Buyers', route: '/buyers' },
                 { title: 'Sellers', route: '/sellers' },
                 { title: 'My Listings', sectionID: 'mylistings' },
@@ -216,7 +217,7 @@ export default {
     mounted() {
         console.log('ROuter: ', this.$router.currentRoute)
 
-        if (!localStorage.getItem('hideHomebotPopup') && this.$router.currentRoute.path !== '/homebot') this.showHomeBotDialog()
+        if (!localStorage.getItem('hideHomebotPopup') && this.$router.currentRoute.path !== '/homedigest') this.showHomeBotDialog()
 
         this.$root.$on('showContactFormOverlay', val => {
             this.showContactFormOverlay = val

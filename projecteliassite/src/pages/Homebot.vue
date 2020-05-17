@@ -8,21 +8,21 @@
                         Interested in your home's worth?
                     </h4>
                     <h6 class="q-mt-sm" style="font-size: 1rem; line-height: 1.25rem;">
-                        We invite you to join our free homebot tool to provide you with insight into your home's value. Keep going to learn more.
+                        We invite you to join our free home digest tool to provide you with insight into your home's value. Keep going to learn more.
                     </h6>
 
-                    <ContactForm inquiryTypeInput="Homebot" buttonLabel="Sign up!" @success="success()" style="margin: 0 -.5rem;" />
+                    <ContactForm inquiryTypeInput="Home Digest" buttonLabel="Sign up!" @success="success()" style="margin: 0 -.5rem;" />
                 </div>
 
                 <div class="col-xs-12 col-md-6 q-pa-xl" style="padding-left: 2.5rem;">
                     <div id="contact-profile" class="row justify-center">
                         <div class="col-sm-3 q-pa-sm">
-                            <img src="statics/team/richard_square.jpg" style="max-width: 125px;" />
+                            <img src="statics/team/richard_square.jpg" style="max-width: 125px; width: 100%;" />
                         </div>
                         <div class="col-sm-9 q-pa-sm">
                             <div>
                                 <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                                <p class="q-my-sm">richard.elias@compass.com</p>
+                                <p class="q-my-sm">richard@richardelias.com</p>
                                 <p class="q-my-sm">✆: 619.562.6800</p>
                             </div>
                         </div>

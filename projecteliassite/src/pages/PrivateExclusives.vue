@@ -32,7 +32,7 @@
                     <div class="col-xs-12 col-sm-6 q-pa-sm">
                         <div>
                             <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                            <p class="q-my-sm">richard.elias@compass.com</p>
+                            <p class="q-my-sm">richard@richardelias.com</p>
                             <p class="q-my-sm">✆: 619.562.6800</p>
                         </div>
                     </div>

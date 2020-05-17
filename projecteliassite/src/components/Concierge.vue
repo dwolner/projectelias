@@ -17,7 +17,7 @@
                             <h5 class="q-mb-md">Learn how Richard can help sell your home faster and for a higher price with Concierge.</h5>
                             <div>
                                 <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                                <p class="q-my-sm">richard.elias@compass.com</p>
+                                <p class="q-my-sm">richard@richardelias.com</p>
                                 <p class="q-my-sm">✆: 619.562.6800</p>
                             </div>
                         </div>
