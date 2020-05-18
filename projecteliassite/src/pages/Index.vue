@@ -33,7 +33,10 @@
 
         <InstaFeed />
 
-        <Contact />
+        <div style="position: relative; background-image: url('statics/Luxury-LA.jpg'); background-size: cover; background-position: 50%; width: 100%; height: auto;"> 
+            <div class="overlay"></div>
+            <Contact />
+        </div>
     </q-page>
 </template>
 
@@ -121,5 +124,12 @@ export default {
     background: #171819;
     background-size: cover;
     display: inline-block;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 </style>

@@ -159,6 +159,7 @@ export default {
             leftDrawerOpen: false,
             showContactFormOverlay: false,
             homebotCTA: false,
+            homebotCTARouteBlacklist: ['/homedigest', '/buyers', '/sellers'],
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
                 { title: 'The Team', sectionID: 'team' },

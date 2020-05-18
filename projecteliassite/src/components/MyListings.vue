@@ -240,7 +240,7 @@ export default {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 100%;
-    padding: 1rem 2.5rem;
+    padding: 1rem 3.5rem;
 }
 
 .centerHeaderHold:hover {
