@@ -1,6 +1,5 @@
 <template>
-    <div id="contact" style="background-image: url('statics/Luxury-LA.jpg'); background-size: cover; background-position: 50%;"> 
-        <div class="overlay"></div>
+    <div id="contact">
 
         <div class="well row container q-pa-xl" style="position: relative; z-index: 999; color: white;">
             <div class="col-xs-12 q-pt-md q-px-md" align="center">
@@ -46,6 +45,7 @@
                 </q-card-section>
             </q-card>
         </q-dialog>
+
     </div>
 </template>
 
@@ -91,7 +91,6 @@ export default {
         width: 100%;
         height: 100%;
         /* min-height: 100vh; */
-        background: #171819;
         position: relative;
         overflow: hidden;
     }
@@ -100,12 +99,5 @@ export default {
         width: 100%;
         height: 100&;
         overflow: hidden;
-    }
-
-    .overlay {
-        background: rgba(0, 0, 0, .5);
-        height: 100%;
-        width: 100%;
-        position: absolute;
     }
 </style>

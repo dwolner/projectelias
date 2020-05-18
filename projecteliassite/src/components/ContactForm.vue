@@ -50,15 +50,16 @@
             />
 
             <q-input
-                v-model.number="phone"
-                type="number"
-                mask="##########"
+                v-model="phone"
+                type="tel"
+                mask="(###) ### - ####"
+                hint="* Optional"
                 class="col-xs-12 col-sm-6 q-py-md q-px-sm"
                 filled
                 fill-mask
                 lazy-rules
                 label="Your number"
-                :rules="[val => (val && val > 0) || 'Please enter your number']"
+                optional
             />
 
             <q-select

@@ -2,19 +2,27 @@
     <q-page class="flex flex-center">
         <div  :style="homeBotStyle">
             <div class="row well" :style="homeBotInnerStyle">
-                <div class="col-xs-12 col-md-6 q-pa-xl">
-                    <h4 style="font-size: 2rem;">
-                        <div class="homebot-face" style="display: inline-block;"></div>
-                        Interested in your home's worth?
-                    </h4>
-                    <h6 class="q-mt-sm" style="font-size: 1rem; line-height: 1.25rem;">
-                        We invite you to join our free home digest tool to provide you with insight into your home's value. Keep going to learn more.
-                    </h6>
-
-                    <ContactForm inquiryTypeInput="Home Digest" buttonLabel="Sign up!" :showZips="false" @success="success()" style="margin: 0 -.5rem;" />
+                <div :class="`col-xs-12 q-pt-xl ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`">
+                    <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal.reset="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Home Digest Report</h3>
+                    
+                    <span class="gt-sm" v-for="(item, index) in 6" v-scroll-reveal.reset="{ delay: index * 75, scale: .75, rotate: { z: -90 }, easing: 'ease-in-out', distance: '100px', origin: 'left' }" style="float: left;">
+                        <svg version="1.1" id="svg" class="" width="50" height="50"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" :style="`transform: rotate(-${ 45 - index * 9 }deg);`">
+                            <rect id="svgRectangle" class="animated" x="10" y="22" width="35" height="2" fill="#000" />
+                        </svg>
+                    </span>
                 </div>
 
-                <div class="col-xs-12 col-md-6 q-pa-xl" style="padding-left: 2.5rem;">
+                <div :class="`col-xs-12 ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`" v-scroll-reveal.reset="{ delay: 250, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                    <h6 style="font-size: 1.5rem;">
+                        <!-- <div class="homebot-face" style="display: inline-block;"></div> -->
+                        Interested in your home's worth?
+                    </h6>
+                    <h6 class="q-mt-sm" style="font-size: 1rem; line-height: 1.25rem;">
+                        We invite you to join our free home digest tool to provide you with insight into your home's value.
+                    </h6>
+                </div>
+
+                <div :class="`col-xs-12 col-md-6 q-py-xl ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`" v-scroll-reveal.reset="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
                     <div id="contact-profile" class="row justify-center">
                         <div class="col-sm-3 q-pa-sm">
                             <img src="statics/team/richard_square.jpg" style="max-width: 125px; width: 100%;" />
@@ -28,20 +36,11 @@
                         </div>
                     </div>
 
-                    <q-list>
-                        <q-item-label header style="padding: 1rem 0 .5rem;"><h6 class="text-black">Sign up to recieve:</h6></q-item-label>
-                        <q-item v-for="item in details" style="padding: .25rem 0; min-height: 30px;">
-                            <q-item-section avatar>
-                                <q-icon name="fas fa-home" style="font-size: .8rem;" />
-                            </q-item-section>
-                            <q-item-section>
-                                <p style="margin: 0;">{{ item }}</p>
-                            </q-item-section>
-                        </q-item>
-                    </q-list>
+                    <ContactForm inquiryTypeInput="Home Digest" buttonLabel="Sign up!" :showZips="false" @success="success()" style="margin: 0 -.5rem;" />
                 </div>
 
-                <div class="col-xs-12 q-pa-xl" style="padding-left: 2.5rem;">
+                <div class="col-xs-12 col-md-6 q-py-xl" align="center" v-scroll-reveal.reset="{ delay: 750, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
+                    <h5 style="text-decoration: underline;">Details:</h5>
                     <q-carousel
                         v-model="slideIndex"
                         class=""
@@ -56,19 +55,22 @@
                         infinite
                         style="background: rgba(0, 0, 0, 0); max-width: 750px; margin: 0 auto;"
                     >
-                        <q-carousel-slide v-for="(item, index) in snapshots" :key="index" :name="item.id" class="column no-wrap flex-center items-center full-width" style="min-height: 580px;">
+                        <q-carousel-slide v-for="(item, index) in snapshots" :key="index" :name="item.id" class="column no-wrap flex-center items-center justify-content full-width" align="center" style="min-height: 550px;">
                             <h6 class="q-mb-md">{{ item.title }}</h6>
 
                             <img :src="`statics/homebot/homebot_snapshot_${ item.id }.png`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
                         </q-carousel-slide>
                     </q-carousel>
-
+                    
                 </div>
 
             </div>
         </div>
+            
+        <div style="background: rgba(11, 11, 11, 1); position: relative; width: 100%; height: auto;"> 
+            <Contact />
+        </div>
 
-        <Contact />
     </q-page>
 </template>
 
@@ -182,4 +184,11 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.overlay {
+    background: rgba(0, 0, 0, .5);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+</style>
