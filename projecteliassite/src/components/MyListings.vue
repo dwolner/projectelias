@@ -1,6 +1,6 @@
 <template>
     <div id="mylistings">
-        <div class="row well container" style="min-height: 100vh; ">
+        <div v-if="listings && listings.length" class="row well container" style="min-height: 100vh; ">
             <div class="col-xs-12 q-py-xl">
                 <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
                     <div class="row">
@@ -212,6 +212,7 @@ export default {
 <style scoped>
 #mylistings {
     width: 100%;
+    /* min-height: 50px; */
     background: #080808;
     position: relative;
 }
