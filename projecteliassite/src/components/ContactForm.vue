@@ -86,7 +86,7 @@
                     </q-item>
                 </template>
             </q-select>
-            <!-- 
+<!--             
             <q-select
                 v-show="inquiryType === 'Home Digest'"
                 class="col-xs-12 q-py-md q-px-sm"
@@ -179,7 +179,7 @@ export default {
             zip: null,
             phone: null,
             interestedZips: null,
-            options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Home Digest', 'Other'],
+            options: ['General', 'Buying', 'Selling', 'Concierge', 'Private Exclusive', 'Sellers Home Digest', 'Buyers Home Digest', 'Other'],
             inquiryType: 'General',
             otherText: '',
             conciergeFormSuccess: false,
@@ -193,7 +193,7 @@ export default {
         },
 
         showHomeDigest() {
-            return this.inquiryType === 'Home Digest'
+            return this.inquiryType === 'Sellers Home Digest'
         },
 
         cities() {
@@ -221,25 +221,25 @@ export default {
             if (this.interestedZips) req.interestedZips = this.interestedZips
             console.log('contact req: ', req)
 
-            // this.api.post('https://richardelias.com/api/contact', req, res => {
-            //     console.log('contact res: ', res)
+            this.api.post('https://richardelias.com/api/contact', req, res => {
+                console.log('contact res: ', res)
 
-            //     if (res.success) {
-            //         this.conciergeFormSuccess = true
-            //         this.conciergeFormFail = false
-            //         this.onReset()
+                if (res.success) {
+                    this.conciergeFormSuccess = true
+                    this.conciergeFormFail = false
+                    this.onReset()
 
-            //         this.$emit('success')
+                    this.$emit('success')
 
-            //         this.setTimeout(() => {
-            //             this.$root.$emit('showContactFormOverlay', false)
-            //         }, 3000)
-            //     } else {
-            //         // error
-            //         this.conciergeFormSuccess = false
-            //         this.conciergeFormFail = true
-            //     }
-            // })
+                    this.setTimeout(() => {
+                        this.$root.$emit('showContactFormOverlay', false)
+                    }, 3000)
+                } else {
+                    // error
+                    this.conciergeFormSuccess = false
+                    this.conciergeFormFail = true
+                }
+            })
         },
 
         onReset() {

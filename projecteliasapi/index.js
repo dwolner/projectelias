@@ -149,8 +149,10 @@ app.post('/contact', (req, expressRes) => {
 
             <p>Name: <strong>${ req.body.name }</strong></p> 
             <p>Email: <strong>${ req.body.email }</strong></p> 
-            <p>#: <strong>${ req.body.phone }</strong></p> 
+            <p>#: <strong>${ req.body.phone }</strong></p>
             <p>Zip: <strong>${ req.body.zip }</strong></p> 
+            ${ req.body.interestedZips ? '<p>Interested Zips: <strong>' + req.body.interestedZips + '</strong></p>' : ''}
+            ${ req.body.streetAddress ? '<p>Street Address: <strong>' + req.body.streetAddress + '</strong></p>' : '' }
             <p>Type: <strong>${ req.body.type }</strong></p> 
             <br /><br />
             <p>Courtesy of your friendly RichardElias.com email bot!</p>

@@ -15,13 +15,31 @@
                 <div :class="`col-xs-12 ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`" v-scroll-reveal.reset="{ delay: 250, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     <h6 style="font-size: 1.5rem;">
                         <!-- <div class="homebot-face" style="display: inline-block;"></div> -->
-                        Interested in your home's worth?
+                        {{ digestType === 'Sellers' ? 'Interested in your home\'s worth?' : 'Interested in buying property?' }}
                     </h6>
                     <h6 class="q-mt-sm" style="font-size: 1rem; line-height: 1.25rem;">
-                        We invite you to join our free home digest tool to provide you with insight into your home's value.
+                        {{ digestType === 'Sellers' ? 'We invite you to join our free home digest tool to provide you with insight into your home\'s value.' : 'We invite you to join our free home digest tool to provide you with data for areas in which you are interested.' }}
                     </h6>
                 </div>
 
+                <div :class="`col-xs-12 q-pt-xl ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`" align="center">
+                    <q-btn-toggle
+                        v-model="digestType"
+                        class="my-custom-toggle"
+                        no-caps
+                        rounded
+                        unelevated
+                        size="lg"
+                        toggle-color="primary"
+                        color="grey-2"
+                        text-color="primary"
+                        :options="[
+                            {label: 'Sellers', value: 'Sellers'},
+                            {label: 'Buyers', value: 'Buyers'}
+                        ]"
+                    />
+                </div>
+                
                 <div :class="`col-xs-12 col-md-6 q-py-xl ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`" v-scroll-reveal.reset="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
                     <div id="contact-profile" class="row justify-center">
                         <div class="col-sm-3 q-pa-sm">
@@ -36,11 +54,11 @@
                         </div>
                     </div>
 
-                    <ContactForm inquiryTypeInput="Home Digest" buttonLabel="Sign up!" :showZips="false" @success="success()" style="margin: 0 -.5rem;" />
+                    <ContactForm :inquiryTypeInput="digestType === 'Sellers' ? 'Sellers Home Digest' : 'Buyers Home Digest'" buttonLabel="Sign up!" :showZips="digestType !== 'Sellers'" @success="success()" style="margin: 0 -.5rem;" />
                 </div>
 
                 <div class="col-xs-12 col-md-6 q-py-xl" align="center" v-scroll-reveal.reset="{ delay: 750, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
-                    <h5 style="text-decoration: underline;">Details:</h5>
+                    <!-- <h5 style="text-decoration: underline;">Details:</h5> -->
                     <q-carousel
                         v-model="slideIndex"
                         class=""
@@ -58,7 +76,7 @@
                         <q-carousel-slide v-for="(item, index) in snapshots" :key="index" :name="item.id" class="column no-wrap flex-center items-center justify-content full-width" align="center" style="min-height: 550px;">
                             <h6 class="q-mb-md">{{ item.title }}</h6>
 
-                            <img :src="`statics/homebot/homebot_snapshot_${ item.id }.png`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
+                            <img :src="`statics/homebot/homebot_snapshot_${ item.imageIndex }.png`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
                         </q-carousel-slide>
                     </q-carousel>
                     
@@ -88,6 +106,7 @@ export default {
 
     data() {
         return {
+            digestType: 'Sellers',
             slideIndex: 1,
             showPDFButton: false,
             togglePosition: 1,
@@ -102,39 +121,69 @@ export default {
                 'Estimated rental figures for your home (or a room in your home) on services like Airbnb or VRBO',
                 'Your current cash-out potential for doing things like consolidating high-interest debt or increasing your home value through home improvement',
             ],
-            snapshots: [
+            sellersSnapshots: [
                 {
                     id: 1,
+                    imageIndex: 1,
                     title: 'Get a monthly wealth snapshot of your home'
                 },
                 {
                     id: 2,
+                    imageIndex: 2,
                     title: 'Understand when to refinance'
                 },
                 {
                     id: 3,
+                    imageIndex: 3,
                     title: 'Purchasing power for second home or trade up'
                 },
                 {
                     id: 4,
+                    imageIndex: 4,
                     title: 'See the wealth power of extra principal payments'
                 },
                 {
                     id: 5,
+                    imageIndex: 5,
                     title: 'Get smart about wealth from short-term rental'
                 },
                 {
                     id: 6,
+                    imageIndex: 6,
                     title: 'Understand your mortgage - interest vs. principal'
                 },
                 {
                     id: 7,
+                    imageIndex: 7,
                     title: 'Know your total cash-out power'
                 },
                 {
                     id: 8,
+                    imageIndex: 8,
                     title: 'Understand when you can drop mortgage insurance'
                 },
+            ],
+            buyersSnapshots: [
+                {
+                    id: 1,
+                    imageIndex: 9,
+                    title: 'Ownership Rental Income'
+                },
+                {
+                    id: 2,
+                    imageIndex: 10,
+                    title: 'Interest Rate Snapshot'
+                },
+                {
+                    id: 3,
+                    imageIndex: 11,
+                    title: 'Buying Timeline'
+                },
+                {
+                    id: 4,
+                    imageIndex: 12,
+                    title: 'Market Comparisons'
+                }
             ]
         }
     },
@@ -165,6 +214,10 @@ export default {
                 width: 100%;
             `
         },
+
+        snapshots() {
+            return this.digestType === 'Sellers' ? this.sellersSnapshots : this.buyersSnapshots
+        }
     },
 
     methods: {
