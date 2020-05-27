@@ -26,9 +26,13 @@
                         <q-icon size="sm" name="fas fa-external-link-square-alt" class="q-ml-sm" />
                     </q-btn>
                 </div>
+
+                <div class="col-12">
+                    <OnTheMarket />
+                </div>
             </div>
             
-            <div class="col-xs-12 col-md-6 q-pa-md"  v-scroll-reveal.reset="{ delay: 750, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
+            <div class="col-xs-12 col-md-6 q-pa-lg"  v-scroll-reveal.reset="{ delay: 750, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
 
                 <div class="row well justify-center relative-position" style="border: 2px solid rgb(11, 11, 11);">
 
@@ -89,12 +93,14 @@
 
 <script>
 import ContactForm from '../components/ContactForm'
+import OnTheMarket from '../components/OnTheMarket'
 
 export default {
     name: 'Buyers',
 
     components: {
-        ContactForm
+        ContactForm,
+        OnTheMarket
     },
 
     data() {

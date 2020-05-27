@@ -1,9 +1,23 @@
 <template>
     <div id="OnTheMarket">
 
-        <div class="row well container" style="min-height: calc(100vh - 75px);">
-            <div class="col-xs-12 q-py-xl">
-                
+        <div class="row well container">
+            <div class="col-xs-12 q-px-sm">
+                <h4>On The Market</h4>
+            </div>
+
+            <div class="col-xs-12 row justify-center q-pt-md">
+                <div v-for="(item, index) in featured" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" class="col-xs-12 q-pa-sm cursor-pointer" @click="selectItem(item)">
+                    <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('statics/${ item.imageSrc }'); background-size: cover; background-position: 50%; height: ${ $q.screen.width > 552 ? '100px' : '175px' };`">
+                        <div class="centerHeaderHold q-pa-md">
+                            <div style="border: solid 2px white; height: 100%;">
+                                <div class="centerHeader q-pa-md">
+                                    <h6 align="center" class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.title }} <q-icon name="fas fa-chevron-right" style="color: white;" /></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -17,7 +31,7 @@
 
                     <iframe
                         v-if="selectedItem"
-                        :src="`https://www.compass.com/homes-for-sale/san-diego-ca/${ selectedItem.customRoute }`"
+                        :src="`https://www.compass.com/homes-for-sale/${ selectedItem.customRoute }`"
                         name="myiFrame"
                         width="100%"
                         :height="searchHeight"
@@ -49,10 +63,18 @@ export default {
 
     data() {
         return {
-            neighborhoods: [ {
+            featured: [ {
                 title: 'Single Family Homes Under $600k',
-                imageSrc: '',
-                customRoute: 'property-type=Single%20Family,Condo,Townhouse/price.max=600k/'
+                imageSrc: 'house_shots/Compass-LaJolla-Originals-25.jpg',
+                customRoute: 'san-diego-ca/property-type=Single%20Family,Condo,Townhouse/price.max=600k/'
+            }, {
+                title: 'Homes In East County',
+                imageSrc: 'house_shots/Compass-Edited-DelMar-73.jpg',
+                customRoute: 'el-cajon-ca/property-type=Single%20Family/locations=20257,20232/'
+            }, {
+                title: 'Income Properties For Sale',
+                imageSrc: 'house_shots/Compass-NorthPBBirdrock-Originals-6.jpg',
+                customRoute: '_map/mapview=32.996076063851554,-116.7180315037495,32.49478704546498,-117.41978321273389/property-type=Multi%20Family/'
             } ],
             selectedItem: null,
             showSelectedItem: false
@@ -88,7 +110,6 @@ export default {
 <style scoped>
     #OnTheMarket {
         width: 100%;
-        background: #080808;
         position: relative;
     }
 
@@ -112,18 +133,8 @@ export default {
         width: 100%;
         padding: 1rem 3.5rem;
     }
-
+/* 
     .centerHeaderHold:hover {
         opacity: 0;
-    }
-</style>
-
-<style>
-    .newsItemContent > h3 {
-        font-size: 1rem;
-    }
-
-    .webfeedsFeaturedVisual {
-        width: 100%;
-    }
+    } */
 </style>
