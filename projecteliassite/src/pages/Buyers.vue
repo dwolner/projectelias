@@ -34,10 +34,10 @@
             
             <div class="col-xs-12 col-md-6 q-pa-lg"  v-scroll-reveal.reset="{ delay: 750, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
 
-                <div class="row well justify-center relative-position" style="border: 2px solid rgb(11, 11, 11);">
+                <div class="row well justify-center relative-position" style="height: 100%; border: 2px solid rgb(11, 11, 11);">
 
                     <div class="col-xs-12 col-sm-6 col-md-12 q-py-xl" align="center">
-                        <h5>Top Videos For Buyers</h5>
+                        <h4>How To Get Started Buying</h4>
 
                         <q-carousel 
                             v-model="slideIndex" 
