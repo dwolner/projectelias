@@ -21,6 +21,11 @@ const Router = new VueRouter({
 		// 		// , offset: { x: 0, y: 10 }
 		// 	}
 		// }
+
+		return {
+		  x: 0,
+		  y: 0
+		}
 	},
 
 	routes,
