@@ -1,14 +1,26 @@
 <template>
     <q-page class="flex flex-center">
         <div id="top" class="hero">
-            <div class="container text-white q-pa-lg" align="center">
-                <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
-                <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
-                <h5 class="q-my-md">Here to help however we can, in these uncertain times.</h5>
-                <q-btn flat color="light" @click="scrollToElement('team', 65)">
-                    <div class="full-width" style="font-size: .8rem;">See More</div>
-                    <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
-                </q-btn>
+            <div class="row container text-white q-pa-lg" align="center">
+                <div class="col-12">
+                    <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
+                    <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
+                    <h5 class="q-my-md">Helping you find your place in San Diego.</h5>
+                </div>
+                
+                <div class="col-12">
+                    <q-btn flat @click="showVideo = true">
+                        <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
+                    </q-btn>
+                    <p class="q-my-sm">Learn more about how we can help.</p>
+                </div>
+
+                <div class="col-12">
+                    <q-btn flat color="light" @click="scrollToElement('team', 65)">
+                        <div class="full-width" style="font-size: .8rem;">See More</div>
+                        <q-icon name="fas fa-chevron-down" size="xs" style="font-size: .8rem;" />
+                    </q-btn>
+                </div>
             </div>
             <video id="bgvid" autoplay="autoplay" preload="metadata" loop="loop" muted playsinline class="playing">
                 <source src="//videos.ctfassets.net/3xf6g0o5qdho/1uc2E01DTu8ASyAKYoq4oK/40e19ac85c90529f143fec0f001b1cda/MV_About_Header_1080p_.mp4" type="video/mp4" />
@@ -37,6 +49,17 @@
             <div class="overlay"></div>
             <Contact />
         </div>
+
+         <q-dialog v-model="showVideo" @show="showVideo = true" @hide="showVideo = false">
+            <q-card>
+                <q-card-section style="padding: .25rem;">
+                    <q-btn flat class="absolute" round size="sm" color="white" @click="showVideo = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                        <q-icon name="fas fa-times" color="black" />
+                    </q-btn>
+                    <video v-if="showVideo" autoplay controls src="statics/site_intro.mp4" style="width: 100%;" />
+                </q-card-section>
+            </q-card>
+        </q-dialog>
     </q-page>
 </template>
 
@@ -71,7 +94,9 @@ export default {
     },
 
     data() {
-        return {}
+        return {
+            showVideo: false
+        }
     },
 
     methods: {},

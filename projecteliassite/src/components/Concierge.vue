@@ -30,7 +30,7 @@
 
             <div
                 class="col-xs-12 col-md-6 relative-position"
-                style="min-height: 300px; background: url('//images.ctfassets.net/qaddfuc6mowj/6tU1J1fJ9F62gwS3H7xs2Q/f8653385d2bc8a04e2c881b9d254001b/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
+                style="min-height: 300px; background: url('statics/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
             >
                 <div class="center">
                     <q-btn flat @click="showConciergePromo = true">
@@ -42,8 +42,8 @@
 
         <q-dialog v-model="showConciergePromo" @show="showVideo = true" @hide="showVideo = false">
             <q-card>
-                <q-card-section>
-                    <q-btn class="absolute" round size="sm" color="white" @click="showConciergePromo = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                <q-card-section style="padding: .25rem;">
+                    <q-btn class="absolute" round flat size="sm" color="white" @click="showConciergePromo = false" style="top: .5rem; right: .5rem; z-index: 999;">
                         <q-icon name="fas fa-times" color="black" />
                     </q-btn>
                     <video v-if="showVideo" autoplay controls src="statics/30secondprogramoverview.mp4" style="width: 100%;" />

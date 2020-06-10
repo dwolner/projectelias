@@ -63,19 +63,41 @@ export default {
 
     data() {
         return {
-            featured: [ {
-                title: 'Single Family Homes Under $600k',
-                imageSrc: 'house_shots/Compass-LaJolla-Originals-25.jpg',
-                customRoute: 'san-diego-ca/property-type=Single%20Family,Condo,Townhouse/price.max=600k/'
-            }, {
-                title: 'Homes In East County',
-                imageSrc: 'house_shots/Compass-Edited-DelMar-73.jpg',
-                customRoute: 'el-cajon-ca/property-type=Single%20Family/locations=20257,20232/'
-            }, {
-                title: 'Income Properties For Sale',
-                imageSrc: 'house_shots/Compass-NorthPBBirdrock-Originals-6.jpg',
-                customRoute: '_map/mapview=32.996076063851554,-116.7180315037495,32.49478704546498,-117.41978321273389/property-type=Multi%20Family/'
-            } ],
+            featured: [ 
+                {
+                    title: 'East County San Diego',
+                    imageSrc: 'house_shots/CA-SanDiego-RanchoSantaFe-36.jpg',
+                    customRoute: 'homes-for-sale/la-mesa-ca-91942/locations=51163,51120,51140,51138,51148,51113/'
+                },
+                {
+                    title: 'Central San Diego',
+                    imageSrc: 'house_shots/Compass-Edited-DelMar-73.jpg',
+                    customRoute: 'homes-for-sale/san-diego-ca-92103/locations=51117,51102,51106,51062,51118/'
+                },
+                {
+                    title: 'North San Diego (Off 15 Freeway)',
+                    imageSrc: 'house_shots/Compass-NorthPBBirdrock-Originals-6.jpg',
+                    customRoute: 'homes-for-sale/san-diego-ca-92131/locations=51085,51111,51094,51096/'
+                },
+                {
+                    title: 'Coastal/North San Diego',
+                    imageSrc: 'house_shots/Compass-LaJolla-Originals-25.jpg',
+                    customRoute: 'homes-for-sale/cardiff-by-the-sea-ca-92007/locations=51158,51141,51170,51132/'
+                },
+            // {
+            //     title: 'Single Family Homes Under $600k',
+            //     imageSrc: 'house_shots/Compass-LaJolla-Originals-25.jpg',
+            //     customRoute: 'san-diego-ca/property-type=Single%20Family,Condo,Townhouse/price.max=600k/'
+            // }, {
+            //     title: 'Homes In East County',
+            //     imageSrc: 'house_shots/Compass-Edited-DelMar-73.jpg',
+            //     customRoute: 'el-cajon-ca/property-type=Single%20Family/locations=20257,20232/'
+            // }, {
+            //     title: 'Income Properties For Sale',
+            //     imageSrc: 'house_shots/Compass-NorthPBBirdrock-Originals-6.jpg',
+            //     customRoute: '_map/mapview=32.996076063851554,-116.7180315037495,32.49478704546498,-117.41978321273389/property-type=Multi%20Family/'
+            // } 
+            ],
             selectedItem: null,
             showSelectedItem: false
         }
