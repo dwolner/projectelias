@@ -40,7 +40,7 @@ export default {
         },
 
         goToPDF() {
-            window.open('https://richardelias.com/statics/BuyingaHomeSpring2020.pdf', '_blank')
+            window.open('https://richardelias.com/statics/BuyingaHomeSummer2020.pdf', '_blank')
         }
     },
 

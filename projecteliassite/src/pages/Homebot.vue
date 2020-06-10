@@ -1,6 +1,6 @@
 <template>
     <q-page class="flex flex-center">
-        <div  :style="homeBotStyle">
+        <div :style="homeBotStyle">
             <div class="row well" :style="homeBotInnerStyle">
                 <div :class="`col-xs-12 q-pt-xl ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`">
                     <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal.reset="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Home Digest Report</h3>
@@ -40,21 +40,18 @@
                     />
                 </div>
                 
-                <div :class="`col-xs-12 col-md-6 q-py-xl ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`" v-scroll-reveal.reset="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
-                    <div id="contact-profile" class="row justify-center">
-                        <div class="col-sm-3 q-pa-sm">
-                            <img src="statics/team/richard_square.jpg" style="max-width: 125px; width: 100%;" />
-                        </div>
-                        <div class="col-sm-9 q-pa-sm">
-                            <div>
-                                <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                                <p class="q-my-sm">richard@richardelias.com</p>
-                                <p class="q-my-sm">✆: 619.562.6800</p>
-                            </div>
+                <div :class="`col-xs-12 col-md-6 q-py-xl ${ $q.screen.width > 600 ? 'q-px-xl' : 'q-px-md' }`" v-scroll-reveal.reset="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }" align="center">
+                    <div class="relative-position shadow-6" style="min-height: 150px; background: url('statics/homedigest_intro.png'); background-size: cover; background-repeat: no-repeat; background-position: 50% 20%;" @click="showVideo = true">
+                        <div class="center">
+                            <q-btn flat >
+                                <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
+                            </q-btn>
                         </div>
                     </div>
 
-                    <ContactForm :inquiryTypeInput="digestType === 'Sellers' ? 'Sellers Home Digest' : 'Buyers Home Digest'" buttonLabel="Sign up!" :showZips="digestType !== 'Sellers'" @success="success()" style="margin: 0 -.5rem;" />
+                    <h6 class="q-my-sm" style="font-size: 1.2rem;">Learn more about our home digest tool from Richard.</h6>
+
+                    <ContactForm :inquiryTypeInput="'Home Digest'" buttonLabel="Sign up!" :showZips="digestType !== 'Sellers'" @success="success()" style="margin: 0 -.5rem;" />
                 </div>
 
                 <div class="col-xs-12 col-md-6 q-py-xl" align="center" v-scroll-reveal.reset="{ delay: 750, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }">
@@ -74,7 +71,7 @@
                         style="background: rgba(0, 0, 0, 0); max-width: 750px; margin: 0 auto;"
                     >
                         <q-carousel-slide v-for="(item, index) in snapshots" :key="index" :name="item.id" class="column no-wrap flex-center items-center justify-content full-width" align="center" style="min-height: 550px;">
-                            <h6 class="q-mb-md">{{ item.title }}</h6>
+                            <h6 class="q-mb-md" style="font-size: 1.2rem;">{{ item.title }}</h6>
 
                             <img :src="`statics/homebot/homebot_snapshot_${ item.imageIndex }.png`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
                         </q-carousel-slide>
@@ -88,6 +85,17 @@
         <div style="background: rgba(11, 11, 11, 1); position: relative; width: 100%; height: auto;"> 
             <Contact />
         </div>
+
+        <q-dialog v-model="showVideo" @show="showVideo = true" @hide="showVideo = false">
+            <q-card>
+                <q-card-section style="padding: .25rem;">
+                    <q-btn flat class="absolute" round size="sm" color="white" @click="showVideo = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                        <q-icon name="fas fa-times" color="black" />
+                    </q-btn>
+                    <video v-if="showVideo" autoplay controls src="statics/homedigest_intro.mp4" style="width: 100%;" />
+                </q-card-section>
+            </q-card>
+        </q-dialog>
 
     </q-page>
 </template>
@@ -106,6 +114,7 @@ export default {
 
     data() {
         return {
+            showVideo: false,
             digestType: 'Sellers',
             slideIndex: 1,
             showPDFButton: false,
@@ -227,7 +236,7 @@ export default {
         },
 
         goToPDF() {
-            window.open('https://richardelias.com/statics/SellingYourHouseSpring2020.pdf', '_blank')
+            window.open('https://richardelias.com/statics/SellingYourHouseSummer2020.pdf', '_blank')
         },
     },
 
@@ -243,5 +252,15 @@ export default {
     height: 100%;
     width: 100%;
     position: absolute;
+}
+.center {
+    position: absolute;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 </style>

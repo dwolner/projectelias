@@ -63,9 +63,8 @@
             />
 
             <q-select
-                v-if="showZips"
                 v-model="interestedZips"
-                v-show="showHomeDigest"
+                v-show="showHomeDigest && showZips"
                 class="col-xs-12 q-py-md q-px-sm"
                 label="Zips you are interested in"
                 multiple
@@ -193,7 +192,7 @@ export default {
         },
 
         showHomeDigest() {
-            return this.inquiryType === 'Sellers Home Digest'
+            return this.inquiryType === 'Home Digest'
         },
 
         cities() {
