@@ -126,8 +126,14 @@ export default {
                     date: '01/19/2019',
                 },
             ],
-            videoSlideIndex: 'McOLc6YwmMw',
+            videoSlideIndex: '2yr17zwNzfA',
             videoSlides: [
+                {
+                    id: '2yr17zwNzfA'
+                },
+                {
+                    id: 'jbkl0POmqZ4'
+                },
                 {
                     id: 'McOLc6YwmMw'
                 },
