@@ -36,7 +36,7 @@
 
                     <div class="row well justify-center relative-position" style="height: 100%; border: 2px solid rgb(11, 11, 11);">
 
-                        <div class="col-xs-12 col-sm-6 col-md-12 q-py-xl" align="center">
+                        <div class="col-xs-12 col-sm-6 col-md-12 q-py-xl q-px-md" align="center">
                             <h4>How To Get Started Buying</h4>
 
                             <q-carousel 
@@ -51,7 +51,7 @@
                                 padding 
                                 arrows
                                 infinite
-                                style="max-width: 500px; height: 100%; margin: 0 auto; background: rgba(0, 0, 0, 0);"
+                                style="max-width: 500px; margin: 0 auto; background: rgba(0, 0, 0, 0);"
                             >
                                 <q-carousel-slide v-for="(id, index) in videoIDs" :key="index" :name="id" class="column no-wrap flex-center" style="padding-bottom: 50px; padding-top: 25px;">
                                     <iframe sandbox="allow-scripts" :src="`https://www.simplifyingthemarket.com/en/videos/embed/${ id }`" frameborder="0" allowfullscreen :width="videoEmbedWidth" :height="videoEmbedHeight"></iframe>

@@ -9,9 +9,13 @@
                 </div>
                 
                 <div class="col-12">
-                    <q-btn flat @click="showVideo = true">
-                        <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
-                    </q-btn>
+                    <div class="relative-position shadow-6" style="min-height: 150px; background: url('statics/homedigest_intro.png'); background-size: cover; background-repeat: no-repeat; background-position: 50% 20%;" @click="showVideo = true">
+                        <div class="center">
+                            <q-btn flat >
+                                <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
+                            </q-btn>
+                        </div>
+                    </div>
                     <p class="q-my-sm">Learn more about how we can help.</p>
                 </div>
 
@@ -35,13 +39,11 @@
 
         <Concierge />
 
-        <!-- <Homebot /> -->
-
         <Testimonials />
 
         <NewsInner showLength="3" />
 
-        <OpenhousesInner showLength="3" />
+        <!-- <OpenhousesInner showLength="3" /> -->
 
         <InstaFeed />
 

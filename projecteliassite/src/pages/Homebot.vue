@@ -253,14 +253,4 @@ export default {
     width: 100%;
     position: absolute;
 }
-.center {
-    position: absolute;
-    width: fit-content;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
 </style>

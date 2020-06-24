@@ -14,7 +14,7 @@
                             </span>
                         </div>
 
-                        <div v-if="$q.screen.width > 767" class="col-xs-12 row q-pa-xl">
+                        <div v-if="$q.screen.width > 767" class="col-xs-12 row q-pa-xl justify-center">
                             <div v-for="(item, index) in team" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out'}" align="center" class="col-xs-12 col-sm-6 col-md-4 col-lg q-pa-sm">
                                 <div class="bg-white full-width">
                                     <div :class="`q-pa-md full-height ${ item.mainman ? 'cx-dotGridBackground' : 'bg-white' }`" align="center" @click="openWindow(`https://www.compass.com/agents/${ item.slug }`)">
@@ -124,13 +124,6 @@ export default {
                 number: '619.344.1619',
                 email: 'mari.rosas<br />@compass.com',
                 slug: 'mari-rosas'
-            }, {
-                filename: 'Yann.jpg',
-                name: 'Yann',
-                role: 'Realtor',
-                number: '619.366.7343',
-                email: 'yann.crenn<br />@compass.com',
-                slug: 'yann-crenn'
             }, {
                 filename: 'Diego.jpg',
                 name: 'Diego',
