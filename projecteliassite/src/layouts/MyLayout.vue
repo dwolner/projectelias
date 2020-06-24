@@ -170,7 +170,7 @@ export default {
                 { title: 'Concierge', sectionID: 'concierge' },
                 { title: 'Testimonials', sectionID: 'testimonials' },
                 { title: 'News', route: '/news' },
-                { title: 'Open Houses', route: '/openhouses' },
+                // { title: 'Open Houses', route: '/openhouses' },
                 { title: 'Private Exclusives', route: '/privateexclusives' },
                 { title: 'Current Matters', route: '/videos' },
                 { title: 'Contact', sectionID: 'contact' },
