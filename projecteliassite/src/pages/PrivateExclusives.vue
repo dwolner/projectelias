@@ -25,17 +25,8 @@
 
         <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="container bg-white">
             <div class="row well">
-                <div class="col-xs-12 col-sm-6 q-pa-xl row">
-                    <div class="col-xs-12 col-sm-6 q-pa-sm">
-                        <img src="statics/team/richard_square.jpg" style="max-width: 100%;" />
-                    </div>
-                    <div class="col-xs-12 col-sm-6 q-pa-sm">
-                        <div>
-                            <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                            <p class="q-my-sm">richard@richardelias.com</p>
-                            <p class="q-my-sm">✆: 619.562.6800</p>
-                        </div>
-                    </div>
+                <div class="col-xs-12 col-sm-6 q-pa-xl">
+                    <ContactProfile agentID="richard" />
                 </div>
                 <div class="col-xs-12 col-sm-6 q-pa-xl">
                     <ContactForm inquiryTypeInput="Private Exclusive" />
@@ -114,12 +105,13 @@
 <script>
 import ContactForm from '../components/ContactForm'
 import Contact from '../components/Contact'
+import ContactProfile from '../components/ContactProfile'
 
 export default {
     name: 'PrivateExclusives',
 
     components: {
-        ContactForm, Contact
+        ContactForm, Contact, ContactProfile
     },
 
     data() {
