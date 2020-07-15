@@ -9,21 +9,14 @@
                         <p>Get fronted for the cost of home improvement services with no interest — ever.</p>
                         <p>Compass Concierge is the hassle-free way to sell your home faster and for a higher price with services like staging, flooring, painting, and more.</p>
                     </div>
-                    <div id="contact-profile" class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-4 q-pa-sm">
-                            <img src="statics/team/richard_square.jpg" style="max-width: 100%;" />
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-8 q-pa-sm">
-                            <h5 class="q-mb-md">Learn how Richard can help sell your home faster and for a higher price with Concierge.</h5>
-                            <div>
-                                <p class="q-my-sm"><strong>Richard Elias</strong> | Realtor</p>
-                                <p class="q-my-sm">richard@richardelias.com</p>
-                                <p class="q-my-sm">✆: 619.562.6800</p>
-                            </div>
-                        </div>
-                        <div class="col-12 bg-white">
-                            <ContactForm inquiryTypeInput="Concierge" />
-                        </div>
+                    <div class="col-xs-12 q-pa-sm">
+                        <h5 class="q-mb-md">Learn how Richard can help sell your home faster and for a higher price with Concierge.</h5>
+                    </div>
+
+                    <ContactProfile agentID="richard" />
+
+                    <div class="col-12 bg-white">
+                        <ContactForm inquiryTypeInput="Concierge" />
                     </div>
                 </div>
             </div>
@@ -55,12 +48,14 @@
 
 <script>
 import ContactForm from './ContactForm'
+import ContactProfile from './ContactProfile'
 
 export default {
     name: 'Concierge',
 
     components: {
-        ContactForm
+        ContactForm,
+        ContactProfile
     },
 
     data() {

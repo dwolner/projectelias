@@ -172,7 +172,7 @@ export default {
                 { title: 'News', route: '/news' },
                 // { title: 'Open Houses', route: '/openhouses' },
                 { title: 'Private Exclusives', route: '/privateexclusives' },
-                { title: 'Current Matters', route: '/videos' },
+                { title: 'Current Videos', route: '/videos' },
                 { title: 'Contact', sectionID: 'contact' },
                 // { title: 'Compass Search', route: '/search' }
             ],

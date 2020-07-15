@@ -168,6 +168,11 @@ export default {
             type: Boolean,
             default: false,
         },
+
+        agentID: {
+            default: '',
+            type: String
+        },
     },
 
     data() {
@@ -218,6 +223,7 @@ export default {
             }
             if (this.streetAddress) req.streetAddress = this.streetAddress
             if (this.interestedZips) req.interestedZips = this.interestedZips
+            if (this.agentID) req.agentID = this.agentID
             console.log('contact req: ', req)
 
             this.api.post('https://richardelias.com/api/contact', req, res => {
