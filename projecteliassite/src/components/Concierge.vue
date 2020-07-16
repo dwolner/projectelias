@@ -10,10 +10,10 @@
                         <p>Compass Concierge is the hassle-free way to sell your home faster and for a higher price with services like staging, flooring, painting, and more.</p>
                     </div>
                     <div class="col-xs-12 q-pa-sm">
-                        <h5 class="q-mb-md">Learn how Richard can help sell your home faster and for a higher price with Concierge.</h5>
+                        <h5 class="q-mb-md">Learn how <span style="text-transform: capitalize;">{{ agentID }}</span> can help sell your home faster and for a higher price with Concierge.</h5>
                     </div>
 
-                    <ContactProfile agentID="richard" />
+                    <ContactProfile />
 
                     <div class="col-12 bg-white">
                         <ContactForm inquiryTypeInput="Concierge" />
@@ -63,6 +63,12 @@ export default {
             showConciergePromo: false,
             showVideo: false
         }
+    },
+
+    computed: {
+        agentID() {
+            return this.$store.state.agentID
+        },
     },
 
     methods: {

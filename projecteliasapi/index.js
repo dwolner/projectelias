@@ -153,6 +153,7 @@ app.post('/contact', (req, expressRes) => {
             <p>Zip: <strong>${ req.body.zip }</strong></p> 
             ${ req.body.interestedZips ? '<p>Interested Zips: <strong>' + req.body.interestedZips + '</strong></p>' : ''}
             ${ req.body.streetAddress ? '<p>Street Address: <strong>' + req.body.streetAddress + '</strong></p>' : '' }
+            ${ req.body.agentID ? '<p>Agent: <strong>' + req.body.agentID + '</strong></p>' : '' }
             <p>Type: <strong>${ req.body.type }</strong></p> 
             <br /><br />
             <p>Courtesy of your friendly RichardElias.com email bot!</p>

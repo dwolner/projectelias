@@ -167,12 +167,7 @@ export default {
         showZips: {
             type: Boolean,
             default: false,
-        },
-
-        agentID: {
-            default: '',
-            type: String
-        },
+        }
     },
 
     data() {
@@ -192,6 +187,10 @@ export default {
     },
 
     computed: {
+        agentID() {
+            return this.$store.state.agentID
+        },
+        
         globalInquiryType() {
             return this.$store.state.globalInquiryType
         },

@@ -179,6 +179,12 @@ export default {
         }
     },
 
+    computed: {
+        agentDataMap() {
+            return this.$store.state.agentDataMap
+        },
+    },
+
     methods: {
         nav(item) {
             console.log('nav: ', item)
@@ -216,20 +222,29 @@ export default {
     },
 
     mounted() {
-        console.log('ROuter: ', this.$router.currentRoute)
+        let currentRoute = this.$router.currentRoute
+        console.log('ROuter: ', currentRoute)
 
-        if (!localStorage.getItem('hideHomebotPopup') && this.$router.currentRoute.path !== '/homedigest') this.showHomeBotDialog()
+        if (!localStorage.getItem('hideHomebotPopup') && currentRoute.path !== '/homedigest') this.showHomeBotDialog()
 
         this.$root.$on('showContactFormOverlay', val => {
             this.showContactFormOverlay = val
         })
 
-        if (this.$router.currentRoute && this.$router.currentRoute.hash) {
-            this.$nextTick(() => {
-                setTimeout(() => {
-                    this.scrollToElement(this.$router.currentRoute.hash.replace('#', ''), 75)
-                }, 1000)
-            })
+        if (currentRoute) {
+            if (currentRoute.query) {
+                if (currentRoute.query.agent && this.agentDataMap && this.agentDataMap[currentRoute.query.agent]) {
+                    this.$store.commit('setAgentID', currentRoute.query.agent)
+                }
+            }
+
+            if (currentRoute.hash) {
+                this.$nextTick(() => {
+                    setTimeout(() => {
+                        this.scrollToElement(currentRoute.hash.replace('#', ''), 75)
+                    }, 1000)
+                })
+            }
         }
     },
 }
