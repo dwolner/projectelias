@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-xs-12" style="padding: 2rem 2.5rem 0;">
                         <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                            Sell your house in 2020!
+                            Why sell your home in 2020?
                         </h3>
 
                         <span
@@ -32,42 +32,38 @@
                     </div>
                 </div>
 
-                <div class="row reverse-wrap q-pa-lg">
+                <div class="row reverse-wrap q-px-lg">
                     <div class="col-xs-12 col-md-6 q-pa-lg">
-                        <h5 class="q-my-md">It's a Seller's Market</h5>
+                        <h5 class="q-my-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 75 }">It's a Seller's Market</h5>
 
-                        <p style="font-size: 1rem;">
+                        <p style="font-size: 1rem;" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 150 }">
                             Housing inventory is low nationwide which means there are fewer homes for buyers to choose from. There were 15.7% fewer homes for sale this March compared to 2019 according
                             to realtor.com’s March Housing Report. 
                         </p>
-                        <p style="font-size: 1rem;">
+                        <p style="font-size: 1rem;" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 225 }">
                             Additionally, median listing prices are up nationally at $320,000, 3.8% higher than in 2019. If economic conditions worsen, the pool
                             of buyers might shrink and home prices could drop. Why wait to sell when prices are possibly going to drop?
                         </p>
+
+                        <ul style="font-size: 1rem; font-family: 'Compass-Sans-Regular'; padding-left: 1rem;">
+                            <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 300}">Versus last year, the total number of properties available in San Diego this month is lower by 2095 units or 29.9%.</li>
+                            <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 375 }">This year's smaller inventory means that buyers who waited to buy may have smaller selection to choose from.</li>
+                            <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 425 }">The number of current inventory is up 0.4% compared to the previous month.</li>
+                        </ul>
                     </div>
 
-                    <div class="col-xs-12 col-md-6 q-pa-lg" align="center">
-                        <q-img src="statics/compass_sellers_graph.jpg" style="max-width: 400px;" />
+                    <div class="col-xs-12 col-md-6 q-pa-lg" align="center" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 500 }">
+                        <q-img class="q-mt-lg shadow-4" src="statics/compass_sellers_graph.jpg" style="max-width: 500px; border: 2px solid #1b1b1b;" />
                     </div>
                 </div>
 
-                <div class="row q-pa-lg">
+                <div v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left' }" class="row q-px-lg">
                     <div class="col-xs-12 col-md-4 q-pa-lg" align="center">
-                        <q-img src="statics/compass_money.jpg" style="max-width: 250px;" />
+                        <q-img class="shadow-4" src="statics/compass_apartment.jpg" style="max-width: 250px;" />
                     </div>
 
                     <div class="col-xs-12 col-md-8 q-pa-lg">
-                        <h5 class="q-my-md">Interest rates are down</h5>
-
-                        <p style="font-size: 1rem;">
-                            Interest rates are expected to remain low throughout the year and there are many trends in the market showing good signs for sellers.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="row reverse-wrap q-pa-lg">
-                    <div class="col-xs-12 col-md-8 q-pa-lg">
-                        <h5 class="q-my-md">Safe home selling standards and VAS</h5>
+                        <h5 class="q-my-md">Safe home selling standards and Virtual Services</h5>
 
                         <p style="font-size: 1rem;">
                             The safety of our clients and communities are of the utmost importance to us. During these uncertain times, we are offering a completely virtual home selling and buying experience. From digital marketing, to virtual showings, to inspection, to closing, we have the resources to bring you through the entire transaction virtually.
@@ -76,9 +72,25 @@
                             However, should you feel the need to show your home to prospective buyers in person, we have the tools to guide you through a safe process.
                         </p>
                     </div>
+                </div>
 
+                <div v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left' }" class="row reverse-wrap q-pa-lg">
+                    <div class="col-xs-12 col-md-8 q-pa-lg">
+                        <h5 class="q-my-md">Interest rates are down</h5>
+
+                        <p style="font-size: 1rem;">
+                            Interest rates are expected to remain low throughout the year and there are many trends in the market showing good signs for sellers.
+                        </p>
+                        
+                        <p style="font-size: 1rem; margin-top: 2rem;">
+                            <strong>DID YOU KNOW?</strong>
+                            Nationally, homes sold in 60 days in March  four days more quickly than last year!
+                        </p>
+
+                    </div>
+                    
                     <div class="col-xs-12 col-md-4 q-pa-lg" align="center">
-                        <q-img src="statics/compass_apartment.jpg" style="max-width: 250px;" />
+                        <q-img class="shadow-4" src="statics/compass_money.jpg" style="max-width: 250px;" />
                     </div>
                 </div>
             </div>
@@ -86,7 +98,7 @@
             <div class="row well" :style="innerStyle">
                 <div class="col-xs-12" style="padding: 2rem 2.5rem 0;">
                     <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                        Interested in selling?
+                        Let's get started
                     </h3>
 
                     <span
@@ -117,9 +129,9 @@
                         <h6>Give us your info and we will start you off with our Seller's Guide!</h6>
                     </div>
                     <div class="col-12 q-pa-md">
-                        <ContactForm inquiryTypeInput="Selling" :agentID="agentID" @success="success()" />
+                        <ContactForm inquiryTypeInput="Selling" @success="success()" />
 
-                        <ContactProfile class="q-my-md" :agentID="agentID" />
+                        <ContactProfile class="q-my-md" />
                     </div>
                     <div id="pdfbutton" class="col-12 q-pa-lg">
                         <q-btn v-if="showPDFButton" size="lg" class="full-width" color="primary" @click="goToPDF()">
@@ -151,7 +163,7 @@
                                 <q-carousel-slide v-for="(id, index) in videoIDs" :key="index" :name="id" class="column no-wrap flex-center" style="padding-bottom: 50px; padding-top: 25px;">
                                     <iframe
                                         sandbox="allow-scripts"
-                                        :src="`https://www.simplifyingthemarket.com/en/videos/embed/${id}`"
+                                        :src="`https://www.simplifyingthemarket.com/en/videos/embed/35238-70afc3829d7f0cdac24400a255ace4ba/${id}`"
                                         frameborder="0"
                                         allowfullscreen
                                         :width="videoEmbedWidth"
@@ -185,14 +197,17 @@ export default {
 
     data() {
         return {
-            agentID: '',
-            slideIndex: '35238-70afc3829d7f0cdac24400a255ace4ba/a19b2bc9',
+            slideIndex: '44be7792',
             showPDFButton: false,
-            videoIDs: ['35238-70afc3829d7f0cdac24400a255ace4ba/a19b2bc9', '35238-70afc3829d7f0cdac24400a255ace4ba/ed23d645', '35238-70afc3829d7f0cdac24400a255ace4ba/1c3d0d96'],
+            videoIDs: ['44be7792', 'ca3975e6', '710f7c6f'],
         }
     },
 
     computed: {
+        agentID() {
+            return this.$store.state.agentID
+        },
+
         videoEmbedWidth() {
             let width = this.$q.screen.width < 1024 ? this.$q.screen.width : 1024
             return this.$q.screen.width > 599 ? (width - 128) / 3 : width - 112
@@ -237,10 +252,7 @@ export default {
     },
 
     created() {
-        let agentID = this.$router.currentRoute.query.agent
-        console.log('agentID: ', agentID)
-
-        if (agentID) this.agentID = agentID
+        
     }
 }
 </script>

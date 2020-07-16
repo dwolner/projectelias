@@ -26,7 +26,7 @@
         <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="container bg-white">
             <div class="row well">
                 <div class="col-xs-12 col-sm-6 q-pa-xl">
-                    <ContactProfile agentID="richard" />
+                    <ContactProfile />
                 </div>
                 <div class="col-xs-12 col-sm-6 q-pa-xl">
                     <ContactForm inquiryTypeInput="Private Exclusive" />
@@ -132,6 +132,12 @@ export default {
                 desc: 'Get the best offer by testing the market privately to gather key insights without your listing getting stale.'
             }]
         }
+    },
+
+    computed: {
+        agentID() {
+            return this.$store.state.agentID
+        },
     },
 
     methods: {
