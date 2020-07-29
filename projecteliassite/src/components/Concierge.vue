@@ -21,7 +21,7 @@
 
             <div
                 class="col-xs-12 col-md-6 relative-position"
-                style="min-height: 300px; height: 100vh; background: url('statics/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
+                :style="`height: ${ $q.screen.width > 1024 ? '100vh' : '400px' }; min-height: 300px; background: url('statics/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;`"
             >
                 <div class="center">
                     <q-btn flat @click="showConciergePromo = true">

@@ -96,7 +96,7 @@
             </div>
         </div>
         
-        <div style="position: relative; background-image: url('statics/Luxury-LA.jpg'); background-size: cover; background-position: 50%; width: 100%; height: auto;"> 
+        <div class="bg-black" style="position: relative; width: 100%; height: auto;"> 
             <div class="overlay"></div>
             <Contact />
         </div>

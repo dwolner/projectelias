@@ -9,9 +9,10 @@
                         </h3>
 
                         <span
-                            class="gt-sm"
-                            v-for="(item, index) in 6"
                             v-scroll-reveal="{ delay: index * 75, scale: 0.75, rotate: { z: -90 }, easing: 'ease-in-out', distance: '100px', origin: 'left' }"
+                            v-for="(item, index) in 6"
+                            :key="index"
+                            class="gt-sm"
                             style="float: left;"
                         >
                             <svg
@@ -102,9 +103,10 @@
                     </h3>
 
                     <span
-                        class="gt-sm"
-                        v-for="(item, index) in 6"
                         v-scroll-reveal="{ delay: index * 75, scale: 0.75, rotate: { z: -90 }, easing: 'ease-in-out', distance: '100px', origin: 'left' }"
+                        v-for="(item, index) in 6"
+                        :key="index"
+                        class="gt-sm"
                         style="float: left;"
                     >
                         <svg
@@ -141,7 +143,7 @@
                     </div>
                 </div>
 
-                <div class="col-xs-12 col-md-6 q-pa-md" style="">
+                <div class="col-xs-12 col-md-6 q-pa-lg" style="">
                     <div class="row well justify-center relative-position" style="border: 2px solid rgb(11, 11, 11);">
                         <div class="col-xs-12 col-sm-6 col-md-12 q-py-xl" align="center">
                             <h5>Top Videos For Sellers</h5>
@@ -179,12 +181,58 @@
                     </div>
                 </div>
             </div>
+
+            <div v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left' }" class="row well" :style="innerStyle">
+                <div class="col-xs-12 col-sm-6 col-md-4 q-pa-xl">
+                    <div class="relative-position shadow-6" style="max-width: 300px; height: 150px; background: url('statics/bill_testimonial.jpg'); background-size: cover; background-repeat: no-repeat; background-position: 50% 20%;" @click="showVideo = true">
+                        <div class="center">
+                            <q-btn flat >
+                                <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
+                            </q-btn>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 col-md-8 q-pa-xl">
+                    <h4 class="Compass-Serif-Regular q-my-md">
+                        Hear it from Bill
+                    </h4>
+                    <p>
+                        Bill sold his home with the Richard Elias team this year and was thrilled with how it went. How could you not be when you get more than what you're asking?
+                    </p>
+                    <p>
+                        Click play to hear Bill's story.
+                    </p>
+                </div>
+            </div>
         </div>
+
+        <div class="bg-black" style="position: relative; width: 100%; height: auto;"> 
+            <div class="overlay"></div>
+            <Contact />
+        </div>
+
+        <q-dialog maximized v-model="showVideo" @show="showVideo = true" @hide="showVideo = false">
+            <q-card>
+                <q-card-section style="padding: .25rem;">
+                    <q-btn class="absolute" round flat size="sm" color="white" @click="showVideo = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                        <q-icon name="fas fa-times" color="black" />
+                    </q-btn>
+                    
+                    <div class="flex flex-center" style="padding: 40px; height: calc(100vh - 25px);">
+                        <div>
+                            <iframe :width="testimonialVideoWidth" :height="testimonialVideoHeight" :src="`https://www.youtube.com/embed/2yr17zwNzfA`" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </q-card-section>
+            </q-card>
+        </q-dialog>
     </q-page>
 </template>
 
 <script>
 import ContactForm from '../components/ContactForm'
+import Contact from '../components/Contact'
 import ContactProfile from '../components/ContactProfile'
 
 export default {
@@ -192,6 +240,7 @@ export default {
 
     components: {
         ContactForm,
+        Contact,
         ContactProfile
     },
 
@@ -200,6 +249,7 @@ export default {
             slideIndex: '44be7792',
             showPDFButton: false,
             videoIDs: ['44be7792', 'ca3975e6', '710f7c6f'],
+            showVideo: false
         }
     },
 
@@ -215,6 +265,14 @@ export default {
 
         videoEmbedHeight() {
             return this.videoEmbedWidth * 0.5625
+        },
+
+        testimonialVideoWidth() {
+            return this.$q.screen.width - 80
+        },
+
+        testimonialVideoHeight() {
+            return this.testimonialVideoWidth * 0.5625
         },
 
         parentStyle() {
