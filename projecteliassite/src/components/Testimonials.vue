@@ -1,5 +1,5 @@
 <template>
-    <div id="testimonials" class="container bg-black q-py-xl">
+    <q-page id="testimonials" class="bg-black q-py-xl flex flex-center">
         <div class="row well">
             <div class="col-xs-12 q-py-sm q-px-xl">
                 <h3 class="Compass-Serif-Regular q-mb-md text-white" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }" :style="$q.screen.width < 768 ? 'font-size: 2.5rem;' : ''">Testimonials</h3>
@@ -58,7 +58,7 @@
                 </q-carousel>
             </div>
         </div>
-    </div>
+    </q-page>
 </template>
 
 <script>

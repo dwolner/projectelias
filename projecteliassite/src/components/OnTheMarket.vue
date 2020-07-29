@@ -37,7 +37,7 @@
 
                     <iframe
                         v-if="selectedItem"
-                        :src="`https://www.compass.com/homes-for-sale/${ selectedItem.customRoute }`"
+                        :src="`https://www.compass.com/${ selectedItem.customRoute }`"
                         name="myiFrame"
                         width="100%"
                         :height="searchHeight"
