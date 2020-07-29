@@ -1,7 +1,7 @@
 <template>
     <q-page class="flex flex-center">
         <div id="top" class="hero">
-            <div class="row container text-white q-pa-lg" align="center">
+            <div class="row heroContainer text-white q-pa-lg" align="center">
                 <div class="col-12">
                     <img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 18rem;" />
                     <h2 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h2>
@@ -110,18 +110,13 @@ export default {
 <style scoped>
 .hero {
     width: 100%;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 65px);
     background: #171819;
     position: relative;
     overflow: hidden;
 }
 
-.container {
-    width: 100%;
-    overflow: hidden;
-}
-
-.hero .container {
+.heroContainer {
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
