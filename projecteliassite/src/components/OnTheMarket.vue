@@ -7,7 +7,13 @@
             </div>
 
             <div class="col-xs-12 row justify-center q-pt-md">
-                <div v-for="(item, index) in featured" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" class="col-xs-12 q-pa-sm cursor-pointer" @click="selectItem(item)">
+                <div 
+                    v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" 
+                    class="col-xs-12 q-pa-sm cursor-pointer" 
+                    v-for="(item, index) in featured" 
+                    :key="index"
+                    @click="selectItem(item)"
+                >
                     <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('statics/${ item.imageSrc }'); background-size: cover; background-position: 50%; height: ${ $q.screen.width > 552 ? '100px' : '175px' };`">
                         <div class="centerHeaderHold q-pa-md">
                             <div style="border: solid 2px white; height: 100%;">

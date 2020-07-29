@@ -8,7 +8,13 @@
                         <h3 class="Compass-Serif-Regular" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Buying Or Selling?</h3>
                     </div>
 
-                    <div v-for="(item, index) in features" v-scroll-reveal="{ delay: index * 75, easing: 'ease-in-out', distance: '100px', origin: 'left' }" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm infoCard">
+                    <div 
+                        align="center" 
+                        class="col-xs-12 col-sm-6 col-md-4 q-pa-sm infoCard"
+                        v-scroll-reveal="{ delay: index * 75, easing: 'ease-in-out', distance: '100px', origin: 'left' }" 
+                        v-for="(item, index) in features" 
+                        :key="index"
+                    >
                         <div class="bg-white q-pa-md full-height">
                             <q-icon :name="item.icon" style="font-size: 3rem;" />
                             <h5 class="q-my-lg">{{ item.title }}</h5>
@@ -118,27 +124,21 @@ export default {
 </script>
 
 <style scoped>
-#buyerssellers {
-    width: 100%;
-    /* min-height: 100vh; */
-    position: relative;
-    /* overflow: hidden; */
-}
+    #buyerssellers {
+        width: 100%;
+        /* min-height: 100vh; */
+        position: relative;
+        /* overflow: hidden; */
+    }
 
-.container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
+    .infoCard {
+        transition: transform .5s;
+    }
 
-.infoCard {
-    transition: transform .5s;
-}
-
-.infoCard:hover {
-    transform: scale(1.25) !important;
-    z-index: 999;
-}
+    .infoCard:hover {
+        transform: scale(1.25) !important;
+        z-index: 999;
+    }
 
 </style>
 

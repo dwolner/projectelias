@@ -6,7 +6,13 @@
                 <h3 class="text-white Compass-Serif-Regular">Open Houses</h3>
             </div>
 
-            <div v-for="(item, index) in neighborhoods" v-scroll-reveal="{ delay: index * 75, scale: .75, opacity: 0, easing: 'ease-in-out'}" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm cursor-pointer" @click="selectItem(item)">
+            <div 
+                class="col-xs-12 col-sm-6 col-md-4 q-pa-sm cursor-pointer" 
+                v-scroll-reveal="{ delay: index * 75, scale: .75, opacity: 0, easing: 'ease-in-out'}" 
+                v-for="(item, index) in neighborhoods" 
+                :key="index"
+                @click="selectItem(item)"
+            >
                 <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('statics/photos/${item.filename}'); background-size: cover; background-position: 50%; height: 300px;`">
                     <div class="centerHeaderHold q-pa-md">
                         <div style="border: solid 2px white; height: 100%;">

@@ -37,7 +37,13 @@
                     <h6>A private exclusive listing is an off-market home that can be shared by a Compass agent directly with their colleagues and their buyers. Property details aren’t disseminated widely and won’t appear on public home search websites.</h6>
                 </div>
                 <div class="col-xs-12 q-pa-lg q-mb-xl row" align="center">
-                    <div v-for="(item, index) in qualities" class="col-xs-12 col-sm-6 col-md-3 q-pa-md" align="center" :style="index && $q.screen.width > 992 ? `border-left: 1px solid #ccc;` : ''">
+                    <div 
+                        class="col-xs-12 col-sm-6 col-md-3 q-pa-md" 
+                        align="center" 
+                        v-for="(item, index) in qualities" 
+                        :key="index"
+                        :style="index && $q.screen.width > 992 ? `border-left: 1px solid #ccc;` : ''"
+                    >
                         <h4 style="font-size: 1.75rem;">{{ item.title }}</h4>
                         <h6 class="q-mt-md">{{ item.desc }}</h6>
                     </div>
