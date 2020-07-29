@@ -8,7 +8,13 @@
             </div>
 
             <div v-if="$q.screen.width > 767" class="col-12 row justify-center q-pt-xl q-px-xl">
-                <div v-for="(item, index) in listings" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" @click="selectListing(item)">
+                <div 
+                    class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" 
+                    v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" 
+                    v-for="(item, index) in listings" 
+                    :key="index"
+                    @click="selectListing(item)"
+                >
                     <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('${ item.media[0].originalUrl }'); background-size: cover; background-position: 50%; height: 300px;`">
                         <div class="centerHeaderHold q-pa-md">
                             <div style="border: solid 2px white; height: 100%;">
