@@ -76,7 +76,7 @@
                 </div>
 
                 <div v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left' }" class="row q-px-lg q-pb-lg">
-                    <div class="row well relative-position" style="min-height: 1rem; max-width: 320px;">
+                    <div class="col-xs-12 col-md-4 row well relative-position" style="min-height: 1rem; max-width: 320px;">
                         <div class="col-xs-6 q-pr-md" align="right">
                             <q-img src="statics/team/Tom_lender.jpg" style="max-width: 7.5rem;" />
                         </div>
@@ -88,6 +88,12 @@
                             <p class="" style="margin: 0; font-size: .8rem;">NMLS # 243656</p>
                             <p class="" style="margin: 0; font-size: .8rem;">Phone 858.597.3772</p>
                         </div>
+                        
+                        <div class="col-12 q-pa-lg" align="center">
+                            <q-btn class="full-width" color="primary" size="md" @click="$store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay', true)">
+                                Start your preapproval
+                            </q-btn>
+                        </div>
                     </div>
 
                     <div class="col-xs-12 col-md-8 q-pa-lg">
@@ -97,12 +103,6 @@
                             From Tom: "In my career I have navigated many cycles in the real estate industry. Guild Mortgage is a fifty year old San Diego based corporation with a broad array of loan programs and staff expertise unmatched in the mortgage banking industry. The combination of my experience and Guild's strength allow me to put together the loan package that best meets my clients' needs."
                         </p>
 
-                    </div>
-                    
-                    <div class="col-12 q-px-lg q-pb-lg" align="center">
-                        <q-btn class="full-width" color="primary" size="md" @click="$store.commit('globalInquiryType', 'Buying'), $root.$emit('showContactFormOverlay', true)">
-                            Start your preapproval
-                        </q-btn>
                     </div>
                 </div>
             </div>
@@ -168,12 +168,13 @@
                                 </q-carousel-slide>
                             </q-carousel>
                         </div>
+                        
+                        <div class="col-12 q-pa-lg" align="center">
+                            <OnTheMarket />
+                        </div>
                     </div>
                 </div>
                 
-                <div class="col-12 q-pa-lg">
-                    <OnTheMarket />
-                </div>
             </div>
         </div>
 
