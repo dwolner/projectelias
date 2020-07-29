@@ -8,7 +8,9 @@
   "author": "Dan Wolner",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -22,7 +24,32 @@
     "vue-scroll-reveal": "^1.0.11"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0"
+    "@quasar/app": "^1.0.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-kolibri": "^0.13.0-dev.10",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-quasar": "^1.0.0-alpha.18",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "husky": "^4.2.1",
+    "lint-staged": "^9.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">= 10.18.1",

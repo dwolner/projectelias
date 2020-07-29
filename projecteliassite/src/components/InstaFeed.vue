@@ -19,9 +19,10 @@
                     </div>
                 </div>
                 <div
-                    v-for="(item, index) in feed"
                     class="cursor-pointer"
-                    :style="`height: ${$q.screen.width > 1024 ? '300' : '150'}px; width: ${$q.screen.width > 1024 ? '300' : '150'}px; float: left; overflow: hidden;`"
+                    v-for="(item, index) in feed"
+                    :key="index"
+                    :style="cardStyle"
                     @mouseover="hoverVideoInsta(item)"
                     @mouseleave="leaveVideoInsta(item)"
                 >
@@ -60,6 +61,12 @@ export default {
         return {
             feed: [],
             accessToken: 'IGQVJWY19NTFZAqcDQ4M2hyZAEtUdTA0dVJvQmprRGJFbXVmTi1DRjNURlFkSWRuQ0VGMUtyTldEQ1pUOHNsdExMUFFBaU8zTjRsMEZAFOTRiWm5FUVJjMEJGSWVNMmdJTkg2b1N6WGVsRklDZAnY3NXJIek1BcGZAtNGF1bnow',
+        }
+    },
+
+    computed: {
+        cardStyle() {
+            return `height: ${ this.$q.screen.width > 1024 ? '300' : '150' }px; width: ${ this.$q.screen.width > 1024 ? '300' : '150' }px; float: left; overflow: hidden;`
         }
     },
 
@@ -103,16 +110,6 @@ export default {
     },
 
     created() {
-        // this.getInstaFeed((res) => {
-        //     res.data.forEach(item => {
-        //         this.getMediaForInstaID(item.id, (res) => {
-        //             console.log(res)
-        //             item = { ...item, ...res }
-        //             this.feed.push(item)
-        //         })
-        //     })
-        // })
-
         this.getInstaFeed((res) => {
             if (res.success) {
                 this.feed = res.body.sort((a, b) => {
@@ -304,30 +301,6 @@ let dummyData = [
 </script>
 
 <style scoped>
-.centerHeaderHold {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    background: rgba(0, 0, 0, 0.5);
-    -webkit-transition: background 0.5s, opacity 0.5s;
-    transition: background 0.5s, opacity 0.5s;
-}
-
-.centerHeader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 100%;
-}
-
-.centerHeaderHold:hover {
-    opacity: 1;
-}
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 #scroller::-webkit-scrollbar {
     display: none;

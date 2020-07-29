@@ -1,43 +1,41 @@
 <template>
-    <div id="buyerssellers" class="cx-dotGridBackground">
-        <div class="row well container" style="min-height: 100vh; ">
-            <div class="col-xs-12 q-py-xl">
-                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
+    <q-page class="flex flex-center cx-dotGridBackground">
+        <div id="buyerssellers" class="row">
 
-                    <div class="row well justify-center q-pa-xl">
-                        <div class="col-sm-12 q-pa-sm q-mb-md">
-                            <h3 class="Compass-Serif-Regular" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Buying Or Selling?</h3>
-                        </div>
-
-                        <div v-for="(item, index) in features" v-scroll-reveal="{ delay: index * 75, easing: 'ease-in-out', distance: '100px', origin: 'left' }" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm infoCard">
-                            <div class="bg-white q-pa-md full-height">
-                                <q-icon :name="item.icon" style="font-size: 3rem;" />
-                                <h5 class="q-my-lg">{{ item.title }}</h5>
-                                <p style="max-width: 300px;">{{ item.desc }}</p>
-                            </div>
-                        </div>
+            <div class="col-xs-12 q-px-xl q-pt-xl">
+                <div class="row well justify-center">
+                    <div class="col-sm-12 q-pa-sm q-mb-md">
+                        <h3 class="Compass-Serif-Regular" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Buying Or Selling?</h3>
                     </div>
 
-                    <div id="buyerssellersbuttons" class="full-width justify-center q-px-xl">
-                        <div class="row" style="max-width: 750px; margin: 0 auto;">
-                            <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                                <q-btn class="full-width" color="primary" size="lg" @click.stop="$router.push('/buyers')">
-                                    I am a buyer
-                                </q-btn>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
-                                <q-btn class="full-width" color="primary" size="lg" @click.stop="$router.push('/sellers')">
-                                    I am a seller
-                                </q-btn>
-                            </div>
+                    <div v-for="(item, index) in features" v-scroll-reveal="{ delay: index * 75, easing: 'ease-in-out', distance: '100px', origin: 'left' }" align="center" class="col-xs-12 col-sm-6 col-md-4 q-pa-sm infoCard">
+                        <div class="bg-white q-pa-md full-height">
+                            <q-icon :name="item.icon" style="font-size: 3rem;" />
+                            <h5 class="q-my-lg">{{ item.title }}</h5>
+                            <p style="max-width: 300px;">{{ item.desc }}</p>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+            <div id="buyerssellersbuttons" class="col-xs-12 justify-center q-py-xl">
+                <div class="row" style="max-width: 750px; margin: 0 auto;">
+                    <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                        <q-btn class="full-width" color="primary" size="lg" @click.stop="$router.push('/buyers')">
+                            I am a buyer
+                        </q-btn>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 q-px-sm q-py-md" align="center">
+                        <q-btn class="full-width" color="primary" size="lg" @click.stop="$router.push('/sellers')">
+                            I am a seller
+                        </q-btn>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </q-page>
 </template>
 
 <script>

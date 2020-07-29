@@ -1,72 +1,69 @@
 <template>
-    <div id="mylistings">
-        <div v-if="listings && listings.length" class="row well container" style="min-height: 100vh; ">
-            <div class="col-xs-12 q-py-xl">
-                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
-                    <div class="row">
-                        <div class="col-12 q-pt-xl q-px-xl" style="padding-bottom: 0;">
-                            <h3 class="text-white Compass-Serif-Regular q-px-sm" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Listings</h3>
-                        </div>
+    <q-page id="mylistings" class="flex flex-center">
 
-                        <div v-if="$q.screen.width > 767" class="col-12 row justify-center q-pt-xl q-px-xl">
-                            <div v-for="(item, index) in listings" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" @click="selectListing(item)">
-                                <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('${ item.media[0].originalUrl }'); background-size: cover; background-position: 50%; height: 300px;`">
-                                    <div class="centerHeaderHold q-pa-md">
-                                        <div style="border: solid 2px white; height: 100%;">
-                                            <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
+        <div v-if="listings && listings.length" class="row well">
 
-                                            <div v-else class="centerHeader q-pa-md">
-                                                <h6 align="center" class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.location.prettyAddress }}</h6>
-                                                <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="col-12 q-pt-xl q-px-xl" style="padding-bottom: 0;">
+                <h3 class="text-white Compass-Serif-Regular q-px-sm" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Listings</h3>
+            </div>
+
+            <div v-if="$q.screen.width > 767" class="col-12 row justify-center q-pt-xl q-px-xl">
+                <div v-for="(item, index) in listings" v-scroll-reveal="{ delay: index * 75, scale: .75, easing: 'ease-in-out', rotate: { y: 90 }}" class="col-xs-12 col-sm-6 col-md-6 col-lg-4 q-pa-sm cursor-pointer" @click="selectListing(item)">
+                    <div class="shadow-4 relative-position" :style="`height: 100%; background-image: url('${ item.media[0].originalUrl }'); background-size: cover; background-position: 50%; height: 300px;`">
+                        <div class="centerHeaderHold q-pa-md">
+                            <div style="border: solid 2px white; height: 100%;">
+                                <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
+
+                                <div v-else class="centerHeader q-pa-md">
+                                    <h6 align="center" class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.location.prettyAddress }}</h6>
+                                    <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
                                 </div>
                             </div>
-                        </div>
-
-                        <template v-else>
-                            <q-carousel
-                                v-model="slideIndex"
-                                class="col-12 rounded-borders"
-                                control-color="white"
-                                transition-prev="slide-right"
-                                transition-next="slide-left"
-                                dark
-                                animated
-                                swipeable
-                                navigation
-                                padding
-                                arrows
-                                infinite
-                                style="background: #080808;"
-                            >
-                                <q-carousel-slide v-for="(item, index) in listings" :key="index" :name="item.location.prettyAddress" class="column no-wrap flex-center full-width" style="padding: 4rem 0 4rem;" @click="selectListing(item)">
-                                    <div class="shadow-4 relative-position" :style="`height: 100%; width: 100%; background-image: url('${ item.media[0].originalUrl }'); background-size: cover; background-position: 50%; height: 300px;`">
-                                        <div class="centerHeaderHold q-pa-md">
-                                            <div style="border: solid 2px white; height: 100%;">
-                                                <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
-
-                                                <div v-else class="centerHeader">
-                                                    <h6 align="center" class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.location.prettyAddress }}</h6>
-                                                    <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </q-carousel-slide>
-                            </q-carousel>
-                        </template>
-
-                        <div class="col-12 q-pa-xl" align="center">
-                            <q-btn class="bg-white" size="lg" @click="$router.push('/search')">
-                                <q-icon size="sm" name="fas fa-search" class="q-mr-sm" />
-                                <h6>Search for homes</h6>
-                            </q-btn>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <template v-else>
+                <q-carousel
+                    v-model="slideIndex"
+                    class="col-12 rounded-borders"
+                    control-color="white"
+                    transition-prev="slide-right"
+                    transition-next="slide-left"
+                    dark
+                    animated
+                    swipeable
+                    navigation
+                    padding
+                    arrows
+                    infinite
+                    style="background: #080808;"
+                >
+                    <q-carousel-slide v-for="(item, index) in listings" :key="index" :name="item.location.prettyAddress" class="column no-wrap flex-center full-width" style="padding: 4rem 0 4rem;" @click="selectListing(item)">
+                        <div class="shadow-4 relative-position" :style="`height: 100%; width: 100%; background-image: url('${ item.media[0].originalUrl }'); background-size: cover; background-position: 50%; height: 300px;`">
+                            <div class="centerHeaderHold q-pa-md">
+                                <div style="border: solid 2px white; height: 100%;">
+                                    <img v-if="item.overlayFilename" :src="`statics/media/${item.overlayFilename}`" style="height: 100%; width: auto; transform: scale(0.7);" />
+
+                                    <div v-else class="centerHeader">
+                                        <h6 align="center" class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.location.prettyAddress }}</h6>
+                                        <!-- <q-chip v-for="tag in item.tags" @click="selectTag(tag)" small style="margin: .5rem; cursor: pointer;">#{{tag}}</q-chip> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </q-carousel-slide>
+                </q-carousel>
+            </template>
+
+            <div class="col-12 q-pa-xl" align="center">
+                <q-btn class="bg-white" size="lg" @click="$router.push('/search')">
+                    <q-icon size="sm" name="fas fa-search" class="q-mr-sm" />
+                    <h6>Search for homes</h6>
+                </q-btn>
+            </div>
+
         </div>
 
         <q-dialog v-model="showSingleListing">
@@ -120,7 +117,8 @@
                 </q-card-section>
             </q-card>
         </q-dialog>
-    </div>
+        
+    </q-page>
 </template>
 
 <script>
@@ -215,36 +213,5 @@ export default {
     /* min-height: 50px; */
     background: #080808;
     position: relative;
-}
-
-.container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.centerHeaderHold {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    background: rgba(0, 0, 0, 0.5);
-    -webkit-transition: background 0.5s, opacity 0.5s;
-    transition: background 0.5s, opacity 0.5s;
-}
-
-.centerHeader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 100%;
-    padding: 1rem 3.5rem;
-}
-
-.centerHeaderHold:hover {
-    opacity: 0;
 }
 </style>

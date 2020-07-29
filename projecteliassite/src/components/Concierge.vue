@@ -1,29 +1,27 @@
 <template>
-    <div id="concierge" class="cx-dotGridBackground" style="width: 100%;">
-        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container" style="min-height: 100vh; ">
-
+    <q-page id="concierge" class="flex flex-center cx-dotGridBackground">
+  
+        <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container flex flex-center">
             <div class="col-xs-12 col-md-6 q-pa-xl">
-                <div :class="$q.screen.width > 767 ? 'verticalCenter' : ''">
-                    <div class="q-pa-sm">
-                        <h3 class="Compass-Serif-Regular q-mb-md">Compass Concierge</h3>
-                        <p>Get fronted for the cost of home improvement services with no interest — ever.</p>
-                        <p>Compass Concierge is the hassle-free way to sell your home faster and for a higher price with services like staging, flooring, painting, and more.</p>
-                    </div>
-                    <div class="col-xs-12 q-pa-sm">
-                        <h5 class="q-mb-md">Learn how <span style="text-transform: capitalize;">{{ agentID }}</span> can help sell your home faster and for a higher price with Concierge.</h5>
-                    </div>
+                <div class="q-pa-sm">
+                    <h3 class="Compass-Serif-Regular q-mb-md">Compass Concierge</h3>
+                    <p>Get fronted for the cost of home improvement services with no interest — ever.</p>
+                    <p>Compass Concierge is the hassle-free way to sell your home faster and for a higher price with services like staging, flooring, painting, and more.</p>
+                </div>
+                <div class="col-xs-12 q-pa-sm">
+                    <h5 class="q-mb-md">Learn how <span style="text-transform: capitalize;">{{ agentID }}</span> can help sell your home faster and for a higher price with Concierge.</h5>
+                </div>
 
-                    <ContactProfile />
+                <ContactProfile />
 
-                    <div class="col-12 bg-white">
-                        <ContactForm inquiryTypeInput="Concierge" />
-                    </div>
+                <div class="col-12 bg-white">
+                    <ContactForm inquiryTypeInput="Concierge" />
                 </div>
             </div>
 
             <div
                 class="col-xs-12 col-md-6 relative-position"
-                style="min-height: 300px; background: url('statics/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
+                style="min-height: 300px; height: 100vh; background: url('statics/Concierge2.gif'); background-size: cover; background-repeat: no-repeat; background-position: 50%;"
             >
                 <div class="center">
                     <q-btn flat @click="showConciergePromo = true">
@@ -43,7 +41,8 @@
                 </q-card-section>
             </q-card>
         </q-dialog>
-    </div>
+
+    </q-page>
 </template>
 
 <script>
@@ -78,17 +77,11 @@ export default {
 </script>
 
 <style scoped>
-.hero {
-    width: 100%;
-    height: calc(100vh - 50px);
-    background: #171819;
-    position: relative;
-    overflow: hidden;
-}
+
 
 .container {
     width: 100%;
-    height: 100&;
+    min-height: 100vh;
     overflow: hidden;
 }
 
@@ -100,12 +93,6 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-}
-
-@media (min-width: 768px) {
-    .hero {
-        min-height: 600px;
-    }
 }
 
 .center {
