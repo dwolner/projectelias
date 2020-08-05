@@ -77,35 +77,27 @@
                 <div class="row q-pa-md">
                     <div class="col-12 q-pa-md">
                         <h6 class="q-my-sm" style="letter-spacing: 2px; text-transform: uppercase;">Richard Elias Team</h6>
-                        <h2 class="Compass-Serif-Regular ">Contact</h2>
+                        <h2 class="Compass-Serif-Regular">Contact</h2>
                     </div>
 
                     <div class="col-12">
                         <div class="q-mx-md" :style="`border-bottom: 1px solid #999;`"></div>
                     </div>
 
-                    <ContactForm v-if="showContactFormOverlay" class="col-12 q-my-sm q-pa-sm" />
+                    <ContactForm v-if="showContactFormOverlay" class="col-12 q-my-sm q-pa-sm" @success="formSuccess()" />
 
-                    <!-- <div class="col-xs-12 col-md-6 q-pa-md" align="center">
-                        <h6 class="Compass-Serif-Regular q-my-md">COMPASS</h6>
-                        <p>San Diego Real Estate</p>
-                        <p>Richard Elias Team | Compass</p>
-                        <p>Realtor® DRE #01104411</p>
+                    <div v-if="showPDFButton" id="pdfbutton" class="col-12 q-pa-md">
+                        <q-btn size="lg" class="full-width" color="primary" @click="goToPDF()">
+                            <h6>Get The {{ globalInquiryType === 'buying' ? 'Buyer\'s' : 'Seller\'s' }} Guide</h6>
+                            <q-icon size="sm" name="fas fa-external-link-square-alt" class="q-ml-sm" />
+                        </q-btn>
                     </div>
-
-                    <div class="col-xs-12 col-md-6 q-pa-md" align="center">
-                        <h6 class="Compass-Serif-Regular q-my-md">LOCATION</h6>
-                        <p style="margin-bottom: 0;">655 W Broadway #1650, San Diego, CA, 92101</p>
-                        <p><a @click="showMap = true">Get directions</a></p>
-                        <p>619.672.2020</p>
-                        <p>richard@richardelias.com</p>
-                    </div> -->
                 </div>
             </div>
         </q-dialog>
 
-        <q-dialog v-model="homebotCTA" seamless position="right">
-            <q-card dark style="width: 100%; max-width: 400px; background: rgba(11, 11, 11, .8);">
+        <q-dialog v-model="homebotCTA" position="right">
+            <q-card dark style="width: 100%; max-width: 400px; background: rgba(11, 11, 11, .9);">
                 <q-card-section class="row" style="padding: 0;">
                     <div class="col-3"></div>
                     <div class="col-6" align="center">
@@ -160,6 +152,7 @@ export default {
             showContactFormOverlay: false,
             homebotCTA: false,
             homebotCTARouteBlacklist: ['/homedigest', '/buyers', '/sellers'],
+            showPDFButton: false,
             menuItems: [
                 { title: 'Home', sectionID: 'top' },
                 { title: 'The Team', sectionID: 'team' },
@@ -218,6 +211,17 @@ export default {
 
         hideHomeBotDialog() {
             localStorage.setItem('hideHomebotPopup', true)
+        },
+
+        formSuccess() {
+            if (this.globalInquiryType === 'Buying' || this.globalInquiryType === 'Selling') {
+                this.showPDFButton = true
+                this.scrollToElement('pdfbutton')
+            }
+        },
+
+        goToPDF() {
+            window.open(`https://richardelias.com/statics/${ this.globalInquiryType === 'Buying' ? 'BuyingaHomeSummer2020.pdf' : 'SellingYourHouseSummer2020.pdf' }`, '_blank')
         }
     },
 
@@ -225,7 +229,11 @@ export default {
         let currentRoute = this.$router.currentRoute
         console.log('ROuter: ', currentRoute)
 
-        if (!localStorage.getItem('hideHomebotPopup') && currentRoute.path !== '/homedigest') this.showHomeBotDialog()
+        if (!localStorage.getItem('hideHomebotPopup') && currentRoute.path !== '/homedigest') {
+            setTimeout(()=> {
+                this.showHomeBotDialog()
+            }, 3000)
+        }
 
         this.$root.$on('showContactFormOverlay', val => {
             this.showContactFormOverlay = val
