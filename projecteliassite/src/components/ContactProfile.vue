@@ -11,6 +11,9 @@
                 <p class="q-my-sm" style="font-size: 1rem;">✆: {{ agentData.phone }}</p>
             </div>
         </div>
+        <div v-if="showAbout" class="col-xs-12 q-mt-md q-pa-sm" :align="$q.screen.width > 599 ? 'left' : 'center'">
+            <p style="font-size: 1rem;">{{ agentData.about }}</p>
+        </div>
     </div>
 </template>
 
@@ -18,9 +21,7 @@
 export default {
     name: 'ContactProfile',
 
-    props: {
-
-    },
+    props: ['showAbout'],
 
     data() {
         return {
