@@ -7,7 +7,7 @@
             <div class="q-pa-xl" :style="$q.screen.width > 767 ? 'padding: 5rem;' : 'padding: 2rem;'">
                 <h2 class="Compass-Serif-Regular q-my-lg" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Interested in selling?</h2>
                 <q-btn color="black" size="lg" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'right' }" @click="$store.commit('globalInquiryType', 'Selling'), $root.$emit('showContactFormOverlay', true)">
-                    Sign Up For Our Free Sellers's Guide
+                    Sign Up For Our Free Seller's Guide
                 </q-btn>
             </div>
         </div>
@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-xs-12" style="padding: 2rem 2.5rem 0;">
                     <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                        Why sell your home in 2020?
+                        Why sell a home in 2020?
                     </h3>
 
                     <span
@@ -109,7 +109,7 @@
         
         <div class="relative-position bg-black full-width" align="center">
             <div class="q-pa-xl" :style="$q.screen.width > 767 ? 'padding: 5rem;' : 'padding: 2rem;'">
-                <h3 class="Compass-Serif-Regular q-my-lg text-white" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Get started with our Sellers's Guide!</h3>
+                <h3 class="Compass-Serif-Regular q-my-lg text-white" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Get started with our Seller's Guide!</h3>
                 <q-btn class="bg-white text-black" size="lg" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'right' }"  @click="$store.commit('globalInquiryType', 'Selling'), $root.$emit('showContactFormOverlay', true)">
                     Sign Up For Our Free Seller's Guide
                 </q-btn>

@@ -86,7 +86,7 @@
 
                     <ContactForm v-if="showContactFormOverlay" class="col-12 q-my-sm q-pa-sm" @success="formSuccess()" />
 
-                    <div v-if="showPDFButton" id="pdfbutton" class="col-12 q-pa-md">
+                    <div v-if="showPDFButton" id="pdfbutton" class="col-12 q-px-md q-pb-md">
                         <q-btn size="lg" class="full-width" color="primary" @click="goToPDF()">
                             <h6>Get The {{ globalInquiryType === 'buying' ? 'Buyer\'s' : 'Seller\'s' }} Guide</h6>
                             <q-icon size="sm" name="fas fa-external-link-square-alt" class="q-ml-sm" />
@@ -176,6 +176,10 @@ export default {
         agentDataMap() {
             return this.$store.state.agentDataMap
         },
+
+        globalInquiryType() {
+            return this.$store.state.globalInquiryType
+        },
     },
 
     methods: {
@@ -214,6 +218,7 @@ export default {
         },
 
         formSuccess() {
+            console.log('formSuccess: ', this.globalInquiryType)
             if (this.globalInquiryType === 'Buying' || this.globalInquiryType === 'Selling') {
                 this.showPDFButton = true
                 this.scrollToElement('pdfbutton')

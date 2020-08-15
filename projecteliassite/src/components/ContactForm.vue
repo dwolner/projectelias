@@ -141,8 +141,8 @@
         </q-form>
 
         <div v-if="conciergeFormSuccess || conciergeFormFail" class="q-pa-sm">
-            <p v-if="conciergeFormSuccess">Thank you! The team will be in touch soon.</p>
-            <p v-if="conciergeFormFail">There was an issue sending your contact request, please try again or email <a href="mailto:richard@richardelias.com"></a> directly.</p>
+            <p v-if="conciergeFormSuccess" style="margin: 0;">Thank you! The team will be in touch soon.</p>
+            <p v-if="conciergeFormFail" style="margin: 0;">There was an issue sending your contact request, please try again or email <a href="mailto:richard@richardelias.com"></a> directly.</p>
         </div>
     </div>
 </template>
@@ -235,9 +235,11 @@ export default {
 
                     this.$emit('success')
 
-                    this.setTimeout(() => {
-                        this.$root.$emit('showContactFormOverlay', false)
-                    }, 3000)
+                    if (!this.globalInquiryType === 'Buying' && !this.globalInquiryType === 'Selling') {
+                        setTimeout(() => {
+                            this.$root.$emit('showContactFormOverlay', false)
+                        }, 3000)
+                    }
                 } else {
                     // error
                     this.conciergeFormSuccess = false

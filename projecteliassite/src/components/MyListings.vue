@@ -1,7 +1,7 @@
 <template>
-    <q-page id="mylistings" class="flex flex-center">
+    <q-page v-if="listings && listings.length" id="mylistings" class="flex flex-center">
 
-        <div v-if="listings && listings.length" class="row well">
+        <div class="row well">
 
             <div class="col-12 q-pt-xl q-px-xl" style="padding-bottom: 0;">
                 <h3 class="text-white Compass-Serif-Regular q-px-sm" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Listings</h3>
@@ -177,15 +177,19 @@ export default {
             })
         },
 
-        formatListings(res) {
-            console.log('formatListings: ', res)
+        formatListings(data) {
+            console.log('formatListings: ', data)
 
-            this.listings = res.listingRelations.map(listing => {
-                return listing.listing
-            })
-
-            this.slideIndex = this.listings[0].location.prettyAddress
-
+            if (data && data.listingRelations) {
+                this.listings = data.listingRelations.map(listing => {
+                    return listing.listing
+                })
+    
+                this.slideIndex = this.listings[0].location.prettyAddress
+            } else {
+                this.listings = []
+            }
+    
             console.log('listings: ', this.listings)
         },
 
@@ -206,8 +210,8 @@ export default {
         // TODO: FOR DEV
         // this.formatListings(dummy)
 
-        this.getListings(res => {
-            this.formatListings(res)
+        this.getListings(data => {
+            this.formatListings(data)
         })
     },
 }
