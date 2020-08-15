@@ -33,7 +33,7 @@
           </h4>
         </div>
 
-        <div class="col-12">
+        <div class="col-12 q-mt-md">
           <div
             class="relative-position shadow-6"
             style="max-width: 300px; height: 150px; background: url('statics/homedigest_intro.png'); background-size: cover; background-repeat: no-repeat; background-position: 50% 20%;"
@@ -190,7 +190,7 @@ export default {
 
   mounted() {
     setTimeout(() => {
-      let tagline = "Let our experience move you.";
+      let tagline = "Let Our Experience Move You!";
       this.tagline = tagline.split(" ");
     }, 500);
   }
