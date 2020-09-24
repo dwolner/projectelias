@@ -8586,6 +8586,11 @@ schema-utils@^2.6.5:
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
 
+scroll-snap@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/scroll-snap/-/scroll-snap-3.0.2.tgz#895920af28772a701c335536b8f71f0f13eadba1"
+  integrity sha512-uZhLGscyY4Icm8hFv9MFuh0zZ38ZFsTj+rafT8osoS5sRtfXwb7QxaGJdM0XJtgKU/JGoX8z+rq8s5jroxSxpw==
+
 scrollreveal@^4.0.2:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/scrollreveal/-/scrollreveal-4.0.5.tgz#cf83cc5d9874dc0d92ef9c89a8894e57f3f8e034"
