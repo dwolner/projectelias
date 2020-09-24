@@ -96,6 +96,7 @@
     <InstaFeed />
 
     <div
+      id="contact"
       style="position: relative; background-image: url('statics/Luxury-LA.jpg'); background-size: cover; background-position: 50%; width: 100%; height: auto;"
     >
       <div class="overlay"></div>
@@ -134,6 +135,8 @@
 </template>
 
 <script>
+import ScrollSnap from "scroll-snap";
+
 import Concierge from "../components/Concierge";
 import InstaFeed from "../components/InstaFeed";
 import MyListings from "../components/MyListings";
@@ -175,9 +178,9 @@ export default {
       el.style.opacity = 0;
     },
     enter: function(el, done) {
-      var delay = el.dataset.index * 500;
+      var delay = el.dataset.index * 750;
       setTimeout(function() {
-        Velocity(el, { opacity: 1, translateX: '500px' }, { complete: done });
+        Velocity(el, { opacity: 1, translateX: "500px" }, { complete: done });
       }, delay);
     },
     leave: function(el, done) {
@@ -193,6 +196,19 @@ export default {
       let tagline = "Let Our Experience Move You!";
       this.tagline = tagline.split(" ");
     }, 500);
+
+    const snapObject = new ScrollSnap(
+      document.getElementById("snap-container"),
+      {
+        snapDestinationY: "90%"
+      }
+    )
+
+    console.log(snapObject)
+
+    snapObject.bind(() => {
+      console.log("element snapped");
+    })
   }
 };
 </script>

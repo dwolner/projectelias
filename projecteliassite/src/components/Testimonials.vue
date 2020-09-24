@@ -70,9 +70,9 @@ export default {
             slideIndex: 'Tiffany Lien',
             textSlides: [
                 {
-                    text: 'Richard Elias and his team were very professional and responsive. They were extremely focused on getting our home ready to sell and then using the best sales tools available. Our home was on the market less than three weeks before we had an offer.',
-                    author: 'Janis S.',
-                    date: '08/15/2018',
+                    text: 'I was amazed that during the first week after you brought the property to market that you had over 17 showings and three legitimate offers at or over the asking price. Not only did you do an outstanding job marketing the property, but your communication with us and follow up on all aspects of the transaction was more than I ever expected. The timing of the sale from initial listing to close of escrow far exceeded our expectations. Thank you for an outstanding job selling the subject property and we look forward to working with you in the sale of the other condo next year.',
+                    author: 'Lin',
+                    date: '12/10/2020',
                 },
                 {
                     text:
@@ -115,12 +115,6 @@ export default {
                 },
                 {
                     text:
-                        'Richard and his team are true professionals and exceeded our expectations. He knew our area, the comps, and marketing techniques that made our home sell very quickly! Thank you Richard and the Compass team!',
-                    author: 'Grace B.',
-                    date: '01/27/2020',
-                },
-                {
-                    text:
                         'Samantha is the utmost professional! She responds immediately to my text and email correspondence. Her technical expertise is brilliant, and she cares at a personal level for what is best for her clients. Samantha is one in a million!',
                     author: 'Jessica Von Prisk',
                     date: '01/19/2019',
@@ -154,15 +148,6 @@ export default {
                 },
                 {
                     id: 'P46UWzVF1So'
-                },
-                {
-                    id: '17xf9Cb8eqY'
-                },
-                {
-                    id: 'rBi2FN1LWpA'
-                },
-                {
-                    id: 'cP2STCCiRrQ'
                 },
             ],
 
