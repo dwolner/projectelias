@@ -67,7 +67,7 @@ export default {
 
     data() {
         return {
-            slideIndex: 'Tiffany Lien',
+            slideIndex: 'Lin',
             textSlides: [
                 {
                     text: 'I was amazed that during the first week after you brought the property to market that you had over 17 showings and three legitimate offers at or over the asking price. Not only did you do an outstanding job marketing the property, but your communication with us and follow up on all aspects of the transaction was more than I ever expected. The timing of the sale from initial listing to close of escrow far exceeded our expectations. Thank you for an outstanding job selling the subject property and we look forward to working with you in the sale of the other condo next year.',
