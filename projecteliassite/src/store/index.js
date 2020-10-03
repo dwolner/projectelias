@@ -61,15 +61,6 @@ export default function ( /* { ssrContext } */ ) {
 			    phone: '619.344.1619',
 				imageFilename: 'mari_square.jpg',
 				about: 'Mari values the privilege to create a foundation for herself, her family and to help others do the same in America’s Finest City through her passion for real estate. Mari prides herself on her ability to provide clients with excellent customer service, efficiency, honesty and dedication to her craft. Whether her clients are buying or selling, Mari thrives from knowing she can assist in making their real estate dreams come true.'
-			  },
-			  diego: {
-			    name: 'Diego Martinez',
-			    title: 'Realtor',
-			    dreNumber: '02023843',
-			    email: 'diego.martinez@compass.com',
-			    phone: '619.205.9664',
-				imageFilename: 'diego_square.jpg',
-				about: 'Diego is a native born San Diegan who was raised in a family where real estate and business was key. He attributes his success to his upbringing, watching his parents purchase their first investment property at a young age with the knowledge that owning real estate is another great way of making your money work for you. He is also a proud San Diego State University alumni, proud to represent his local communities and fellow millennials. To say that Diego loves helping people is an understatement, his decision to dive into something where he knew he wasn’t just selling a product, but actually helping someone fulfill a dream is still the best decision he’ s made to date. Diego’s “hustler” mindset, energetic and compassionate attitude towards people is something that is ingrained in him.He is always excited to meet new clients, treat them like a personal friend, and guide them through the home buying and selling process.'
 			  }
 			}
 		},
