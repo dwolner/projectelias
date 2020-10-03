@@ -132,13 +132,6 @@ export default {
                 number: '619.344.1619',
                 email: 'mari.rosas<br />@compass.com',
                 slug: 'mari-rosas'
-            }, {
-                filename: 'Diego.jpg',
-                name: 'Diego',
-                role: 'Realtor',
-                number: '619.205.9664',
-                email: 'diego.martinez<br />@compass.com',
-                slug: 'diego-martinez'
             }]
         }
     },
