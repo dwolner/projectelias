@@ -120,8 +120,11 @@ export default {
                     date: '01/19/2019',
                 },
             ],
-            videoSlideIndex: '2yr17zwNzfA',
+            videoSlideIndex: 'mRAuqZJlXsk',
             videoSlides: [
+                {
+                    id: 'mRAuqZJlXsk'
+                },
                 {
                     id: '2yr17zwNzfA'
                 },
@@ -145,10 +148,7 @@ export default {
                 },
                 {
                     id: 'MK00gMTL6X4'
-                },
-                {
-                    id: 'P46UWzVF1So'
-                },
+                }
             ],
 
             videoOffset: 137
