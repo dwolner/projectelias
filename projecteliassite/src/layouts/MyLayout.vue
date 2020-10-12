@@ -151,7 +151,7 @@ export default {
             leftDrawerOpen: false,
             showContactFormOverlay: false,
             homebotCTA: false,
-            homebotCTARouteBlacklist: ['/homedigest', '/buyers', '/sellers'],
+            homebotCTARouteBlacklist: ['/homedigest', '/buyers', '/sellers', '/privacypolicy'],
             showPDFButton: false,
             menuItems: [
                 { title: 'Home', sectionID: 'top' },

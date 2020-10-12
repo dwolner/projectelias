@@ -34,7 +34,7 @@
                 <p><span style="font-style: italic;">Designed and developed by </span> <a href="http://danwolner.com/">Daniel Wolner.</a></p>
             </div>
             <div class="col-xs-6 q-px-sm" align="left">
-                <p style="font-size: .8rem;">© COPYRIGHT 2020 | PRIVACY POLICY</p>
+                <p style="font-size: .8rem;">© COPYRIGHT 2020 | <a @click="$router.push('/privacypolicy')">PRIVACY POLICY</a></p>
             </div>
             <div class="col-xs-6 q-px-sm" align="right">
                 <p style="font-size: .8rem;">THE RICHARD ELIAS TEAM</p>
