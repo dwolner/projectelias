@@ -53,6 +53,10 @@ const routes = [{
       {
         path: '/homedigest',
         component: () => import('pages/Homebot.vue')
+      },
+      {
+        path: '/privacypolicy',
+        component: () => import('pages/PrivacyPolicy.vue')
       }
     ]
   },
