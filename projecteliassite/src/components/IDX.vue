@@ -1,20 +1,8 @@
 <template>
-    <div id="compasssearch">
+    <div id="idxContainer">
         <div class="row well container">
             <div class="col-xs-12 q-pa-md" align="right">
                 <div id="IDX" />
-                <!-- <iframe
-                    style="border: 0px #ffffff none;"
-                    src="https://www.compass.com/homes-for-sale/san-diego-ca/"
-                    name="myiFrame"
-                    width="100%"
-                    :height="searchHeight"
-                    frameborder="1"
-                    marginwidth="0px"
-                    marginheight="0px"
-                    scrolling="no"
-                    allowfullscreen="allowfullscreen"
-                ></iframe> -->
             </div>
         </div>
     </div>
@@ -45,7 +33,7 @@ script.src = 'https://sm.homejunction.com/app/js/bootstrap.js?callback=hj_search
 document.head.appendChild(script);
 
 export default {
-    name: 'CompassSearch',
+    name: 'IDX',
 
     data() {
         return {}
@@ -71,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-#compasssearch {
+#idxContainer {
     width: 100%;
     min-height: calc(100vh - 65px);
     background: #fff;
