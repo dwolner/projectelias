@@ -27,6 +27,10 @@ const routes = [{
         component: () => import('components/CompassSearch.vue')
       }, 
       {
+        path: '/idx',
+        component: () => import('components/IDX.vue')
+      }, 
+      {
         path: '/buyers',
         component: () => import('pages/Buyers.vue')
       }, 
