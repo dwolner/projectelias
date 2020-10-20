@@ -37,8 +37,8 @@ const routes = [{
       {
         path: '/sellers',
         component: () => import('pages/Sellers.vue')
-      }, {
-
+      }, 
+      {
         path: '/letstalk',
         component: () => import('pages/Calendly.vue')
       }, 
