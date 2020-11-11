@@ -11,7 +11,7 @@
                     <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Let's talk</span>
                 </q-btn>
 
-                <q-btn dense size="md" @click="$router.push('/search')">
+                <q-btn dense size="md" @click="openWindow('https://search.richardelias.com/', true)">
                     <q-icon name="fas fa-search" class="q-ma-xs" style="font-size: .8rem;" />
                     <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Search for homes</span>
                 </q-btn>
@@ -46,6 +46,14 @@
                     </q-item-section>
                 </q-item>
             </q-list>
+
+            <div class="full-width q-my-sm" align="center" @click="openWindow('https://search.richardelias.com/', true)">
+                <q-btn round outline>
+                    <q-icon size="xs" name="fas fa-search" />
+                </q-btn>
+                <br />
+                <span class="gt-sm q-ma-xs" style="line-height: 1.3rem;">Search for homes</span>
+            </div>
 
             <div class="full-width q-my-sm" align="center" @click="$root.$emit('showContactFormOverlay', true)">
                 <q-btn round outline>
@@ -199,9 +207,9 @@ export default {
             this.leftDrawerOpen = false
         },
 
-        openWindow(link) {
+        openWindow(link, sameWindow) {
             let options = {}
-            window.open(link, '_blank')
+            window.open(link, sameWindow ? '' : '_blank')
         },
 
         scrollHandler(val) {

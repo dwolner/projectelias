@@ -23,7 +23,7 @@
 
                                     <div v-else class="centerHeader q-pa-md" align="center">
                                         <h6 class="text-white" style="margin: 0; letter-spacing: 0.4rem; line-height: 1.5rem;">{{ item.title }}</h6>
-                                        <q-chip v-for="(cat, index) in item.categories" :key="cat + index" size="sm" style="color: white; background: transparent;">
+                                        <q-chip v-if="index < 6" v-for="(cat, index) in item.categories" :key="cat + index" size="sm" style="color: white; background: transparent;">
                                             <q-icon class="q-mr-xs" name="fas fa-tag" style="font-size: .6rem;" />
                                             {{ cat }}
                                         </q-chip>
