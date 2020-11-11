@@ -22,10 +22,10 @@ const routes = [{
         component: () => import('pages/Openhouses.vue'),
         props: true
       }, 
-      {
-        path: '/search',
-        component: () => import('components/CompassSearch.vue')
-      }, 
+      // {
+      //   path: '/search',
+      //   component: () => import('components/CompassSearch.vue')
+      // }, 
       {
         path: '/idx',
         component: () => import('components/IDX.vue')

@@ -1,7 +1,7 @@
 <template>
     <div id="idxContainer">
-        <div class="row well container">
-            <div class="col-xs-12 q-pa-md" align="right">
+        <div class="row well container" style="height: calc(100vh - 100px);">
+            <div class="col-xs-12" align="right">
                 <div id="IDX" />
             </div>
         </div>
@@ -11,25 +11,32 @@
 <script>
 window.hj_search_load_callback = (hj) => {
     console.log('hj_search_load_callback: ', hj)
-    hj.init({          
-        license: '3030-3D15-DA1E-77A7',          
+
+    hj.init({
+        contactListingAgent: true,
+        apiBaseURL: 'https://slipstream.homejunction.com/ws/',
+        license: '3030-3D15-DA1E-77A7',
         market: 'sdmls',
         container: '#IDX',
-        googleApiKey: 'AIzaSyBe1MCdquXljVHyTzXwD194J8Eq6ubdaTs',        
+        googleApiKey: 'AIzaSyBe1MCdquXljVHyTzXwD194J8Eq6ubdaTs',
+        versionAPI: 'v20180402',
         contactForm: {
             fields: {
                 text: {
-                    text: "I'm interested in MLS# {id} at {address.deliveryLine}, {address.city} {address.zip}"
-                }
-            }
-        }          
+                    text: 'TEST I\'m interested in MLS# {id} at {address.deliveryLine}, {address.city} {address.zip}',
+                },
+            },
+        },
+        menu: {
+            items: []
+        }
     })
 }
 
 var script = document.createElement('script');
 script.async = true
 script.type = 'text/javascript'
-script.src = 'https://sm.homejunction.com/app/js/bootstrap.js?callback=hj_search_load_callback'
+script.src = 'https://hj-search.server.task-tracker.org/app/wp/bootstrap.js?callback=hj_search_load_callback'
 document.head.appendChild(script);
 
 export default {

@@ -120,8 +120,11 @@ export default {
                     date: '01/19/2019',
                 },
             ],
-            videoSlideIndex: 'mRAuqZJlXsk',
+            videoSlideIndex: 'GvXz6px-QHo',
             videoSlides: [
+                {
+                    id: 'GvXz6px-QHo'
+                },
                 {
                     id: 'mRAuqZJlXsk'
                 },
@@ -133,9 +136,6 @@ export default {
                 },
                 {
                     id: 'McOLc6YwmMw'
-                },
-                {
-                    id: 'gz3mRMpwSGs'
                 },
                 {
                     id: 'kEX55YQIEJ8'

@@ -142,7 +142,7 @@
 
         <div v-if="conciergeFormSuccess || conciergeFormFail" class="q-pa-sm">
             <p v-if="conciergeFormSuccess" style="margin: 0;">Thank you! The team will be in touch soon.</p>
-            <p v-if="conciergeFormFail" style="margin: 0;">There was an issue sending your contact request, please try again or email <a href="mailto:richard@richardelias.com"></a> directly.</p>
+            <p v-if="conciergeFormFail" style="margin: 0;">There was an issue sending your contact request, please try again or email <a href="mailto:richard@richardelias.com">richard@richardelias.com</a> directly.</p>
         </div>
     </div>
 </template>

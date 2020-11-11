@@ -70,26 +70,30 @@ export default {
     data() {
         return {
             featured: [ 
+                // {
+                //     title: 'East County San Diego',
+                //     imageSrc: 'house_shots/CA-SanDiego-RanchoSantaFe-36.jpg',
+                //     customRoute: 'homes-for-sale/la-mesa-ca-91942/locations=51163,51120,51140,51138,51148,51113/',
+                //     link: 'https://search.richardelias.com/#/search?listingType=%5B%22Residential%22%5D&pageSize=250&sortField=daysOnHJI&sortOrder=asc&zoom=12&market=sdmls&center=%7B%22lat%22%3A32.80684427912777,%22lng%22%3A-116.94088442163086%7D&propertyType=%5B%5D&keyword=&box=32.87910001174263,-116.80492861108398,32.7345297593719,-117.07684023217773&status=%5B%5D'
+                // },
                 {
-                    title: 'East County San Diego',
-                    imageSrc: 'house_shots/CA-SanDiego-RanchoSantaFe-36.jpg',
-                    customRoute: 'homes-for-sale/la-mesa-ca-91942/locations=51163,51120,51140,51138,51148,51113/'
-                },
-                {
-                    title: 'Central San Diego',
+                    title: 'Search Homes In San Diego',
                     imageSrc: 'house_shots/Compass-Edited-DelMar-73.jpg',
-                    customRoute: 'homes-for-sale/san-diego-ca-92103/locations=51117,51102,51106,51062,51118/'
+                    customRoute: 'homes-for-sale/san-diego-ca-92103/locations=51117,51102,51106,51062,51118/',
+                    link: 'https://search.richardelias.com'
                 },
-                {
-                    title: 'North San Diego (Off 15 Freeway)',
-                    imageSrc: 'house_shots/Compass-NorthPBBirdrock-Originals-6.jpg',
-                    customRoute: 'homes-for-sale/san-diego-ca-92131/locations=51085,51111,51094,51096/'
-                },
-                {
-                    title: 'Coastal/North San Diego',
-                    imageSrc: 'house_shots/Compass-LaJolla-Originals-25.jpg',
-                    customRoute: 'homes-for-sale/cardiff-by-the-sea-ca-92007/locations=51158,51141,51170,51132/'
-                },
+                // {
+                //     title: 'North San Diego (Off 15 Freeway)',
+                //     imageSrc: 'house_shots/Compass-NorthPBBirdrock-Originals-6.jpg',
+                //     customRoute: 'homes-for-sale/san-diego-ca-92131/locations=51085,51111,51094,51096/',
+                //     link: ''
+                // },
+                // {
+                //     title: 'Coastal/North San Diego',
+                //     imageSrc: 'house_shots/Compass-LaJolla-Originals-25.jpg',
+                //     customRoute: 'homes-for-sale/cardiff-by-the-sea-ca-92007/locations=51158,51141,51170,51132/',
+                //     link: ''
+                // },
             // {
             //     title: 'Single Family Homes Under $600k',
             //     imageSrc: 'house_shots/Compass-LaJolla-Originals-25.jpg',
@@ -117,10 +121,10 @@ export default {
 
     methods: {
         selectItem(item) {
-            // window.open(item.link, '_blank')
+            window.open(item.link, '_blank')
 
-            this.selectedItem = item
-            this.showSelectedItem = true
+            // this.selectedItem = item
+            // this.showSelectedItem = true
         }
     },
 

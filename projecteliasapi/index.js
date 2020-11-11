@@ -48,7 +48,10 @@ app.get('/listings', (req, res) => {
             relationTypes: [0]
         })
         .then(response => {
-            res.send({ success: true, body: response.data })
+            res.send({
+                success: true,
+                body: response.data
+            })
         })
         .catch(error => {
             console.log(error)
@@ -125,18 +128,23 @@ app.get('/instaFeed', (req, res) => {
 })
 
 app.post('/contact', (req, expressRes) => {
+    console.log('contact req: ', req)
     const transporter = nodemailer.createTransport({
         service: 'gmail', //smtp.gmail.com  //in place of service use host...
         secure: false, //true
         port: 25, //465
         auth: {
             user: 'richardeliasbot01@gmail.com',
-            pass: 'DwYwj*:b8haq3,U{'
-        }, 
+            pass: ',F4S`#stMbQXt-2q'
+        },
         tls: {
             rejectUnauthorized: false
         }
     })
+
+    if (req && req.body && req.body.encodedReq) {
+        req.body = JSON.parse(req.body.encodedReq)
+    }
 
     const mailOptions = {
         to: ['richard@richardelias.com', 'xxatticus@gmail.com'],
@@ -155,6 +163,7 @@ app.post('/contact', (req, expressRes) => {
             ${ req.body.streetAddress ? '<p>Street Address: <strong>' + req.body.streetAddress + '</strong></p>' : '' }
             ${ req.body.agentID ? '<p>Agent: <strong>' + req.body.agentID + '</strong></p>' : '' }
             <p>Type: <strong>${ req.body.type }</strong></p> 
+            ${ req.body.text ? '<p>' + req.body.text + '</p>' : '' }
             <br /><br />
             <p>Courtesy of your friendly RichardElias.com email bot!</p>
         `,
@@ -163,7 +172,7 @@ app.post('/contact', (req, expressRes) => {
 
     //add req to db
     let emailObj = req.body
-        emailObj.timestamp = Date.now()
+    emailObj.timestamp = Date.now()
     console.log('Adding new email: ', emailObj)
 
     db.contactRequests.save(emailObj)
@@ -213,18 +222,18 @@ cron.schedule('* * 15 * *', () => {
     console.log('Running Insta Token Refresh: ' + instaToken)
 
     axios.get(`https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${ instaToken }`)
-    .then(response => {
-        // {
-        //     "access_token": "{long-lived-user-access-token}",
-        //     "token_type": "bearer",
-        //     "expires_in": 5183944 // Number of seconds until token expires
-        // }
-        
-        if (response.data) instaToken = response.data.access_token
-    })
-    .catch(error => {
-        console.log('Running Insta Token ERROR: ' + error)
-    })
+        .then(response => {
+            // {
+            //     "access_token": "{long-lived-user-access-token}",
+            //     "token_type": "bearer",
+            //     "expires_in": 5183944 // Number of seconds until token expires
+            // }
+
+            if (response.data) instaToken = response.data.access_token
+        })
+        .catch(error => {
+            console.log('Running Insta Token ERROR: ' + error)
+        })
 })
 
 const PORT = 3001
