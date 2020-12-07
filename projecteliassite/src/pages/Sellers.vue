@@ -230,9 +230,9 @@ export default {
 
     data() {
         return {
-            slideIndex: '44be7792',
+            slideIndex: '8d48f86a',
             showPDFButton: false,
-            videoIDs: ['44be7792', 'ca3975e6', '710f7c6f'],
+            videoIDs: ['67a6336c', '0c2c8eec', '8d48f86a'],
             showVideo: false
         }
     },

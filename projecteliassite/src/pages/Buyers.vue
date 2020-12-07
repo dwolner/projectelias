@@ -41,6 +41,9 @@
                         </svg>
                     </span>
                 </div>
+                <div class="col-12 q-pa-lg" align="center">
+                    <OnTheMarket />
+                </div>
             </div>
 
             <div class="row reverse-wrap q-px-lg">
@@ -161,9 +164,6 @@
                         </q-carousel>
                     </div>
                     
-                    <div class="col-12 q-pa-lg" align="center">
-                        <OnTheMarket />
-                    </div>
                 </div>
             </div>
             
