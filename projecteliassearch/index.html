@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Map Search 2.0 - Home Junction</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body style="padding: 0; margin: 0; display: flex; flex-flow: column; height: 100%;">
+    <script type="text/javascript">
+        function hj_search_load_callback(hj) {
+            hj.init({
+                contactListingAgent: false,
+                apiBaseURL: 'https://slipstream.homejunction.com/ws/',
+                license: '3030-3D15-DA1E-77A7',
+                market: 'sdmls',
+                container: '#app',
+                googleApiKey: 'AIzaSyBe1MCdquXljVHyTzXwD194J8Eq6ubdaTs',
+                versionAPI: 'v20180402',
+                search: {
+                    center: { "lat": 32.719511, "lng": -117.160096 },
+                    zoom: 11,
+                },
+                contactForm: {
+                    fields: {
+                        text: {
+                            text: 'I\'m interested in MLS# {id} at {address.deliveryLine}, {address.city} {address.zip}',
+                        },
+                    },
+                    agent: {
+                        name: 'RICHARD ELIAS',
+                        officeName: 'Compass',
+                        officePhone: '619.562.6800',
+                        photo: 'https://richardelias.com/statics/team/richard_square.jpg',
+                        email: 'richard@richardelias.com'
+                    }
+                },
+                menu: {
+                    items: []
+                }
+            })
+
+            hj.on('user.registration', function (formData, listingObject) {
+                console.log('registered: ', formData)
+
+                let req = {
+                    ...formData,
+                    type: 'IDXSignUp',
+                }
+
+                sendContactReq(req, () => {
+
+                })
+            })
+
+            hj.on('user.logged', function (formData, listingObject) {
+                console.log('logged in: ', formData)
+
+                // let req = {
+                //     ...formData,
+                //     type: 'IDXSignUp',
+                // }
+
+                // sendContactReq(req, () => {
+
+                // })
+            })
+
+            hj.on('listing.saved', function (formData, listingObject) {
+                console.log('favorited: ', formData)
+
+                // let req = {
+                //     ...formData,
+                //     type: 'homeJunctionInquiry',
+                // }
+
+                // sendContactReq(req, thankYouFlashMessage)
+            })
+
+            hj.on('submit.contact_form', function (formData, listingObject) {
+                // Zapier web hook URL to send emails
+                console.log('FORMDATA: ', formData)
+
+                // email: "daniel.wolner@gmail.com"
+                // name: "Daniel Wolner"
+                // phone: "12152066691"
+                // text: "I'm interested in MLS# 200051286 at 451 Orsett, Chula Vista 91911"
+                if (!formData.email) {
+                    sendNotification('Missing info!', 'Please enter your email.')
+                    return
+                }
+                if (!formData.name) {
+                    sendNotification('Missing info!', 'Please enter your name.')
+                    return
+                }
+                if (!formData.phone) {
+                    sendNotification('Missing info!', 'Please enter your phone number.')
+                    return
+                }
+
+                let req = {
+                    ...formData,
+                    type: 'homeJunctionInquiry',
+                }
+
+                // Display thank you flash message upon successful form submission
+                let thankYouFlashMessage = function (res) {
+                    console.log('FORMDATA RES: ', res)
+                    if (res && res.success) {
+                        sendNotification('Thanks for contacting us!', 'We\'ll get back to you shortly.')
+                    } else {
+                        sendNotification('Oops, there was an issue.', 'Please try again later.')
+                    }
+                }
+
+                sendContactReq(req, thankYouFlashMessage)
+            })
+
+            var sendContactReq = function (req, callback) {
+                let route = 'https://richardelias.com/api/contact'
+                let requestHeaders = { "Content-type": 'application/x-www-form-urlencoded; charset=UTF-8' }
+
+                console.log('sendContactReq: ', req)
+                // // Post submitted web form data to Zapier
+                ajaxPost(route, req, callback, requestHeaders)
+            }
+
+            var sendNotification = function (title, msg) {
+                hj.notification.Add({
+                    title: title,
+                    msg: msg,
+                    position: "toast-bottom-right",
+                    timeout: 3000
+                })
+            }
+
+            let ajaxPost = function (url, params, callback, headers) {
+                var http = new XMLHttpRequest()
+
+                http.open("POST", url, true)
+
+                if (typeof headers === 'object') {
+                    for (var i in headers) {
+                        if ((typeof i === 'string') && (typeof headers[i] === 'string')) {
+                            http.setRequestHeader(i, headers[i])
+                        }
+                    }
+                }
+                else {
+                    http.setRequestHeader("Content-type", "application/json")
+                }
+
+                http.onreadystatechange = function () {
+                    if (http.readyState == 4 && http.status == 200) {
+                        if (typeof callback == "function") {
+                            callback(JSON.parse(http.responseText))
+                        }
+                    }
+                }
+
+                http.send('encodedReq=' + JSON.stringify(params))
+            }
+        }
+    </script>
+
+    <div style="display: flex; width: 100%; height: 65px; background: #000;">
+        <div style="width: 50%;">
+            <a href="https://richardelias.com">
+                <h6 style="color: white; margin: 1.5rem; font-size: 1rem; font-family: 'Open Sans', sans-serif;">HOME
+                </h6>
+            </a>
+        </div>
+        <div style="width: 50%; text-align: right;">
+            <a href="https://richardelias.com">
+                <img src="https://richardelias.com/statics/logos/RichardElias_CompassLockupHorizontal-White.png"
+                    style="max-height: 3.4rem; margin: .25rem;" />
+            </a>
+        </div>
+    </div>
+    <div id="app"></div>
+
+    <script async type="text/javascript"
+        src="https://sm.homejunction.com/app/js/bootstrap.js?callback=hj_search_load_callback"></script>
+</body>
+
+</html>
