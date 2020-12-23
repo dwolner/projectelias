@@ -11,6 +11,7 @@
                 <p class="no-margin">Richard Elias Team | Compass</p>
                 <p class="no-margin">✆: 619.562.6800</p>
                 <p class="no-margin">Realtor® DRE #01104411</p>
+                <p class="no-margin">CA DRE #01527365</p>
             </div>
             <div class="col-xs-12 col-sm-4 q-pa-sm" align="center">
                 <p class="no-margin">655 W Broadway #1650</p>
