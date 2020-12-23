@@ -77,7 +77,7 @@ export default function ( /* { ssrContext } */ ) {
 			    dreNumber: '02127696',
 			    email: 'christopher.triana@compass.com',
 			    phone: '619.942.3223',
-				avatar: 'chris_square.jpg',
+				avatar: 'christopher_square.jpg',
 				headshot: 'Christopher.jpg',
 				slug: 'christopher-triana',
 				about: 'Mari values the privilege to create a foundation for herself, her family and to help others do the same in America’s Finest City through her passion for real estate. Mari prides herself on her ability to provide clients with excellent customer service, efficiency, honesty and dedication to her craft. Whether her clients are buying or selling, Mari thrives from knowing she can assist in making their real estate dreams come true.'
