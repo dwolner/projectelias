@@ -103,22 +103,20 @@ export default {
                 },
                 {
                     text:
-                        'Richard Elias and his team are extremely knowledgeable and helpful. They guided us through the process of buying our first home front to back. I would highly recommend them to anyone looking for a great team.',
-                    author: 'Z. Harrison',
-                    date: '01/17/2019',
-                },
-                {
-                    text:
-                        'I reached out to Christina when my husband and I were interested in purchasing a home in California. My husband is active military and got orders in a different state so Christina picked up where we left off and found us a reliable realtor in Texas. She would check in periodically during our home  buying process and was always available when we had questions. After we purchased our home she continued to check in. She was very personable and I will be referring her to anyone I know wanting to buy/sell in San Diego.',
-                    author: 'Astetler40',
-                    date: '01/27/2020',
-                },
-                {
-                    text:
                         'Samantha is the utmost professional! She responds immediately to my text and email correspondence. Her technical expertise is brilliant, and she cares at a personal level for what is best for her clients. Samantha is one in a million!',
                     author: 'Jessica Von Prisk',
                     date: '01/19/2019',
                 },
+                {
+                    text: 'We were so fortunate to have found Devrie Grimm. As our Realtor, she helped us find the right home in the right neighborhood for the right price. In short, she was always on our side working to make our experience as simple and successful as possible. The best part about working with Devrie was that she was always more focused on answering our questions, giving us good advice, and finding homes that met our needs than she was on closing a deal. We would recommend her to anyone.',
+                    author: 'Robert Gonzalez',
+                    date: '01/07/2021',
+                },
+                {
+                    text: 'Devrie was such an amazing realtor! She helped find our family the perfect place and was there every step of the way. She literally did everything for me that I just had to show up and view the places for myself. I couldn’t have gone through the housing experience without her!!',
+                    author: 'Vanessa Hernandez',
+                    date: '01/07/2021',
+                }
             ],
             videoSlideIndex: 'NnO_UQKhBvI',
             videoSlides: [

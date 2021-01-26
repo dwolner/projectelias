@@ -81,6 +81,17 @@ export default function ( /* { ssrContext } */ ) {
 				headshot: 'Christopher.jpg',
 				slug: 'christopher-triana',
 				about: 'Mari values the privilege to create a foundation for herself, her family and to help others do the same in America’s Finest City through her passion for real estate. Mari prides herself on her ability to provide clients with excellent customer service, efficiency, honesty and dedication to her craft. Whether her clients are buying or selling, Mari thrives from knowing she can assist in making their real estate dreams come true.'
+			  },
+			  devrie: {
+			    name: 'Devrie Grimm',
+			    role: 'Realtor',
+			    dreNumber: '02106079',
+			    email: 'devrie.grimm@compass.com',
+			    phone: '858.731.6537',
+				avatar: 'devrie_square.jpg',
+				headshot: 'Devrie.jpg',
+				slug: 'devrie-grimm',
+				about: 'Mari values the privilege to create a foundation for herself, her family and to help others do the same in America’s Finest City through her passion for real estate. Mari prides herself on her ability to provide clients with excellent customer service, efficiency, honesty and dedication to her craft. Whether her clients are buying or selling, Mari thrives from knowing she can assist in making their real estate dreams come true.'
 			  }
 			}
 		},
