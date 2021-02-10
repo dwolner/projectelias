@@ -49,17 +49,6 @@ export default function ( /* { ssrContext } */ ) {
 				slug: 'christina-battikha',
 				about: 'Christina is a focused and energetic young professional who takes pride in representing her home community of San Diego. After earning her degree in business management, she went on to join a firm of top agents in Silicon Valley and there honed the outstanding customer service skills that distinguish her real estate practice today. Whether she is negotiating the highest selling price for one of her listings, or helping a family purchase their first home, Christina strives to build relationships that will last a lifetime. Her friendly, adaptable nature helps her relate to people from varying cultures and perspectives, and to create winning results that harmonize with their goals and values. “I love being able to help people at such an exciting time, and I do my best to make the home buying and selling process as fun and smooth as I can.”'
 			  },
-			  samantha: {
-			    name: 'Samantha Lopez',
-			    role: 'Realtor',
-			    dreNumber: '01990167',
-			    email: 'samantha.lopez@compass.com',
-			    phone: '559.288.9060',
-				avatar: 'samantha_square.jpg',
-				headshot: 'Sammie.jpg',
-				slug: 'samantha-lopez',
-				about: 'Samantha’s entry to Real Estate was almost destined, due to her mother’s Real Estate Brokerage. Raised in Fresno and temporarily living in Los Angeles before permanently making San Diego her home, and even living in Spain for a little, she has gained multiple perspectives in different environments and nurturing an adaptable personality. In addition, working with a diverse clientele comes naturally to Samantha, which is why she enjoys focusing on real estate in the San Diego Market where she has made home for the last seven years. Samantha attended San Diego Mesa College where she studied Spanish and International Business. She also volunteers for non-profits such as #hashtaglunchbag.'
-			  },
 			  mari: {
 			    name: 'Mari Rosas',
 			    role: 'Realtor',
