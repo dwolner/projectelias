@@ -3,29 +3,29 @@
         <div :style="parentStyle" class="relative-position" align="center">
             <!-- <div class="whiteOverlay"></div> -->
 
-            <div class="q-pa-xl" :style="$q.screen.width > 767 ? 'padding: 5rem;' : 'padding: 2rem;'">
+            <div class="q-pa-xl" :style="$q.screen.width > 767 ? 'padding: 7rem;' : 'padding: 2rem;'">
                 <q-img src="statics/whycompass/compasslogotrans.png" style="max-width: 500px;" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }" />
             </div>
         </div>
 
-        <div class="row full-width q-my-lg">
+        <div class="row full-width q-py-lg">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
                 <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     Leadership
                 </h3>
             </div>
-            <div class="col-xs-12 col-md-6" style="padding: 2.5rem 2.5rem 0;">
-                <q-list>
+            <div class="col-xs-12 col-md-6 q-pt-lg q-px-lg" v-scroll-reveal="{ delay: 1000, opacity: 0, duration: 1000 }">
+                <q-list padding>
                     <q-item v-for="person in team" :key="person.name" class="q-mb-sm">
                         <q-item-section avatar>
-                            <q-avatar>
-                                <img :src="`statics/whycompass/${person.avatar}`">
-                            </q-avatar>
+                            <!-- <q-avatar> -->
+                                <img :src="`statics/whycompass/${person.avatar}`" style="max-width: 70px;">
+                            <!-- </q-avatar> -->
                         </q-item-section>
 
                         <q-item-section>
-                            <q-item-label>{{ person.name }}</q-item-label>
-                            <q-item-label caption lines="1">{{ person.role }}</q-item-label>
+                            <q-item-label style="font-size: 1.5rem;">{{ person.name }}</q-item-label>
+                            <q-item-label caption lines="1" style="font-size: 1.25rem;">{{ $q.screen.width > 500 ? person.role : person.abvRole }}</q-item-label>
                         </q-item-section>
 
                         <q-item-section side>
@@ -34,36 +34,39 @@
                     </q-item>
                 </q-list>
             </div>
-            <div class="col-xs-12 col-md-6 row" style="padding: 2.5rem 2.5rem 0;">
-                <q-list class="col-8">
-                    <q-item class="q-mb-sm">
-                        <q-item-section side>
-                            <img src="statics/whycompass/screen.png" style="max-width: 50px;">
-                        </q-item-section>
+            <div class="col-xs-12 col-md-6 row q-px-lg" style="border-left: 1px dashed black;" v-scroll-reveal="{ delay: 1000, opacity: 0, duration: 1000 }">
+                <div class="col-xs-12 col-md-8 flex flex-center">
+                    <q-list class="full-width">
+                        <q-item class="q-mb-sm">
+                            <q-item-section side>
+                                <img src="statics/whycompass/screen.png" style="max-width: 70px;">
+                            </q-item-section>
 
-                        <q-item-section>
-                            <q-item-label>Marketing Team</q-item-label>
-                        </q-item-section>
-                    </q-item>
-                    <q-item class="q-mb-sm">
-                        <q-item-section side>
-                            <img src="statics/whycompass/person.png" style="max-width: 50px;">
-                        </q-item-section>
+                            <q-item-section>
+                                <q-item-label style="font-size: 1.5rem;">Marketing Team</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                        <q-item class="q-mb-sm">
+                            <q-item-section side>
+                                <img src="statics/whycompass/person.png" style="max-width: 70px;">
+                            </q-item-section>
 
-                        <q-item-section>
-                            <q-item-label>Engineers</q-item-label>
-                        </q-item-section>
-                    </q-item>
-                </q-list>
-                <div class="col-4">
+                            <q-item-section>
+                                <q-item-label style="font-size: 1.5rem;">Engineers</q-item-label>
+                            </q-item-section>
+                        </q-item>
+                    </q-list>
+                    <!-- <img class="q-pa-md" src="statics/whycompass/compassphone.jpg" style="max-width: 100%;"> -->
+                </div>
+                <div class="col-xs-12 col-md-4" align="center">
                     <img src="statics/whycompass/companies.jpg" style="max-width: 150px;">
                 </div>
             </div>
         </div>
 
-        <div class="row full-width q-my-lg">
+        <div class="row full-width q-py-lg bg-black">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
-                <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                <h3 class="Compass-Serif-Regular q-mr-md text-white" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     Technology, Reimagined
                 </h3>
             </div>
@@ -73,16 +76,16 @@
                     class="full-width"
                     transition-prev="slide-right"
                     transition-next="slide-left"
-                    control-color="black"
                     animated
                     swipeable
                     navigation
                     padding
                     arrows
                     infinite
+                    dark
                     style="background: rgba(0, 0, 0, 0);"
                 >
-                    <q-carousel-slide v-for="(slide, index) in techSlides" :key="index" :name="slide.title" class="full-width row">
+                    <q-carousel-slide v-for="(slide, index) in techSlides" :key="index" :name="slide.title" class="full-width row text-white">
                         <div class="col-xs-12 col-md-6 q-pa-md" :align="$q.screen.width > 500 ? 'left' : 'center'">
                             <h4 class="q-mb-md">{{ slide.title }}</h4>
                             <h6>{{slide.info}}</h6>
@@ -96,13 +99,13 @@
             </div>
         </div>
 
-        <div class="row full-width q-my-lg">
+        <div class="row full-width q-py-lg">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
                 <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     Compass Concierge
                 </h3>
             </div>
-            <div class="col-12 row" style="padding: 2.5rem 2.5rem 0;">
+            <div class="col-12 row" style="padding: 2.5rem 2.5rem;">
                 <div
                     class="col-xs-12 col-md-4 relative-position"
                     :style="`min-height: 300px; background: url('statics/whycompass/concierge_frame.png'); background-size: cover; background-repeat: no-repeat; background-position: 50%;`"
@@ -113,8 +116,8 @@
                         </q-btn>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-8 q-pa-lg">
-                    <h4 class="q-mb-md">Get fronted for the cost of home improvement services with no interest — ever.</h4>
+                <div class="col-xs-12 col-md-8 q-px-sm">
+                    <h4 class="q-pa-md">Get fronted for the cost of home improvement services with no interest — ever.</h4>
                     <div class="row">
                         <div v-for="card in concierge" :key="card.title" class="col-sm-12 col-md-6 q-pa-md" align="center">
                             <h4>{{card.title}}</h4>
@@ -136,50 +139,50 @@
             </q-card>
         </q-dialog>
 
-        <div class="row full-width q-my-lg">
+        <div class="row full-width q-py-lg bg-black">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
-                <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                <h3 class="Compass-Serif-Regular q-mr-md text-white" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     We Sell All Over San Diego
                 </h3>
             </div>
-            <div class="col-12 row" style="padding: 2.5rem 2.5rem 0;">
-                <div class="col-xs-12 col-md-5 row justify-center q-pa-md">
-                    <div v-for="card in sales" :key="card.title" class="col-sm-12 col-md-6 q-pa-md" align="center">
+            <div class="col-12 row q-my-lg flex flex-center">
+                <div class="col-xs-12 col-md-5 row justify-center q-pa-lg">
+                    <div v-for="card in sales" :key="card.title" class="col-sm-12 col-md-6 q-pa-md text-white" align="center">
                         <h4>{{card.title}}</h4>
                         <h6>{{card.info}}</h6>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-7 q-pa-lg">
+                <div class="col-xs-12 col-md-7 q-px-xl q-py-md">
                     <img class="shadow-8" src="statics/whycompass/sandiegomap.png" style="max-width: 100%; margin: 0 auto;">
                 </div>
             </div>
         </div>
 
-        <div class="row full-width q-my-lg">
+        <div class="row full-width q-py-lg">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
                 <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     Key Metrics
                 </h3>
             </div>
-            <div class="col-12 row" style="padding: 2.5rem 2.5rem 0;">
-                <div class="col-xs-12 col-md-6 q-pa-md">
-                    <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;">
+            <div class="col-12 row">
+                <div class="col-xs-12 col-md-6 q-px-xl q-py-md flex flex-center">
+                    <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;" />
                 </div>
-                <div class="col-xs-12 col-md-6 q-pa-md">
-                    <img src="statics/whycompass/office_combo.png" style="max-width: 100%; margin: 0 auto;">
+                <div class="col-xs-12 col-md-6 q-px-xl q-py-md">
+                    <img src="statics/whycompass/office_combo.png" style="max-width: 100%; margin: 0 auto;" />
                 </div>
             </div>
         </div>
 
-        <div class="row full-width q-my-lg">
+        <div class="row full-width q-py-lg bg-black">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
-                <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                <h3 class="Compass-Serif-Regular q-mr-md text-white" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     What Sets Us Apart
                 </h3>
             </div>
-            <div class="col-12 row" style="padding: 2.5rem 2.5rem 0;">
-                <div class="col-xs-12 col-md-6 q-pa-md">
-                    <h3>Proactive Marketing —</h3>
+            <div class="col-12 row">
+                <div class="col-xs-12 col-md-6 q-px-xl q-py-md text-white">
+                    <h4>Proactive Marketing —</h4>
                     <ul style="font-size: 1.5rem;">
                         <li>Reverse prospecting</li>
                         <li>Past client database</li>
@@ -189,8 +192,8 @@
                         <li>Door knocking</li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-md-6 q-pa-md">
-                    <h3>Targeted Marketing —</h3>
+                <div class="col-xs-12 col-md-6 q-px-xl q-py-md text-white">
+                    <h4>Targeted Marketing —</h4>
                     <ul style="font-size: 1.5rem;">
                         <li>Mail & email campaigns</li>
                         <li>Qualified list of renters</li>
@@ -202,22 +205,20 @@
             </div>
         </div>
 
-        <div class="row full-width q-my-lg">
+        <div class="row full-width q-py-lg">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
                 <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     Our Promise
                 </h3>
             </div>
-            <div class="col-12 row" style="padding: 2.5rem 2.5rem 0;">
-                <div class="col-xs-12 col-md-4 q-pa-md" align="center">
-                    <h4>Promote your home</h4>
-                </div>
-                <div class="col-xs-12 col-md-4 q-pa-md" align="center">
-                    <h4>Protext your equity</h4>
-                </div>
-                <div class="col-xs-12 col-md-4 q-pa-md" align="center">
-                    <h4>Close your sale</h4>
-                </div>
+            <div class="col-xs-12 col-md-5 q-px-xl q-py-md">
+                <img src="statics/compass_apartment.jpg" style="max-width: 100%; margin: 0 auto;" />
+            </div>
+            <div class="col-xs-12 col-md-7 q-px-xl q-py-md">
+                <h4 class="q-py-md">Promote your home</h4>
+                <h4 class="q-py-md">Protect your equity</h4>
+                <h4 class="q-py-md">Close your sale</h4>
+                <img src="statics/logos/RichardElias_CompassLockupHorizontal-Black.png" style="max-width: 100%; margin: 0 auto;" />
             </div>
         </div>
 
@@ -246,21 +247,25 @@ export default {
                 avatar: 'robert.jpg',
                 name: 'Robert Reffkin',
                 role: 'Chief Executive Officer',
+                abvRole: 'CEO',
                 icon: 'goldman.png'
             }, {
                 avatar: 'joseph.jpg',
                 name: 'Joseph Sirosh',
                 role: 'Chief Technology Officer',
+                abvRole: 'CTO',
                 icon: 'microsoft.png'
             }, {
                 avatar: 'greg.jpg',
                 name: 'Greg Hart',
                 role: 'Chief Product Officer',
+                abvRole: 'CPO',
                 icon: 'amazon2.png'
             }, {
                 avatar: 'ori.jpg',
                 name: 'Ori Allon',
                 role: 'Founder & Executive',
+                abvRole: 'Founder',
                 icon: 'twitter.png'
             }],
             techSlideIndex: 'The Network Tool',
