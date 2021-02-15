@@ -96,18 +96,6 @@ export default {
                     date: '01/23/2019',
                 },
                 {
-                    text:
-                        'Samantha was very knowledgeable, patient and flexible with her availability to show us houses at our convenience.  She answered all our questions and made us feel at ease while searching for our forever home. If you are buying or selling your home I highly recommend Samantha Lopez.',
-                    author: 'Roxanne Granados',
-                    date: '01/17/2019',
-                },
-                {
-                    text:
-                        'Samantha is the utmost professional! She responds immediately to my text and email correspondence. Her technical expertise is brilliant, and she cares at a personal level for what is best for her clients. Samantha is one in a million!',
-                    author: 'Jessica Von Prisk',
-                    date: '01/19/2019',
-                },
-                {
                     text: 'We were so fortunate to have found Devrie Grimm. As our Realtor, she helped us find the right home in the right neighborhood for the right price. In short, she was always on our side working to make our experience as simple and successful as possible. The best part about working with Devrie was that she was always more focused on answering our questions, giving us good advice, and finding homes that met our needs than she was on closing a deal. We would recommend her to anyone.',
                     author: 'Robert Gonzalez',
                     date: '01/07/2021',
