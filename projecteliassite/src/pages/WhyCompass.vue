@@ -30,7 +30,7 @@
                             </q-item-section>
 
                             <q-item-section side>
-                                <img :src="`statics/whycompass/${person.icon}`" style="max-width: 100px;">
+                                <img :src="`statics/whycompass/${person.icon}`" style="max-width: 80px;">
                             </q-item-section>
                         </template>
 
@@ -247,7 +247,7 @@ export default {
                 role: 'Chief Technology Officer',
                 abvRole: 'CTO',
                 icon: 'microsoft.png',
-                desc: 'Hart began his Amazon career in books and then he then moved on to product management roles in music, gaming, video, DVDs, software and artificial intelligence. From 2009-11, he served as VP and technical adviser to the CEO as an informal chief of staff to Bezos.'
+                desc: 'Before Compass, Joseph Sirosh was the Corporate Vice President of the Data Group, leading Microsoft\'s Database, Big Data and Machine Learning products. Joseph joined Microsoft in fall 2013 from Amazon.com Inc.'
             }, {
                 avatar: 'greg.jpg',
                 name: 'Greg Hart',
