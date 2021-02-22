@@ -9,62 +9,53 @@
         </div>
 
         <div class="row full-width q-py-lg">
-            <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
-                <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                    Leadership
-                </h3>
-            </div>
-            <div class="col-xs-12 col-md-6 q-pt-lg q-px-lg" v-scroll-reveal="{ delay: 1000, opacity: 0, duration: 1000 }">
+            <div class="col-xs-12 col-md-6 q-pt-lg q-px-lg" v-scroll-reveal="{ delay: 2000, opacity: 0, duration: 1000 }">
+                <div class="col-xs-12 q-pa-md">
+                    <h3 class="Compass-Serif-Regular q-mr-md" >
+                        Leadership
+                    </h3>
+                </div>
                 <q-list padding>
-                    <q-item v-for="person in team" :key="person.name" class="q-mb-sm">
-                        <q-item-section avatar>
-                            <!-- <q-avatar> -->
-                                <img :src="`statics/whycompass/${person.avatar}`" style="max-width: 70px;">
-                            <!-- </q-avatar> -->
-                        </q-item-section>
+                    <q-expansion-item v-for="person in team" :key="person.name" class="q-mb-sm">
+                        <template v-slot:header>
+                            <q-item-section avatar>
+                                <!-- <q-avatar> -->
+                                    <img :src="`statics/whycompass/${person.avatar}`" style="max-width: 70px;">
+                                <!-- </q-avatar> -->
+                            </q-item-section>
 
-                        <q-item-section>
-                            <q-item-label style="font-size: 1.5rem;">{{ person.name }}</q-item-label>
-                            <q-item-label caption lines="1" style="font-size: 1.25rem;">{{ $q.screen.width > 500 ? person.role : person.abvRole }}</q-item-label>
-                        </q-item-section>
+                            <q-item-section>
+                                <q-item-label style="font-size: 1.5rem;">{{ person.name }}</q-item-label>
+                                <q-item-label caption lines="1" style="font-size: 1.25rem;">{{ $q.screen.width > 500 ? person.role : person.abvRole }}</q-item-label>
+                            </q-item-section>
 
-                        <q-item-section side>
-                            <img :src="`statics/whycompass/${person.icon}`" style="max-width: 100px;">
-                        </q-item-section>
-                    </q-item>
+                            <q-item-section side>
+                                <img :src="`statics/whycompass/${person.icon}`" style="max-width: 100px;">
+                            </q-item-section>
+                        </template>
+
+                        <q-card-section>
+                            {{ person.desc }}
+                        </q-card-section>
+                    </q-expansion-item>
                 </q-list>
             </div>
-            <div class="col-xs-12 col-md-6 row q-px-lg" style="border-left: 1px dashed black;" v-scroll-reveal="{ delay: 1000, opacity: 0, duration: 1000 }">
-                <div class="col-xs-12 col-md-8 flex flex-center">
-                    <q-list class="full-width">
-                        <q-item class="q-mb-sm">
-                            <q-item-section side>
-                                <img src="statics/whycompass/screen.png" style="max-width: 70px;">
-                            </q-item-section>
-
-                            <q-item-section>
-                                <q-item-label style="font-size: 1.5rem;">Marketing Team</q-item-label>
-                            </q-item-section>
-                        </q-item>
-                        <q-item class="q-mb-sm">
-                            <q-item-section side>
-                                <img src="statics/whycompass/person.png" style="max-width: 70px;">
-                            </q-item-section>
-
-                            <q-item-section>
-                                <q-item-label style="font-size: 1.5rem;">Engineers</q-item-label>
-                            </q-item-section>
-                        </q-item>
-                    </q-list>
-                    <!-- <img class="q-pa-md" src="statics/whycompass/compassphone.jpg" style="max-width: 100%;"> -->
+                    
+            <div class="col-xs-12 col-md-6 row q-px-lg q-mt-md" style="border-left: 1px dashed black;" v-scroll-reveal="{ delay: 1000, opacity: 0, duration: 1000 }">
+                <div class="col-xs-12 q-pa-md">
+                    <h3 class="Compass-Serif-Regular full-width">
+                        Marketing & Engineers
+                    </h3>
+                    <h6 style="line-height: 0.7rem;">from companies such as...</h6>
                 </div>
-                <div class="col-xs-12 col-md-4" align="center">
-                    <img src="statics/whycompass/companies.jpg" style="max-width: 150px;">
+                <div v-for="logo in logos" :key="logo.filename" class="col-xs-6 q-pa-sm" align="center">
+                    <img :src="`statics/whycompass/${logo.filename}`" style="max-height: 50px;">
                 </div>
             </div>
         </div>
 
-        <div class="row full-width q-py-lg bg-black">
+        <div class="row full-width q-py-lg relative-position" style="background-image: url('/statics/whycompass/2e61de05da09ea0fc20b76d23f21be8c856c959a.gif'); background-size: cover; background-position: 50%;">
+            <div class="blackOverlay"></div>
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
                 <h3 class="Compass-Serif-Regular q-mr-md text-white" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     Technology, Reimagined
@@ -85,7 +76,7 @@
                     dark
                     style="background: rgba(0, 0, 0, 0);"
                 >
-                    <q-carousel-slide v-for="(slide, index) in techSlides" :key="index" :name="slide.title" class="full-width row text-white">
+                    <q-carousel-slide v-for="(slide, index) in techSlides" :key="index" :name="slide.title" class="full-width row flex flex-center text-white">
                         <div class="col-xs-12 col-md-6 q-pa-md" :align="$q.screen.width > 500 ? 'left' : 'center'">
                             <h4 class="q-mb-md">{{ slide.title }}</h4>
                             <h6>{{slide.info}}</h6>
@@ -108,7 +99,7 @@
             <div class="col-12 row" style="padding: 2.5rem 2.5rem;">
                 <div
                     class="col-xs-12 col-md-4 relative-position"
-                    :style="`min-height: 300px; background: url('statics/whycompass/concierge_frame.png'); background-size: cover; background-repeat: no-repeat; background-position: 50%;`"
+                    :style="`min-height: 300px; background-image: url('statics/whycompass/concierge_frame.png'); background-size: cover; background-repeat: no-repeat; background-position: 50%;`"
                 >
                     <div class="center">
                         <q-btn flat @click="showConciergePromo = true">
@@ -212,13 +203,13 @@
                 </h3>
             </div>
             <div class="col-xs-12 col-md-5 q-px-xl q-py-md">
-                <img src="statics/compass_apartment.jpg" style="max-width: 100%; margin: 0 auto;" />
+                <img src="statics/compass_apartment.jpg" class="shadow-6" style="max-width: 100%; margin: 0 auto;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'bottom' }" />
             </div>
             <div class="col-xs-12 col-md-7 q-px-xl q-py-md">
-                <h4 class="q-py-md">Promote your home</h4>
-                <h4 class="q-py-md">Protect your equity</h4>
-                <h4 class="q-py-md">Close your sale</h4>
-                <img src="statics/logos/RichardElias_CompassLockupHorizontal-Black.png" style="max-width: 100%; margin: 0 auto;" />
+                <h4 class="q-py-md" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Promote your home</h4>
+                <h4 class="q-py-md" v-scroll-reveal="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Protect your equity</h4>
+                <h4 class="q-py-md" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }">Close your sale</h4>
+                <img src="statics/logos/RichardElias_LogoLockup-Black.png" align="right" style="max-width: 250px; margin: 0 auto;" />
             </div>
         </div>
 
@@ -248,25 +239,46 @@ export default {
                 name: 'Robert Reffkin',
                 role: 'Chief Executive Officer',
                 abvRole: 'CEO',
-                icon: 'goldman.png'
+                icon: 'goldman.png',
+                desc: 'Prior to Compass Robert worked at Goldman Sachs as Chief of Staff to the President & COO following five years working in the firm\'s private equity arm. Prior to Goldman Sachs, he worked at Lazard and McKinsey & Company.'
             }, {
                 avatar: 'joseph.jpg',
                 name: 'Joseph Sirosh',
                 role: 'Chief Technology Officer',
                 abvRole: 'CTO',
-                icon: 'microsoft.png'
+                icon: 'microsoft.png',
+                desc: 'Hart began his Amazon career in books and then he then moved on to product management roles in music, gaming, video, DVDs, software and artificial intelligence. From 2009-11, he served as VP and technical adviser to the CEO as an informal chief of staff to Bezos.'
             }, {
                 avatar: 'greg.jpg',
                 name: 'Greg Hart',
                 role: 'Chief Product Officer',
                 abvRole: 'CPO',
-                icon: 'amazon2.png'
+                icon: 'amazon2.png',
+                desc: 'Hart began his Amazon career in books and then he then moved on to product management roles in music, gaming, video, DVDs, software and artificial intelligence. From 2009-11, he served as VP and technical adviser to the CEO as an informal chief of staff to Bezos.'
             }, {
                 avatar: 'ori.jpg',
                 name: 'Ori Allon',
                 role: 'Founder & Executive',
                 abvRole: 'Founder',
-                icon: 'twitter.png'
+                icon: 'twitter.png',
+                desc: 'Before starting Urban Compass with Robert Reffkin in May 2013, Allon developed the search algorithm Orion that was acquired by Google. He then created Julpan, which analyzed the way people shared information on the social web. Microsoft was his lead investor. The company was acquired one year later by Twitter, which made Allon the director of its NYC engineering office.'
+            }],
+            logos: [{ 
+                filename: 'apple.png'
+            }, {
+                filename: 'facebook.png'
+            }, {
+                filename: 'microsoft.png'
+            }, {
+                filename: 'condenast.png'
+            }, {
+                filename: 'loreal.png'
+            }, {
+                filename: 'rolex.png'
+            }, {
+                filename: 'neimanmarcus.png'
+            }, {
+                filename: 'tiffany.png'
             }],
             techSlideIndex: 'The Network Tool',
             techSlides: [{
@@ -311,10 +323,10 @@ export default {
                 title: '500+',
                 info: 'Properties sold in San Diego'
             }, {
-                title: '16',
+                title: '14',
                 info: 'Average days on market'
             }, {
-                title: '98.8%',
+                title: '100.5%',
                 info: 'List to sell price ratio'
             }]
         }
@@ -341,6 +353,12 @@ export default {
     .whiteOverlay {
         background: rgba(255, 255, 255, 0.5);
         height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+    .blackOverlay {
+        background: rgba(0, 0, 0, 0.75);
+        height: calc(100% - 25px);
         width: 100%;
         position: absolute;
     }
