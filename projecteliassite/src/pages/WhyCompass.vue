@@ -9,7 +9,7 @@
         </div>
 
         <div class="row full-width q-py-lg">
-            <div class="col-xs-12 col-md-6 q-pt-lg q-px-lg" v-scroll-reveal="{ delay: 2000, opacity: 0, duration: 1000 }">
+            <div class="col-xs-12 col-md-6 q-pt-lg q-px-lg" v-scroll-reveal="{ delay: 1000, opacity: 0, duration: 1000 }">
                 <div class="col-xs-12 q-pa-md">
                     <h3 class="Compass-Serif-Regular q-mr-md" >
                         Leadership
@@ -41,7 +41,7 @@
                 </q-list>
             </div>
                     
-            <div class="col-xs-12 col-md-6 row q-px-lg q-mt-md" style="border-left: 1px dashed black;" v-scroll-reveal="{ delay: 1000, opacity: 0, duration: 1000 }">
+            <div class="col-xs-12 col-md-6 row q-px-lg q-mt-md" style="border-left: 1px dashed black;" v-scroll-reveal="{ delay: 2000, opacity: 0, duration: 1000 }">
                 <div class="col-xs-12 q-pa-md">
                     <h3 class="Compass-Serif-Regular full-width">
                         Marketing & Engineers
@@ -229,10 +229,44 @@
                 </h3>
             </div>
             <div class="col-12 row">
-                <div class="col-xs-12 col-md-6 q-px-xl q-py-md flex flex-center">
+                <div class="col-xs-12 col-md-8 q-px-xl q-py-md flex flex-center">
                     <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;" />
+                    <!-- <q-table
+                        class="full-width"
+                        title=""
+                        virtual-scroll
+                        :data="metricsTableData"
+                        :columns="metricsTableColumns"
+                        :grid="$q.screen.lt.md"
+                        row-key="name"
+                        hide-pagination
+                        hide-bottom
+                    >
+                        <template v-slot:body-cell="props">
+                            <q-td :props="props" v-html="props.value">
+                            </q-td>
+                        </template>
+                        <template v-slot:item="props">
+                            <q-card :class="props.selected ? 'bg-grey-2' : ''">
+                                <q-card-section>
+                                    <q-checkbox dense v-model="props.selected" :label="props.row.name" />
+                                </q-card-section>
+                                <q-separator />
+                                <q-list dense>
+                                    <q-item v-for="col in props.cols.filter(col => col.name !== 'desc')" :key="col.name">
+                                        <q-item-section>
+                                        <q-item-label>{{ col.label }}</q-item-label>
+                                        </q-item-section>
+                                        <q-item-section side>
+                                        <q-item-label caption>{{ col.value }}</q-item-label>
+                                        </q-item-section>
+                                    </q-item>
+                                </q-list>
+                            </q-card>
+                        </template>
+                    </q-table> -->
                 </div>
-                <div class="col-xs-12 col-md-6 q-px-xl q-py-md">
+                <div class="col-xs-12 col-md-4 q-px-xl q-py-md">
                     <img src="statics/whycompass/office_combo.png" style="max-width: 100%; margin: 0 auto;" />
                 </div>
             </div>
@@ -438,6 +472,84 @@ export default {
             }, {
                 title: '100.5%',
                 info: 'List to sell price ratio'
+            }],
+            metricsTableColumns: [{
+                name: 'company',
+                field: 'company',
+                label: '',
+                align: 'left',
+                style: 'font-weight: bold;'
+            }, {
+                name: 'units2020',
+                field: 'units2020',
+                label: 'Units Sold 2020'
+            }, {
+                name: 'units2019',
+                field: 'units2019',
+                label: 'Units Sold 2019'
+            }, {
+                name: 'unitsPercentage',
+                field: 'unitsPercentage',
+                label: '% Change Units',
+                format: (val, row) => `<span style="color: ${ val > 0 ? 'green' : 'red' }">${ val }%</span>`
+            }, {
+                name: 'volume2020',
+                field: 'volume2020',
+                label: 'Sales Volume 2020'
+            }, {
+                name: 'volume2019',
+                field: 'volume2019',
+                label: 'Sales Volume 2019'
+            }, {
+                name: 'volumePercentage',
+                field: 'volumePercentage',
+                label: '% Change Volume',
+                format: (val, row) => `<span style="color: ${ val > 0 ? 'green' : 'red' }">${ val }%</span>`
+            }],
+            metricsTableData: [{
+                "company": "Compass",
+                "units2020": "3,514",
+                "units2019": "2,502",
+                "unitsPercentage": 40.4,
+                "volume2020": "$3,223B",
+                "volume2019": "$2,241B",
+                "volumePercentage": 43.8
+            },
+            {
+                "company": "Big Block",
+                "units2020": "2,106",
+                "units2019": "2,636",
+                "unitsPercentage": -20.1,
+                "volume2020": "$1,232B",
+                "volume2019": "$1,479B",
+                "volumePercentage": -16.7
+            },
+            {
+                "company": "Coldwell Banker West",
+                "units2020": "1,859",
+                "units2019": "2,844",
+                "unitsPercentage": -34.6,
+                "volume2020": "$1,151B",
+                "volume2019": "$1,628B",
+                "volumePercentage": -29.3
+            },
+            {
+                "company": "Berkshire Hathaway",
+                "units2020": "1,822",
+                "units2019": "2,299",
+                "unitsPercentage": -20.8,
+                "volume2020": "$2,056B",
+                "volume2019": "$2,289B",
+                "volumePercentage": -10.2
+            },
+            {
+                "company": "Coldwell Banker Residential",
+                "units2020": "1,819",
+                "units2019": "2,781",
+                "unitsPercentage": -34.6,
+                "volume2020": "$1,422B",
+                "volume2019": "$2,081B",
+                "volumePercentage": -31.7
             }]
         }
     },
