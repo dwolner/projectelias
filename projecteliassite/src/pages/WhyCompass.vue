@@ -54,17 +54,17 @@
             </div>
         </div>
 
-        <div class="row full-width q-py-lg relative-position" style="background-image: url('/statics/whycompass/2e61de05da09ea0fc20b76d23f21be8c856c959a.gif'); background-size: cover; background-position: 50%;">
+        <div class="full-width relative-position" style="background-image: url('/statics/whycompass/2e61de05da09ea0fc20b76d23f21be8c856c959a.gif'); background-size: cover; background-position: 50%;">
             <div class="blackOverlay"></div>
-            <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
-                <h3 class="Compass-Serif-Regular q-mr-md text-white" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                    Technology, Reimagined
-                </h3>
-            </div>
-            <div class="col-xs-12">
+            <div class="row q-py-lg">
+                <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
+                    <h3 class="Compass-Serif-Regular q-mr-md text-white" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                        Technology, Reimagined
+                    </h3>
+                </div>
                 <q-carousel
                     v-model="techSlideIndex"
-                    class="full-width"
+                    class="col-xs-12"
                     transition-prev="slide-right"
                     transition-next="slide-left"
                     animated
@@ -86,119 +86,127 @@
                             <img class="shadow-8" :src="`statics/whycompass/${ slide.filename }`" style="height: auto; width: 100%; max-width: 100%; margin: 0 auto;">
                         </div> -->
 
+                        <div class="col-xs-12 col-md-6 q-pa-md relative-position">
+                            <div 
+                                class="col-xs-12 relative-position"
+                                :style="`min-height: 300px; background-image: url('statics/whycompass/${ slide.filename }'); background-size: cover; background-repeat: no-repeat; background-position: 50% 0%;`"
+                            >
+                                <div class="center">
+                                    <q-btn flat round style="background: rgba(0, 0, 0, .25); padding: 1rem;" @click="expandImage(slide)">
+                                        <q-icon name="fas fa-expand-alt" color="white" style="font-size: 4rem;" />
+                                    </q-btn>
+                                </div>
+                            </div>
+                        </div>
+                    </q-carousel-slide>
+                </q-carousel>
+            </div>
+        </div>
+
+        <div class="row full-width">
+            <q-carousel
+                v-model="conciergeSlideIndex"
+                class="col-xs-12"
+                :transition-prev="$q.screen.width > 1024 ? 'slide-up' : 'slide-left'"
+                :transition-next="$q.screen.width > 1024 ? 'slide-down' : 'slide-right'"
+                :control-color="conciergeSlideIndex === 'Compass Concierge' ? 'black' : ''"
+                :duration="3000"
+                animated
+                :vertical="$q.screen.width > 1024 ? true : false"
+                swipeable
+                padding
+                arrows
+                infinite
+                style="background: rgba(0, 0, 0, 0);"
+            >
+                <q-carousel-slide v-for="(slide, index) in conciergeSlides" :key="index" :name="slide.title" :class="`full-width row flex flex-center q-pa-lg ${ slide.dark ? 'bg-black text-white' : ''}`">
+                     <div class="col-xs-12">
+                        <h3 :class="`Compass-Serif-Regular ${ $q.screen.width > 1024 ? 'q-pa-lg' : '' } q-pt-lg`" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                            {{ slide.title }}
+                        </h3>
+                    </div>
+                    <div :class="`col-xs-12 row ${ $q.screen.width > 1024 ? 'q-pa-lg' : 'q-py-lg' }`">
                         <div
-                            class="col-xs-12 col-md-6 q-pa-md relative-position"
-                            :style="`min-height: 300px; background-image: url('statics/whycompass/${ slide.filename }'); background-size: cover; background-repeat: no-repeat; background-position: 50% 0%;`"
+                            class="col-xs-12 col-md-4 relative-position"
+                            :style="`min-height: 300px; background-image: url('statics/whycompass/${ slide.filename }'); background-size: cover; background-repeat: no-repeat; background-position: 50%;`"
                         >
                             <div class="center">
-                                <q-btn flat round style="background: rgba(0, 0, 0, .25); padding: 1rem;" @click="expandImage(slide)">
+                                <q-btn v-if="!slide.dark" flat @click="showDialog = true, showConciergePromo = true">
+                                    <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
+                                </q-btn>
+
+                                <q-btn v-else flat round style="background: rgba(0, 0, 0, .25); padding: 1rem;" @click="expandImage(slide)">
                                     <q-icon name="fas fa-expand-alt" color="white" style="font-size: 4rem;" />
                                 </q-btn>
                             </div>
                         </div>
-                    </q-carousel-slide>
-                </q-carousel>
-            </div>
+                        <div class="col-xs-12 col-md-8">
+                            <h4 class="q-pa-md">{{ slide.desc }}</h4>
+                            <div class="row">
+                                <div v-for="card in slide.features" :key="card.title" class="col-sm-12 col-md-6 q-pa-lg" align="center">
+                                    <h4>{{card.title}}</h4>
+                                    <h6>{{card.info}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </q-carousel-slide>
+            </q-carousel>
         </div>
 
-        <div class="row full-width q-py-lg">
-            <!-- <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
-                <q-carousel
-                    v-model="conciergeSlideIndex"
-                    class="full-width"
-                    transition-prev="slide-right"
-                    transition-next="slide-left"
-                    animated
-                    swipeable
-                    navigation
-                    padding
-                    arrows
-                    infinite
-                    dark
-                    style="background: rgba(0, 0, 0, 0);"
-                >
-                    <q-carousel-slide v-for="(slide, index) in conciergeSlides" :key="index" :name="slide.title" class="full-width row flex flex-center text-white">
-                        <div class="col-xs-12 col-md-6 q-pa-md" :align="$q.screen.width > 500 ? 'left' : 'center'">
-                            <h4 class="q-mb-md">{{ slide.title }}</h4>
-                            <h6>{{slide.info}}</h6>
-                        </div>
+        <q-dialog v-model="showDialog" @show="" @hide="showConciergePromo = false, largeImageFilename = '', maximizedFilenames = ''">
+            <div class="relative-position" style="max-width: 100%;">
+                <q-btn class="absolute" round flat size="sm" color="white" @click="showDialog = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                    <q-icon name="fas fa-times" color="black" />
+                </q-btn>
+                <q-card>
+                    <q-card-section style="padding: .25rem;">
 
-                        <div class="col-xs-12 col-md-6 q-pa-md" align="center">
-                            <img class="shadow-8" :src="`statics/whycompass/${ slide.filename }`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
-                        </div>
-                    </q-carousel-slide>
-                </q-carousel>
-            </div> -->
-            <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
-                <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                    Compass Concierge
-                </h3>
+                        <video v-if="showConciergePromo" autoplay controls src="statics/30secondprogramoverview.mp4" style="width: 100%;" />
+
+                        <img v-if="largeImageFilename && !maximizedFilenames" class="shadow-8" :src="`statics/whycompass/${ largeImageFilename }`" style="height: auto; width: 100%; max-width: 100%; margin: 0 auto;">
+
+                        <q-carousel
+                            v-if="maximizedFilenames"
+                            v-model="maximizedFilenamesIndex"
+                            class="full-width"
+                            control-color="black"
+                            transition-prev="slide-right"
+                            transition-next="slide-left"
+                            animated
+                            swipeable
+                            navigation
+                            padding
+                            arrows
+                            infinite
+                            style="background: rgba(0, 0, 0, 0);"
+                        >
+                            <q-carousel-slide v-for="(imageFilename, index) in maximizedFilenames" :key="index" :name="imageFilename" class="full-width row flex flex-center text-white">
+                                <div class="col-xs-12 q-pa-md" align="center">
+                                    <img :src="`statics/whycompass/${ imageFilename }`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
+                                </div>
+                            </q-carousel-slide>
+                        </q-carousel>
+                    </q-card-section>
+                </q-card>
             </div>
-            <div class="col-12 row" style="padding: 2.5rem 2.5rem;">
-                <div
-                    class="col-xs-12 col-md-4 relative-position"
-                    :style="`min-height: 300px; background-image: url('statics/whycompass/concierge_frame.png'); background-size: cover; background-repeat: no-repeat; background-position: 50%;`"
-                >
-                    <div class="center">
-                        <q-btn flat @click="showDialog = true, showConciergePromo = true">
-                            <q-icon name="fas fa-play-circle" color="white" style="font-size: 4rem;" />
-                        </q-btn>
+        </q-dialog>
+
+        <div class="full-width relative-position" :style="`background-image: url('statics/whycompass/newmap.png'); height: 600px; background-size: cover; background-repeat: no-repeat; background-position: ${ $q.screen.width > 1800 ? '100%' : $q.screen.width > 1200 ? '70%' : '60%' };`">
+            <div class="lt-sm whiteOverlay"></div> 
+            <div class="row fit q-pa-lg">
+                <div class="col-xs-12 col-sm-6 flex flex-center">
+                    <div class="full-width q-px-lg q-pt-lg" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                        <h3 class="Compass-Serif-Regular q-mr-md">
+                            We Sell All Over San Diego
+                        </h3>
                     </div>
-                </div>
-                <div class="col-xs-12 col-md-8 q-px-sm">
-                    <h4 class="q-pa-md">Get fronted for the cost of home improvement services with no interest — ever.</h4>
-                    <div class="row">
-                        <div v-for="card in concierge" :key="card.title" class="col-sm-12 col-md-6 q-pa-md" align="center">
+                    <div class="full-width q-pa-lg row" style="z-index: 1;">
+                        <div v-for="card in sales" :key="card.title" class="col-xs-12 col-md-6 q-py-md">
                             <h4>{{card.title}}</h4>
                             <h6>{{card.info}}</h6>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <q-dialog v-model="showDialog" @show="" @hide="showConciergePromo = false, largeImageFilename = '', maximizedFilenames = ''">
-            <q-card style="max-width: 100%;">
-                <q-card-section style="padding: .25rem;">
-                    <q-btn class="absolute" round flat size="sm" color="white" @click="showDialog = false" style="top: .5rem; right: .5rem; z-index: 999;">
-                        <q-icon name="fas fa-times" color="black" />
-                    </q-btn>
-
-                    <video v-if="showConciergePromo" autoplay controls src="statics/30secondprogramoverview.mp4" style="width: 100%;" />
-
-                    <img v-if="largeImageFilename && !maximizedFilenames" class="shadow-8" :src="`statics/whycompass/${ largeImageFilename }`" style="height: auto; width: 100%; max-width: 100%; margin: 0 auto;">
-
-                    <q-carousel
-                        v-if="maximizedFilenames"
-                        v-model="maximizedFilenamesIndex"
-                        class="full-width"
-                        control-color="black"
-                        transition-prev="slide-right"
-                        transition-next="slide-left"
-                        animated
-                        swipeable
-                        navigation
-                        padding
-                        arrows
-                        infinite
-                        style="background: rgba(0, 0, 0, 0);"
-                    >
-                        <q-carousel-slide v-for="(imageFilename, index) in maximizedFilenames" :key="index" :name="imageFilename" class="full-width row flex flex-center text-white">
-                            <div class="col-xs-12 q-pa-md" align="center">
-                                <img :src="`statics/whycompass/${ imageFilename }`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
-                            </div>
-                        </q-carousel-slide>
-                    </q-carousel>
-                </q-card-section>
-            </q-card>
-        </q-dialog>
-
-        <div class="full-width q-py-lg" style="background-image: url('statics/whycompass/newmap.jpg'); height: 500px; background-size: cover; background-repeat: no-repeat; background-position: 50%;">
-            <div class="row fit">
-                <div class="col-xs-12 col-md-6 q-pa-xl flex flex-center" style="max-width: 400px;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                    <h3 class="Compass-Serif-Regular q-mr-md">
-                        We Sell All Over San Diego
-                    </h3>
                 </div>
             </div>
             <!-- <div class="col-12 row q-my-lg flex flex-center">
@@ -384,18 +392,42 @@ export default {
                 info: 'While marketing your home, the insights dashboard grants me real-time data about your listing’s traffic, so I’m able to refine marketing and pricing strategy and discover new lead-generation opportunities.',
                 filename: 'insights1.jpeg'            
             }],
-            concierge: [{
-                title: 'Smart',
-                info: 'Your Compass agent will help you determine which services can deliver the greatest return on your investment.'
+            conciergeSlideIndex: 'Compass Concierge',
+            conciergeSlides: [{
+                title: 'Compass Concierge',
+                desc: 'Get fronted for the cost of home improvement services with no interest — ever.',
+                filename: 'concierge_frame.png',
+                features: [{
+                    title: 'Smart',
+                    info: 'Your Compass agent will help you determine which services can deliver the greatest return on your investment.'
+                }, {
+                    title: 'Fast',
+                    info: 'The entire process is designed for speed, so that work can begin — and your home can sell — as quickly as possible.'
+                }, {
+                    title: 'Transparent',
+                    info: 'You\'ll never have to worry about upfront costs or interest.'
+                }, {
+                    title: 'Easy',
+                    info: 'Your Compass agent will be by your side throughout the process, advising you along the way.'
+                }]
             }, {
-                title: 'Fast',
-                info: 'The entire process is designed for speed, so that work can begin — and your home can sell — as quickly as possible.'
-            }, {
-                title: 'Transparent',
-                info: 'You\'ll never have to worry about upfront costs or interest.'
-            }, {
-                title: 'Easy',
-                info: 'Your Compass agent will be by your side throughout the process, advising you along the way.'
+                dark: true,
+                title: 'Private Exclusives',
+                desc: 'A private exclusive listing is an off-market home that can be shared by a Compass agent directly with their colleagues and their buyers.',
+                filename: 'privateexclusiveroom.jpg',
+                features: [{
+                    title: 'Discretion',
+                    info: 'Privacy is the ultimate commodity and the decision to sell your home is a personal one.'
+                }, {
+                    title: 'Flexibility',
+                    info: 'Decide when to share details about your home, including price, more broadly on your own timing.'
+                }, {
+                    title: 'Quality',
+                    info: 'Retain exposure to Compass agents, including premium placement on our agent facing platform.'
+                }, {
+                    title: 'Value',
+                    info: 'Get the best offer by testing the market privately to gather key insights without your listing getting stale.'
+                }]
             }],
             sales: [{
                 title: '500+',
@@ -437,16 +469,30 @@ export default {
 }
 </script>
 
+<style>
+    .q-transition--slide-up-leave-active {
+        transition: all 1s;
+    }
+    .q-transition--slide-down-leave-active {
+        transition: all 1s;
+    }
+    .q-transition--slide-up-enter-active {
+        transition: all 1s;
+    }
+    .q-transition--slide-down-enter-active {
+        transition: all 1s;
+    }
+</style>
 <style scoped>
     .whiteOverlay {
-        background: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.65);
         height: 100%;
         width: 100%;
         position: absolute;
     }
     .blackOverlay {
         background: rgba(0, 0, 0, 0.75);
-        height: calc(100% - 25px);
+        height: 100%;
         width: 100%;
         position: absolute;
     }
