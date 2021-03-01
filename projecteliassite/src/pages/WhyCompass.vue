@@ -107,8 +107,8 @@
             <q-carousel
                 v-model="conciergeSlideIndex"
                 class="col-xs-12"
-                :transition-prev="$q.screen.width > 1024 ? 'slide-up' : 'slide-left'"
-                :transition-next="$q.screen.width > 1024 ? 'slide-down' : 'slide-right'"
+                :transition-prev="$q.screen.width > 1024 ? 'slide-down' : 'slide-right'"
+                :transition-next="$q.screen.width > 1024 ? 'slide-up' : 'slide-left'"
                 :control-color="conciergeSlideIndex === 'Compass Concierge' ? 'black' : ''"
                 :duration="3000"
                 animated
@@ -155,7 +155,7 @@
         </div>
 
         <q-dialog v-model="showDialog" @show="" @hide="showConciergePromo = false, largeImageFilename = '', maximizedFilenames = ''">
-            <div class="relative-position" style="max-width: 100%;">
+            <div class="relative-position" :style="showConciergePromo ? '' : 'max-width: 100%;'">
                 <q-btn class="absolute" round flat size="sm" color="white" @click="showDialog = false" style="top: .5rem; right: .5rem; z-index: 999;">
                     <q-icon name="fas fa-times" color="black" />
                 </q-btn>
@@ -196,12 +196,12 @@
             <div class="lt-sm whiteOverlay"></div> 
             <div class="row fit q-pa-lg">
                 <div class="col-xs-12 col-sm-6 flex flex-center">
-                    <div class="full-width q-px-lg q-pt-lg" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
+                    <div class="full-width q-px-lg q-pt-lg" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                         <h3 class="Compass-Serif-Regular q-mr-md">
                             We Sell All Over San Diego
                         </h3>
                     </div>
-                    <div class="full-width q-pa-lg row" style="z-index: 1;">
+                    <div class="full-width q-pa-lg row" style="z-index: 1;" v-scroll-reveal="{ delay: 1500, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                         <div v-for="card in sales" :key="card.title" class="col-xs-12 col-md-6 q-py-md">
                             <h4>{{card.title}}</h4>
                             <h6>{{card.info}}</h6>
@@ -229,7 +229,7 @@
                 </h3>
             </div>
             <div class="col-12 row">
-                <div class="col-xs-12 col-md-8 q-px-xl q-py-md flex flex-center">
+                <div class="col-xs-12 col-md-7 q-px-xl q-py-md flex flex-center">
                     <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;" />
                     <!-- <q-table
                         class="full-width"
@@ -266,7 +266,7 @@
                         </template>
                     </q-table> -->
                 </div>
-                <div class="col-xs-12 col-md-4 q-px-xl q-py-md">
+                <div class="col-xs-12 col-md-5 q-px-xl q-py-md">
                     <img src="statics/whycompass/office_combo.png" style="max-width: 100%; margin: 0 auto;" />
                 </div>
             </div>
@@ -280,24 +280,24 @@
             </div>
             <div class="col-12 row">
                 <div class="col-xs-12 col-md-6 q-px-xl q-py-md text-white">
-                    <h4>Proactive Marketing —</h4>
+                    <h4 v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Proactive Marketing —</h4>
                     <ul style="font-size: 1.5rem;">
-                        <li>Reverse prospecting</li>
-                        <li>Past client database</li>
-                        <li>Thousands of leads</li>
-                        <li>Proactive calling</li>
-                        <li>Move up / downsize</li>
-                        <li>Door knocking</li>
+                        <li v-scroll-reveal="{ delay: 100, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Reverse prospecting</li>
+                        <li v-scroll-reveal="{ delay: 200, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Past client database</li>
+                        <li v-scroll-reveal="{ delay: 300, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Thousands of leads</li>
+                        <li v-scroll-reveal="{ delay: 400, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Proactive calling</li>
+                        <li v-scroll-reveal="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Move up / downsize</li>
+                        <li v-scroll-reveal="{ delay: 600, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Door knocking</li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-md-6 q-px-xl q-py-md text-white">
-                    <h4>Targeted Marketing —</h4>
+                    <h4 v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Targeted Marketing —</h4>
                     <ul style="font-size: 1.5rem;">
-                        <li>Mail & email campaigns</li>
-                        <li>Qualified list of renters</li>
-                        <li>Network of top 10% of agents</li>
-                        <li>Open houses (optional)</li>
-                        <li>Network Tool</li>
+                        <li v-scroll-reveal="{ delay: 100, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Mail & email campaigns</li>
+                        <li v-scroll-reveal="{ delay: 200, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Qualified list of renters</li>
+                        <li v-scroll-reveal="{ delay: 300, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Network of top 10% of agents</li>
+                        <li v-scroll-reveal="{ delay: 400, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Open houses (optional)</li>
+                        <li v-scroll-reveal="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Network Tool</li>
                     </ul>
                 </div>
             </div>
@@ -420,11 +420,11 @@ export default {
             }, {
                 title: 'Marketing Center',
                 info: 'Marketing Center gives me the ability to operate like a professional design studio in a matter of minutes. I can quickly create beautiful brochures, digital ads, postcards and more. Saving time on designing marketing material gives me time back to spend on you. Marketing Center designs created by the Design team at Compass, recruited from top marketing companies.',
-                filename: 'insights.gif'            
+                filename: 'marketingcenter.gif'            
             }, {
                 title: 'Insights',
                 info: 'While marketing your home, the insights dashboard grants me real-time data about your listing’s traffic, so I’m able to refine marketing and pricing strategy and discover new lead-generation opportunities.',
-                filename: 'insights1.jpeg'            
+                filename: 'insights.gif'            
             }],
             conciergeSlideIndex: 'Compass Concierge',
             conciergeSlides: [{
