@@ -1,10 +1,10 @@
 <template>
     <q-page class="flex flex-center">
         <div :style="parentStyle" class="relative-position" align="center">
-            <!-- <div class="whiteOverlay"></div> -->
+            <div class="blackOverlay"></div>
 
-            <div class="q-pa-xl" :style="$q.screen.width > 767 ? 'padding: 7rem;' : 'padding: 2rem;'">
-                <q-img src="statics/whycompass/compasslogotrans.png" style="max-width: 500px;" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }" />
+            <div class="q-pa-xl" :style="$q.screen.width > 767 ? 'padding: 5rem;' : 'padding: 2rem;'">
+                <q-img src="statics/logos/RichardElias_CompassLockupHorizontal-White.png" style="max-width: 700px;" v-scroll-reveal="{ delay: 1000, easing: 'ease-in-out', distance: '100px', origin: 'left' }" />
             </div>
         </div>
 
@@ -141,11 +141,11 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-8">
-                            <h4 class="q-pa-md">{{ slide.desc }}</h4>
+                            <h4 class="q-pa-md" v-scroll-reveal="{ delay: 200, easing: 'ease-in-out', opacity: 0, distance: '0', origin: 'bottom' }">{{ slide.desc }}</h4>
                             <div class="row">
-                                <div v-for="card in slide.features" :key="card.title" class="col-sm-12 col-md-6 q-pa-lg" align="center">
-                                    <h4>{{card.title}}</h4>
-                                    <h6>{{card.info}}</h6>
+                                <div v-for="(card, index) in slide.features" :key="card.title" class="col-sm-12 col-md-6 q-pa-lg" align="center">
+                                    <h4 v-scroll-reveal="{ delay: index * 300, easing: 'ease-in-out', distance: '100px', origin: 'left' }">{{card.title}}</h4>
+                                    <h6 v-scroll-reveal="{ delay: (index * 300) + 200, easing: 'ease-in-out', distance: '100px', origin: 'left' }">{{card.info}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -229,42 +229,69 @@
                 </h3>
             </div>
             <div class="col-12 row">
-                <div class="col-xs-12 col-md-7 q-px-xl q-py-md flex flex-center">
-                    <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;" />
-                    <!-- <q-table
-                        class="full-width"
-                        title=""
-                        virtual-scroll
-                        :data="metricsTableData"
-                        :columns="metricsTableColumns"
-                        :grid="$q.screen.lt.md"
-                        row-key="name"
-                        hide-pagination
-                        hide-bottom
+                <div class="col-xs-12 col-md-7 q-py-md">
+                    <!-- <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;" /> -->
+                    <div class="q-px-xl">
+                        <h5 style="font-weight: 700;">Year Over Year Growth</h5>
+                        <h6>All Brokers-All San Diego County-All Price Points</h6>
+                    </div>
+                    <div class="gt-sm q-px-xl">
+                        <q-table
+                            class="full-width"
+                            title=""
+                            virtual-scroll
+                            :data="metricsTableData"
+                            :columns="metricsTableColumns"
+                            :grid="$q.screen.lt.md"
+                            row-key="name"
+                            hide-pagination
+                        >
+                            <template v-slot:body-cell="props">
+                                <q-td :props="props" v-html="props.value">
+                                </q-td>
+                            </template>
+                            <template v-slot:bottom="props">
+                                <div class="full-width" align="right">
+                                    <q-item-label>Scroll right for more ></q-item-label>
+                                </div>
+                            </template>
+                        </q-table>
+                    </div>
+
+                    <q-carousel
+                        v-model="keyMetricsIndex"
+                        class="full-width lt-md"
+                        control-color="black"
+                        transition-prev="slide-right"
+                        transition-next="slide-left"
+                        animated
+                        swipeable
+                        navigation
+                        padding
+                        arrows
+                        infinite
+                        style="background: rgba(0, 0, 0, 0);"
                     >
-                        <template v-slot:body-cell="props">
-                            <q-td :props="props" v-html="props.value">
-                            </q-td>
-                        </template>
-                        <template v-slot:item="props">
-                            <q-card :class="props.selected ? 'bg-grey-2' : ''">
+                        <q-carousel-slide v-for="(metric, index) in metricsTableData" :key="index" :name="metric.company" class="full-width row flex flex-center">
+                            <q-card class="full-width">
                                 <q-card-section>
-                                    <q-checkbox dense v-model="props.selected" :label="props.row.name" />
+                                    <q-item-label style="font-weight: 700; font-size: 1rem;">{{ metric.company }}</q-item-label>
                                 </q-card-section>
                                 <q-separator />
                                 <q-list dense>
-                                    <q-item v-for="col in props.cols.filter(col => col.name !== 'desc')" :key="col.name">
+                                    <q-item v-for="key in Object.keys(metric)" :key="key" v-if="key !== 'company'">
                                         <q-item-section>
-                                        <q-item-label>{{ col.label }}</q-item-label>
+                                            <q-item-label>{{ metricsTableColumns.find(column => column.name === key).label }}</q-item-label>
                                         </q-item-section>
                                         <q-item-section side>
-                                        <q-item-label caption>{{ col.value }}</q-item-label>
+                                            <q-item-label :style="metricsTableColumns.find(column => column.name === key).format ? `color: ${ metric[key] > 0 ? 'green' : 'red' }` : ''">{{ `${metric[key]}${metricsTableColumns.find(column => column.name === key).format ? '%' : ''}` }}</q-item-label>
                                         </q-item-section>
                                     </q-item>
                                 </q-list>
                             </q-card>
-                        </template>
-                    </q-table> -->
+                        </q-carousel-slide>
+                    </q-carousel>
+
                 </div>
                 <div class="col-xs-12 col-md-5 q-px-xl q-py-md">
                     <img src="statics/whycompass/office_combo.png" style="max-width: 100%; margin: 0 auto;" />
@@ -473,6 +500,7 @@ export default {
                 title: '100.5%',
                 info: 'List to sell price ratio'
             }],
+            keyMetricsIndex: 'Compass',
             metricsTableColumns: [{
                 name: 'company',
                 field: 'company',
@@ -603,7 +631,7 @@ export default {
         position: absolute;
     }
     .blackOverlay {
-        background: rgba(0, 0, 0, 0.75);
+        background: rgba(0, 0, 0, 0.5);
         height: 100%;
         width: 100%;
         position: absolute;

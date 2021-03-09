@@ -106,8 +106,14 @@ export default {
                     date: '01/07/2021',
                 }
             ],
-            videoSlideIndex: 'NnO_UQKhBvI',
+            videoSlideIndex: 'VorE9V8t0L8',
             videoSlides: [
+                {
+                    id: 'VorE9V8t0L8'
+                },
+                {
+                    id: 'pKPBvqfFAZ0'
+                },
                 {
                     id: 'NnO_UQKhBvI'
                 },
@@ -128,15 +134,8 @@ export default {
                 },
                 {
                     id: 'kEX55YQIEJ8'
-                },
-                {
-                    id: 'CD-5V_we-Kk'
-                },
-                {
-                    id: 'MK00gMTL6X4'
                 }
             ],
-
             videoOffset: 137
         }
     },
