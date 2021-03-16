@@ -41,7 +41,7 @@
                 </q-list>
             </div>
                     
-            <div class="col-xs-12 col-md-6 row q-px-lg q-mt-md" style="border-left: 1px dashed black;" v-scroll-reveal="{ delay: 2000, opacity: 0, duration: 1000 }">
+            <div class="col-xs-12 col-md-6 row q-px-lg q-mt-md" :style="$q.screen.width > 1024 ? `border-left: 1px dashed black;` : ''" v-scroll-reveal="{ delay: 2000, opacity: 0, duration: 1000 }">
                 <div class="col-xs-12 q-pa-md">
                     <h3 class="Compass-Serif-Regular full-width">
                         Marketing & Engineers
@@ -156,7 +156,7 @@
 
         <q-dialog v-model="showDialog" @show="" @hide="showConciergePromo = false, largeImageFilename = '', maximizedFilenames = ''">
             <div class="relative-position" :style="showConciergePromo ? '' : 'max-width: 100%;'">
-                <q-btn class="absolute" round flat size="sm" color="white" @click="showDialog = false" style="top: .5rem; right: .5rem; z-index: 999;">
+                <q-btn class="absolute" round flat size="md" color="white" @click="showDialog = false" style="top: .5rem; right: .5rem; z-index: 999;">
                     <q-icon name="fas fa-times" color="black" />
                 </q-btn>
                 <q-card>
@@ -164,7 +164,7 @@
 
                         <video v-if="showConciergePromo" autoplay controls src="statics/30secondprogramoverview.mp4" style="width: 100%;" />
 
-                        <img v-if="largeImageFilename && !maximizedFilenames" class="shadow-8" :src="`statics/whycompass/${ largeImageFilename }`" style="height: auto; width: 100%; max-width: 100%; margin: 0 auto;">
+                        <img v-if="largeImageFilename && !maximizedFilenames" class="shadow-8" :src="`statics/whycompass/${ largeImageFilename }`" style="max-width: 100%; max-height: calc(100vh - 60px);">
 
                         <q-carousel
                             v-if="maximizedFilenames"
@@ -182,8 +182,8 @@
                             style="background: rgba(0, 0, 0, 0);"
                         >
                             <q-carousel-slide v-for="(imageFilename, index) in maximizedFilenames" :key="index" :name="imageFilename" class="full-width row flex flex-center text-white">
-                                <div class="col-xs-12 q-pa-md" align="center">
-                                    <img :src="`statics/whycompass/${ imageFilename }`" style="height: auto; width: 100%; max-width: 400px; margin: 0 auto;">
+                                <div class="col-xs-12" align="center">
+                                    <img :src="`statics/whycompass/${ imageFilename }`" style="max-width: 100%; max-height: calc(100vh - 140px);">
                                 </div>
                             </q-carousel-slide>
                         </q-carousel>
@@ -222,16 +222,16 @@
             </div> -->
         </div>
 
-        <div class="row full-width q-py-lg">
+        <div class="row full-width q-py-lg" style="background: url('statics/topo.svg'); background-size: cover;">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
                 <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                    Key Metrics
+                    Compass vs. Competition
                 </h3>
             </div>
-            <div class="col-12 row">
+            <div class="col-12 row flex flex-center">
                 <div class="col-xs-12 col-md-7 q-py-md">
                     <!-- <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;" /> -->
-                    <div class="q-px-xl">
+                    <div class="q-px-xl q-py-md">
                         <h5 style="font-weight: 700;">Year Over Year Growth</h5>
                         <h6>All Brokers-All San Diego County-All Price Points</h6>
                     </div>
@@ -293,8 +293,35 @@
                     </q-carousel>
 
                 </div>
-                <div class="col-xs-12 col-md-5 q-px-xl q-py-md">
-                    <img src="statics/whycompass/office_combo.png" style="max-width: 100%; margin: 0 auto;" />
+                <div class="col-xs-12 col-md-5 q-px-md q-pt-lg" align="center">
+                    <!-- <img src="statics/whycompass/office_combo.jpg" style="max-width: 500px; margin: 0 auto;" /> -->
+                    <!-- <q-carousel
+                        v-model="keyMetricsImagesIndex"
+                        class="full-width"
+                        control-color="black"
+                        transition-prev="slide-right"
+                        transition-next="slide-left"
+                        animated
+                        swipeable
+                        navigation
+                        padding
+                        arrows
+                        infinite
+                        style="background: rgba(0, 0, 0, 0);"
+                    >
+                        <q-carousel-slide v-for="(slide, index) in keyMetricsImages" :key="index" :name="slide.filename" class="full-width row flex flex-center text-white"> -->
+                            <div 
+                                class="col-xs-12 relative-position shadow-6"
+                                :style="`min-height: 400px; background-image: url('statics/whycompass/${ keyMetricsImages[0].filename }'); background-size: cover; background-repeat: no-repeat; background-position: 50% 0%;`"
+                            >
+                                <div class="center">
+                                    <q-btn flat round style="background: rgba(0, 0, 0, .25); padding: 1rem;" @click="expandImage(keyMetricsImages[0])">
+                                        <q-icon name="fas fa-expand-alt" color="white" style="font-size: 4rem;" />
+                                    </q-btn>
+                                </div>
+                            </div>
+                        <!-- </q-carousel-slide>
+                    </q-carousel> -->
                 </div>
             </div>
         </div>
@@ -307,30 +334,30 @@
             </div>
             <div class="col-12 row">
                 <div class="col-xs-12 col-md-6 q-px-xl q-py-md text-white">
-                    <h4 v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Proactive Marketing —</h4>
+                    <h4 v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Proactive Marketing —</h4>
                     <ul style="font-size: 1.5rem;">
-                        <li v-scroll-reveal="{ delay: 100, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Reverse prospecting</li>
-                        <li v-scroll-reveal="{ delay: 200, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Past client database</li>
-                        <li v-scroll-reveal="{ delay: 300, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Thousands of leads</li>
-                        <li v-scroll-reveal="{ delay: 400, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Proactive calling</li>
-                        <li v-scroll-reveal="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Move up / downsize</li>
-                        <li v-scroll-reveal="{ delay: 600, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Door knocking</li>
+                        <li v-scroll-reveal="{ delay: 100, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Reverse prospecting</li>
+                        <li v-scroll-reveal="{ delay: 200, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Past client database</li>
+                        <li v-scroll-reveal="{ delay: 300, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Thousands of leads</li>
+                        <li v-scroll-reveal="{ delay: 400, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Proactive calling</li>
+                        <li v-scroll-reveal="{ delay: 500, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Move up / downsize</li>
+                        <li v-scroll-reveal="{ delay: 600, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Door knocking</li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-md-6 q-px-xl q-py-md text-white">
-                    <h4 v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Targeted Marketing —</h4>
+                    <h4 v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Targeted Marketing —</h4>
                     <ul style="font-size: 1.5rem;">
-                        <li v-scroll-reveal="{ delay: 100, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Mail & email campaigns</li>
-                        <li v-scroll-reveal="{ delay: 200, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Qualified list of renters</li>
-                        <li v-scroll-reveal="{ delay: 300, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Network of top 10% of agents</li>
-                        <li v-scroll-reveal="{ delay: 400, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Open houses (optional)</li>
-                        <li v-scroll-reveal="{ delay: 500, easing: 'ease-in-out', distance: '100px', origin: 'right' }">Network Tool</li>
+                        <li v-scroll-reveal="{ delay: 100, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Mail & email campaigns</li>
+                        <li v-scroll-reveal="{ delay: 200, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Qualified list of renters</li>
+                        <li v-scroll-reveal="{ delay: 300, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Network of top 10% of agents</li>
+                        <li v-scroll-reveal="{ delay: 400, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Open houses (optional)</li>
+                        <li v-scroll-reveal="{ delay: 500, easing: 'ease-in-out', distance: '0', opacity: 0, origin: 'right' }">Network Tool</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="row full-width q-py-lg">
+        <div class="row full-width q-py-lg" style="background: url('statics/topo.svg'); background-size: cover;">
             <div class="col-xs-12" style="padding: 2.5rem 2.5rem 0;">
                 <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
                     Our Promise
@@ -417,47 +444,37 @@ export default {
             }, {
                 filename: 'tiffany.png'
             }],
-            techSlideIndex: 'Virtual Open Houses',
+            techSlideIndex: 'The Network Tool',
             techSlides: [{
-                title: 'Virtual Open Houses',
-                info: 'Hosting Virtual Open Houses for homes similar to yours, I’ve captured thousands of leads into my contact management database. If they didn’t like the house they toured, perhaps they’ll like yours. I can invite them to consider your home in minutes.',
-                filename: 'virtualopenhouse.gif'
-            }, {
                 title: 'The Network Tool',
                 info: 'Using the network tool, I can analyze your property across 350+ parameters to discover similar sold listings, identify the right brokers, and correspond with ideal prospective buyers through targeted outreach.',
                 filename: 'network.jpg'
             }, {
                 title: 'Digital Ads',
                 info: 'As your agent, I have the ability to bring buyers that don’t have an agent to your home by targeting people who have looked at similar properties to yours, and launching targeted ads on Facebook, Instagram, and Google.',
-                filename: 'pricereductionad.png',
-                maximizedFilenames: [
-                    'pricereductionad.png',
-                    'openhousead.png',
-                    'investmentad.png',
-                    'listingad.png',
-                    'agentbrandad.png',
-                    'justsoldad.png',
-                    'comingsoonad.png',
-                    'justlistedad.png'
-                ]
+                filename: 'digitalads.jpg'
             }, {
-                title: 'Virtual Agent Services',
-                info: 'Compass VAS (Virtual Agent Services) is an exclusive suite of marketing services now available to Compass clients. By pairing the industry’s top talent with technology, we’re able to make the virtual home buying & selling experience intelligent and seamless.',
-                filename: 'vas.png'
+                title: 'Virtual Open Houses',
+                info: 'Hosting Virtual Open Houses for homes similar to yours, I’ve captured thousands of leads into my contact management database. If they didn’t like the house they toured, perhaps they’ll like yours. I can invite them to consider your home in minutes.',
+                filename: 'virtualopenhouse.gif'
             }, {
                 title: 'Marketing Center',
                 info: 'Marketing Center gives me the ability to operate like a professional design studio in a matter of minutes. I can quickly create beautiful brochures, digital ads, postcards and more. Saving time on designing marketing material gives me time back to spend on you. Marketing Center designs created by the Design team at Compass, recruited from top marketing companies.',
-                filename: 'marketingcenter.gif'            
+                filename: 'marketingcenter.jpg'            
             }, {
                 title: 'Insights',
                 info: 'While marketing your home, the insights dashboard grants me real-time data about your listing’s traffic, so I’m able to refine marketing and pricing strategy and discover new lead-generation opportunities.',
                 filename: 'insights.gif'            
+            }, {
+                title: 'Virtual Agent Services',
+                info: 'Compass VAS (Virtual Agent Services) is an exclusive suite of marketing services now available to Compass clients. By pairing the industry’s top talent with technology, we’re able to make the virtual home buying & selling experience intelligent and seamless.',
+                filename: 'vas.png'
             }],
             conciergeSlideIndex: 'Compass Concierge',
             conciergeSlides: [{
                 title: 'Compass Concierge',
                 desc: 'Get fronted for the cost of home improvement services with no interest — ever.',
-                filename: 'concierge_frame.png',
+                filename: 'concierge_frame.jpg',
                 features: [{
                     title: 'Smart',
                     info: 'Your Compass agent will help you determine which services can deliver the greatest return on your investment.'
@@ -499,6 +516,68 @@ export default {
             }, {
                 title: '100.5%',
                 info: 'List to sell price ratio'
+            }],
+            keyMetricsImagesIndex: 'keymetrics1.jpg',
+            keyMetricsImages: [{
+                filename: 'keymetrics1.jpg',
+                maximizedFilenames: [
+                    'keymetrics1.jpg',
+                    'keymetrics2.jpg',
+                    'keymetrics3.jpg',
+                    'keymetrics4.jpg',
+                    'keymetrics5.jpg',
+                    'keymetrics6.jpg'
+                ]
+            }, {
+                filename: 'keymetrics2.jpg',
+                maximizedFilenames: [
+                    'keymetrics1.jpg',
+                    'keymetrics2.jpg',
+                    'keymetrics3.jpg',
+                    'keymetrics4.jpg',
+                    'keymetrics5.jpg',
+                    'keymetrics6.jpg'
+                ]
+            }, {
+                filename: 'keymetrics3.jpg',
+                maximizedFilenames: [
+                    'keymetrics1.jpg',
+                    'keymetrics2.jpg',
+                    'keymetrics3.jpg',
+                    'keymetrics4.jpg',
+                    'keymetrics5.jpg',
+                    'keymetrics6.jpg'
+                ]
+            }, {
+                filename: 'keymetrics4.jpg',
+                maximizedFilenames: [
+                    'keymetrics1.jpg',
+                    'keymetrics2.jpg',
+                    'keymetrics3.jpg',
+                    'keymetrics4.jpg',
+                    'keymetrics5.jpg',
+                    'keymetrics6.jpg'
+                ]
+            }, {
+                filename: 'keymetrics5.jpg',
+                maximizedFilenames: [
+                    'keymetrics1.jpg',
+                    'keymetrics2.jpg',
+                    'keymetrics3.jpg',
+                    'keymetrics4.jpg',
+                    'keymetrics5.jpg',
+                    'keymetrics6.jpg'
+                ]
+            }, {
+                filename: 'keymetrics6.jpg',
+                maximizedFilenames: [
+                    'keymetrics1.jpg',
+                    'keymetrics2.jpg',
+                    'keymetrics3.jpg',
+                    'keymetrics4.jpg',
+                    'keymetrics5.jpg',
+                    'keymetrics6.jpg'
+                ] 
             }],
             keyMetricsIndex: 'Compass',
             metricsTableColumns: [{

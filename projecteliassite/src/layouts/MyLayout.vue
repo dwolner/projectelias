@@ -234,7 +234,7 @@ export default {
         },
 
         goToPDF() {
-            window.open(`https://richardelias.com/statics/${ this.globalInquiryType === 'Buying' ? 'BuyingaHomeSummer2020.pdf' : 'SellingYourHouseSummer2020.pdf' }`, '_blank')
+            window.open(`https://richardelias.com/statics/${ this.globalInquiryType === 'Buying' ? 'BuyingaHomeSummer2021.pdf' : 'SellingYourHouseSummer2021.pdf' }`, '_blank')
         }
     },
 

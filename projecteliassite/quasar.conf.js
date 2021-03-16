@@ -66,7 +66,7 @@ module.exports = function (ctx) {
       // showProgress: false,
       // gzip: true,
       // analyze: true,
-      // preloadChunks: false,
+      preloadChunks: true,
       // extractCSS: false,
 
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
