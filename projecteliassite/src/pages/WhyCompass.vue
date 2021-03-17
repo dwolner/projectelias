@@ -79,7 +79,7 @@
                     <q-carousel-slide v-for="(slide, index) in techSlides" :key="index" :name="slide.title" class="full-width row flex flex-center text-white">
                         <div class="col-xs-12 col-md-6 q-pa-md" :align="$q.screen.width > 500 ? 'left' : 'center'">
                             <h4 class="q-mb-md">{{ slide.title }}</h4>
-                            <h6>{{slide.info}}</h6>
+                            <h6 v-html="slide.info"></h6>
                         </div>
 
                         <!-- <div class="col-xs-12 col-md-6 q-pa-md" align="center">
@@ -229,9 +229,42 @@
                 </h3>
             </div>
             <div class="col-12 row flex flex-center">
-                <div class="col-xs-12 col-md-7 q-py-md">
-                    <!-- <img src="statics/whycompass/metrics.jpg" style="max-width: 100%; margin: 0 auto;" /> -->
-                    <div class="q-px-xl q-py-md">
+                <div class="col-xs-12 q-px-xl">
+                    <h5>We understand what it takes to sell your home.</h5>
+                </div>
+                <div class="col-xs-12 col-md-4 q-px-xl q-pt-lg" align="center">
+                    <!-- <img src="statics/whycompass/office_combo.jpg" style="max-width: 500px; margin: 0 auto;" /> -->
+                    <!-- <q-carousel
+                        v-model="keyMetricsImagesIndex"
+                        class="full-width"
+                        control-color="black"
+                        transition-prev="slide-right"
+                        transition-next="slide-left"
+                        animated
+                        swipeable
+                        navigation
+                        padding
+                        arrows
+                        infinite
+                        style="background: rgba(0, 0, 0, 0);"
+                    >
+                        <q-carousel-slide v-for="(slide, index) in keyMetricsImages" :key="index" :name="slide.filename" class="full-width row flex flex-center text-white"> -->
+                            <div 
+                                class="col-xs-12 relative-position shadow-6"
+                                :style="`min-height: 300px; background-image: url('statics/whycompass/${ keyMetricsImages[0].filename }'); background-size: cover; background-repeat: no-repeat; background-position: 50% 0%;`"
+                            >
+                                <div class="center">
+                                    <q-btn flat round style="background: rgba(0, 0, 0, .25); padding: 1rem;" @click="expandImage(keyMetricsImages[0])">
+                                        <q-icon name="fas fa-expand-alt" color="white" style="font-size: 4rem;" />
+                                    </q-btn>
+                                </div>
+                            </div>
+                        <!-- </q-carousel-slide>
+                    </q-carousel> -->
+                </div>
+                <div class="col-xs-12 col-md-8 q-pa-xl">
+                    <img class="shadow-6" src="statics/whycompass/hotpic1.jpg" style="max-width: 100%; margin: 0 auto;" />
+                    <!-- <div class="q-px-xl q-py-md">
                         <h5 style="font-weight: 700;">Year Over Year Growth</h5>
                         <h6>All Brokers-All San Diego County-All Price Points</h6>
                     </div>
@@ -256,9 +289,9 @@
                                 </div>
                             </template>
                         </q-table>
-                    </div>
+                    </div> -->
 
-                    <q-carousel
+                    <!-- <q-carousel
                         v-model="keyMetricsIndex"
                         class="full-width lt-md"
                         control-color="black"
@@ -290,39 +323,10 @@
                                 </q-list>
                             </q-card>
                         </q-carousel-slide>
-                    </q-carousel>
+                    </q-carousel> -->
 
                 </div>
-                <div class="col-xs-12 col-md-5 q-px-md q-pt-lg" align="center">
-                    <!-- <img src="statics/whycompass/office_combo.jpg" style="max-width: 500px; margin: 0 auto;" /> -->
-                    <!-- <q-carousel
-                        v-model="keyMetricsImagesIndex"
-                        class="full-width"
-                        control-color="black"
-                        transition-prev="slide-right"
-                        transition-next="slide-left"
-                        animated
-                        swipeable
-                        navigation
-                        padding
-                        arrows
-                        infinite
-                        style="background: rgba(0, 0, 0, 0);"
-                    >
-                        <q-carousel-slide v-for="(slide, index) in keyMetricsImages" :key="index" :name="slide.filename" class="full-width row flex flex-center text-white"> -->
-                            <div 
-                                class="col-xs-12 relative-position shadow-6"
-                                :style="`min-height: 400px; background-image: url('statics/whycompass/${ keyMetricsImages[0].filename }'); background-size: cover; background-repeat: no-repeat; background-position: 50% 0%;`"
-                            >
-                                <div class="center">
-                                    <q-btn flat round style="background: rgba(0, 0, 0, .25); padding: 1rem;" @click="expandImage(keyMetricsImages[0])">
-                                        <q-icon name="fas fa-expand-alt" color="white" style="font-size: 4rem;" />
-                                    </q-btn>
-                                </div>
-                            </div>
-                        <!-- </q-carousel-slide>
-                    </q-carousel> -->
-                </div>
+                
             </div>
         </div>
 
@@ -447,23 +451,23 @@ export default {
             techSlideIndex: 'The Network Tool',
             techSlides: [{
                 title: 'The Network Tool',
-                info: 'Using the network tool, I can analyze your property across 350+ parameters to discover similar sold listings, identify the right brokers, and correspond with ideal prospective buyers through targeted outreach.',
+                info: 'Compass has developed an industry-first network tool that analyzes your property to identify and connect us with agents that have sold similar homes in your area.',
                 filename: 'network.jpg'
             }, {
                 title: 'Digital Ads',
-                info: 'As your agent, I have the ability to bring buyers that don’t have an agent to your home by targeting people who have looked at similar properties to yours, and launching targeted ads on Facebook, Instagram, and Google.',
+                info: 'By leveraging Compass’ digital advertising tools and partnerships across social media and advertising throughout your listing process, we can generate demand to sell your home faster, and we meet potential buyers where they are, online.',
                 filename: 'digitalads.jpg'
             }, {
                 title: 'Virtual Open Houses',
-                info: 'Hosting Virtual Open Houses for homes similar to yours, I’ve captured thousands of leads into my contact management database. If they didn’t like the house they toured, perhaps they’ll like yours. I can invite them to consider your home in minutes.',
+                info: 'Whether it be in-person or a dynamic virtual tour, open houses are one of the most important ways buyers connect with your home. <br /> <br /> <span style="font-size: 2.5rem;">59%</span> Of homebuyers attend an open house during the home shopping process <br />  <br /> <span style="font-size: 2.5rem;">45%</span> Of open houses have been virtual since the launch of our virtual open house tool',
                 filename: 'virtualopenhouse.gif'
             }, {
                 title: 'Marketing Center',
-                info: 'Marketing Center gives me the ability to operate like a professional design studio in a matter of minutes. I can quickly create beautiful brochures, digital ads, postcards and more. Saving time on designing marketing material gives me time back to spend on you. Marketing Center designs created by the Design team at Compass, recruited from top marketing companies.',
+                info: 'From brochures and postcards to social media and emails, our marketing collateral effectively communicates your property’s story and attracts more potential buyers.',
                 filename: 'marketingcenter.jpg'            
             }, {
                 title: 'Insights',
-                info: 'While marketing your home, the insights dashboard grants me real-time data about your listing’s traffic, so I’m able to refine marketing and pricing strategy and discover new lead-generation opportunities.',
+                info: 'Insights is a detailed, custom dashboard that allows us to assess the impact of our online marketing campaigns in real time. By capturing this data, we are able to further target our ads to buyers most interested in your home.',
                 filename: 'insights.gif'            
             }, {
                 title: 'Virtual Agent Services',
