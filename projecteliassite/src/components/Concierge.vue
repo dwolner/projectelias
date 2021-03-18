@@ -1,5 +1,5 @@
 <template>
-    <q-page id="concierge" class="flex flex-center cx-dotGridBackground">
+    <q-page id="concierge" class="flex flex-center cx-dotGridBackground full-width">
   
         <div v-scroll-reveal.reset="{ opacity: 0, duration: 1000 }" class="row well container flex flex-center">
             <div class="col-xs-12 col-md-6 q-pa-xl">

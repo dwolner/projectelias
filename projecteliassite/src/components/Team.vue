@@ -45,7 +45,7 @@
                             <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
                             <h6 class="text-grey-8 q-my-sm" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1rem;`" v-html="item.email.replace('@', '<br />@')" />
                             <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">{{ item.phone }}</h6>
-                            <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">DRE #{{ item.dreNumber }}</h6>
+                            <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">CA DRE #{{ item.dreNumber }}</h6>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                                 <h6 class="text-grey-8 q-mt-sm">{{ item.role }}</h6>
                                 <h6 class="text-grey-8 q-my-sm" style="font-size: .9rem; line-height: 1rem;" v-html="item.email.replace('@', '<br />@')" />
                                 <h6 class="text-grey-8" style="font-size: .9rem;">{{ item.phone }}</h6>
-                                <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">DRE #{{ item.dreNumber }}</h6>
+                                <h6 class="text-grey-8" :style="`font-size: ${ $q.screen.width > 1440 ? '.7rem' : '.9rem' }; line-height: 1.5rem;`">CA DRE #{{ item.dreNumber }}</h6>
                             </div>
                         </div> 
                     </q-carousel-slide>

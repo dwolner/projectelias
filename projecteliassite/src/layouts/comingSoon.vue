@@ -18,7 +18,7 @@
                     />
                 </div>
 
-                <div class="full-width" align="right"><p class="text-white q-ma-md" style="opacity: .25;">DRE 01104411</p></div>
+                <div class="full-width" align="right"><p class="text-white q-ma-md" style="opacity: .25;">CA DRE #01104411</p></div>
             </q-toolbar>
         </q-header>
 
