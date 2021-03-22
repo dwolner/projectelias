@@ -69,7 +69,7 @@ export default function ( /* { ssrContext } */ ) {
 				avatar: 'christopher_square.jpg',
 				headshot: 'Christopher.jpg',
 				slug: 'christopher-triana',
-				about: 'Mari values the privilege to create a foundation for herself, her family and to help others do the same in America’s Finest City through her passion for real estate. Mari prides herself on her ability to provide clients with excellent customer service, efficiency, honesty and dedication to her craft. Whether her clients are buying or selling, Mari thrives from knowing she can assist in making their real estate dreams come true.'
+				about: 'Christopher\'s professional journey has taken him from coast to coast and has finally brought him home. His passion for building and sustaining meaningful relationships with clients has helped him thrive in a variety of industries including cosmetology, education, and sales. With his extensive stylist background, Christopher boasts more than a decade of experience, patiently helping clients evaluate their aesthetics, preferences, and goals. Consistently exceeding his clients\’ expectations, he delivers quality and unique results. Ultimately, his knack for business partnered with his passion for client success encouraged him to pursue sales opportunities across the US assisting businesses in opening accounts and guiding them into higher producing ventures. His drive paired with his trustworthiness makes him the perfect person to have in your corner, negotiating the best possible deal.'
 			  },
 			  devrie: {
 			    name: 'Devrie Grimm',
@@ -80,7 +80,7 @@ export default function ( /* { ssrContext } */ ) {
 				avatar: 'devrie_square.jpg',
 				headshot: 'Devrie.jpg',
 				slug: 'devrie-grimm',
-				about: 'Mari values the privilege to create a foundation for herself, her family and to help others do the same in America’s Finest City through her passion for real estate. Mari prides herself on her ability to provide clients with excellent customer service, efficiency, honesty and dedication to her craft. Whether her clients are buying or selling, Mari thrives from knowing she can assist in making their real estate dreams come true.'
+				about: 'Growing up in Houston, Texas, Devrie developed a natural appreciation for architecture and interior design at an early age. After moving to San Diego in 2015, Devrie fell deeply in love with the city. Merging her passion for Real Estate and her love for her new city, Devrie was inspired to help others make San Diego home. She has become a go - to for buyers, sellers and investors alike. With her extensive network and impeccable white glove level of service, Devrie is committed to helping her clients navigate today\'s complex Real Estate market.'
 			  }
 			}
 		},
