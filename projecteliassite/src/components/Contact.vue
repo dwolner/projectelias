@@ -35,7 +35,7 @@
                 <p><span style="font-style: italic;">Designed and developed by </span> <a href="http://danwolner.com/">Daniel Wolner.</a></p>
             </div>
             <div class="col-xs-6 q-px-sm" align="left">
-                <p style="font-size: .8rem;">© COPYRIGHT 2020 | <a @click="$router.push('/privacypolicy')">PRIVACY POLICY</a></p>
+                <p style="font-size: .8rem;">© COPYRIGHT {{ year }} | <a @click="$router.push('/privacypolicy')">PRIVACY POLICY</a></p>
             </div>
             <div class="col-xs-6 q-px-sm" align="right">
                 <p style="font-size: .8rem;">THE RICHARD ELIAS TEAM</p>
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import { date } from 'quasar'
 export default {
     name: 'Contact',
 
@@ -79,6 +80,10 @@ export default {
         mapWidth() {
             let width = this.$q.screen.width - this.mapOffset
             return width < 300 ? width : 300
+        },
+        year() {
+            let timeStamp = Date.now()
+            return date.formatDate(timeStamp, 'YYYY')
         }
     },
 

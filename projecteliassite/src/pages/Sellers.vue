@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-xs-12" style="padding: 2rem 2.5rem 0;">
                     <h3 class="Compass-Serif-Regular q-mr-md" style="float: left;" v-scroll-reveal="{ delay: 0, easing: 'ease-in-out', distance: '100px', origin: 'left' }">
-                        Why sell a home in 2020?
+                        Why sell a home in {{ year }}?
                     </h3>
 
                     <span
@@ -49,23 +49,24 @@
                     <h5 class="q-my-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 75 }">It's a Seller's Market</h5>
 
                     <p style="font-size: 1rem;" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 150 }">
-                        Housing inventory is low nationwide which means there are fewer homes for buyers to choose from. There were 15.7% fewer homes for sale this March compared to 2019 according
-                        to realtor.com’s March Housing Report. 
-                    </p>
-                    <p style="font-size: 1rem;" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 225 }">
-                        Additionally, median listing prices are up nationally at $320,000, 3.8% higher than in 2019. If economic conditions worsen, the pool
-                        of buyers might shrink and home prices could drop. Why wait to sell when prices are possibly going to drop?
+                        Selling your house when the fewest number of homes are available to buy is what puts you in
+                        the driver’s seat. With today’s high buyer traffic and low inventory of houses for sale, this
+                        power combination makes now the optimal time to sell, if you’re ready. Whether you want to
+                        move-up or downsize, here’s the breakdown on supply and demand and why this imbalance in
+                        the current housing market positions this season as the optimal time to make your next move.
                     </p>
 
                     <ul style="font-size: 1rem; font-family: 'Compass-Sans-Regular'; padding-left: 1rem;">
-                        <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 300}">Versus last year, the total number of properties available in San Diego this month is lower by 2095 units or 29.9%.</li>
-                        <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 375 }">This year's smaller inventory means that buyers who waited to buy may have smaller selection to choose from.</li>
-                        <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 425 }">The number of current inventory is up 0.4% compared to the previous month.</li>
+                        <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 300}"><strong>Buyer demand is strong right now</strong>, and buyers are active in the market. ShowingTime, which tracks the average number of buyer showings on residential properties, recently announced that buyer showings are up 51.5% compared to the same time last year.</li>
+                        <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 375 }">Purchaser demand is so high, <strong>the market is running out of available homes for sale</strong>. Recently, realtor.com reported: “Nationally, the inventory of homes for sale in January decreased by 42.6% over the past year, a higher rate of decline compared to the 39.6% drop in December. This amounted to 443,000 fewer homes for sale compared to January of last year.”</li>
+                        <li class="q-py-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 425 }">If you’re thinking of putting your house on the market, don’t wait. A seller will always negotiate the best deal when demand is high and supply is low. That’s exactly what’s happening in the real estate market today.</li>
                     </ul>
                 </div>
 
                 <div class="col-xs-12 col-md-6 q-pa-lg" align="center" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 500 }">
-                    <q-img class="q-mt-lg shadow-4" src="statics/compass_sellers_graph.jpg" style="max-width: 500px; border: 2px solid #1b1b1b;" />
+                    <div class="q-pa-lg shadow-4" style="max-width: 600px; border: 2px solid #1b1b1b;">
+                        <q-img class="" src="statics/photos/inventorylevel.png" />
+                    </div>
                 </div>
             </div>
 
@@ -96,7 +97,7 @@
                     
                     <p style="font-size: 1rem; margin-top: 2rem;">
                         <strong>DID YOU KNOW?</strong>
-                        Nationally, homes sold in 60 days in March  four days more quickly than last year!
+                        The average 30-year fixed-rate mortgage is expected to be 2.9 percent in 2021 and 3.2 percent in 2022.
                     </p>
 
                 </div>
@@ -182,7 +183,7 @@
                         Hear it from Bill
                     </h4>
                     <p>
-                        Bill sold his home with the Richard Elias team this year and was thrilled with how it went. How could you not be when you get more than what you're asking?
+                        Bill sold his home with the Richard Elias team last year and was thrilled with how it went. How could you not be when you get more than what you're asking?
                     </p>
                     <p>
                         Click play to hear Bill's story.
@@ -218,6 +219,7 @@
 import ContactForm from '../components/ContactForm'
 import Contact from '../components/Contact'
 import ContactProfile from '../components/ContactProfile'
+import { date } from 'quasar'
 
 export default {
     name: 'Sellers',
@@ -230,9 +232,9 @@ export default {
 
     data() {
         return {
-            slideIndex: '8d48f86a',
+            slideIndex: '8a56fb12',
             showPDFButton: false,
-            videoIDs: ['67a6336c', '0c2c8eec', '8d48f86a'],
+            videoIDs: ['8a56fb12', '9f58cdd7', 'c3b0b1f9'],
             showVideo: false
         }
     },
@@ -274,6 +276,11 @@ export default {
                 margin: 3rem auto;
             `
         },
+
+        year() {
+            let timeStamp = Date.now()
+            return date.formatDate(timeStamp, 'YYYY')
+        }
     },
 
     methods: {

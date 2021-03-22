@@ -48,28 +48,31 @@
 
             <div class="row reverse-wrap q-px-lg">
                 <div class="col-xs-12 col-md-6 q-pa-lg">
-                    <h5 class="q-my-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 75 }">Housing Confidence Gaining Steam</h5>
+                    <h5 class="q-my-md" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 75 }">Expert Insights For This Year's Homebuyers</h5>
 
                     <p style="font-size: 1rem;" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 150 }">
                         A recent study from Fannie Mae shows that both buyers and sellers think it's an increasingly good time to make a move.
                     </p>
 
                     <p style="font-size: 1rem;" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 225 }">
-                        <strong>Mortgage Rate Expectations:</strong> The percentage of respondents who say mortgage rates will go down in the next 12 months decreased this month from 25% to 17%, while the percentage who expect mortgage rates to go up increased from 25% to 32%. The share who think mortgage rates will stay the same decreased from 43% to 42%. As a result, the net share of Americans who say mortgage rates will go down over the next 12 months decreased 15 percentage points.
+                        The housing market recovery has been nothing short of remarkable. Many experts agree the turnaround from the nation’s economic pause last year is playing out extremely well for real estate, so it’s an ideal time to buy a home for those who are ready to make a purchase. Here’s a dive into some of the biggest wins for homebuyers this spring.
                     </p>
 
                     <ul style="font-size: 1rem; font-family: 'Compass-Sans-Regular'; padding-left: 1rem;">
-                        <li class="q-my-sm" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 300 }">Buyer demand will remain strong as individuals seek lifestyle changes and prioritize their home environment.</li>
-                        <li class="q-my-sm" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 375 }">Buyers will have to remain patient, since there is less inventory than usual.</li>
-                        <li class="q-my-sm" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 425 }">Ultimately you will have to decide for yourself if now is the right time to buy for you.</li>
+                        <li class="q-my-sm" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 300 }"><strong>Mortgage rates are still low:</strong> In 2020, mortgage rates hit all-time lows 16 times, falling below 3% for the first time ever. Continued low rates in the early part of this year are setting buyers up for significant long-term gains.</li>
+                        <li class="q-my-sm" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 375 }"><strong>Buying Is More Affordable Than Renting:</strong> This trend of low mortgage rates has made the typical monthly payment (including principal and interest) less expensive for buyers.</li>
+                        <li class="q-my-sm" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 425 }"><strong>Equity Is Growing:</strong> The Homeowner Equity Report from CoreLogic notes that the average homeowner gained $17,000 in equity in just the last year.</li>
+                        <li class="q-my-sm" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 500 }"><strong>Home Prices Are Appreciating:</strong> According to many leading experts, home prices are forecasted to continue appreciating this year. When home values appreciate, it’s another factor that increases your equity.</li>
                     </ul>
                 </div>
 
-                <div class="col-xs-12 col-md-6 q-pa-lg" align="center" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 500 }">
-                    <q-img class="q-mt-lg shadow-4" src="statics/HPSI_Page_01.png" style="max-width: 500px; border: 2px solid #1b1b1b;" />
-                    <p class="q-mt-sm q-mx-sm" style="font-size: .8rem; font-style: italic;">
-                        The percentage of respondents who say it is a good time to buy a home increased from 52% to 61%, while the percentage who say it is a bad time to buy decreased from 39% to 27%. As a result, the net share of Americans who say it is a good time to buy increased 21 percentage points.
-                    </p>
+                <div class="col-xs-12 col-md-6 q-pa-md" align="center" v-scroll-reveal="{ opacity: 0, duration: 1000, distance: '100px', origin: 'left',  delay: 500 }">
+                    <div class="q-pa-lg shadow-4" style="max-width: 700px; border: 2px solid #1b1b1b;">
+                        <q-img class="" src="statics/photos/equitygains.png" />
+                        <!-- <p class="q-mt-sm q-mx-sm" style="font-size: .8rem; font-style: italic;">
+                            The percentage of respondents who say it is a good time to buy a home increased from 52% to 61%, while the percentage who say it is a bad time to buy decreased from 39% to 27%. As a result, the net share of Americans who say it is a good time to buy increased 21 percentage points.
+                        </p> -->
+                    </div>
                 </div>
             </div>
 
@@ -237,10 +240,10 @@ export default {
 
     data() {
         return {
-            slideIndex: '60914e4b',
+            slideIndex: '9f58cdd7',
             showPDFButton: false,
             showVideo: false,
-            videoIDs: ['60914e4b', '7accfd4a', 'ef5b50ed'],
+            videoIDs: ['9f58cdd7', 'd05b2ea4', 'b7e2c722'],
         }
     },
 
