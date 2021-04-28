@@ -7,7 +7,7 @@
                     <div class="q-pa-sm">
                         <h5 class="Compass-Serif-Regular">Compass</h5>
                         <h5 class="q-mb-md uppercase" style="font-weight: 100;">Private Exclusives</h5>
-                        <h4 class="q-mb-md Compass-Serif-Regular">Work with Richard to sell your home as a Compass Private Exclusive</h4>
+                        <h4 class="q-mb-md Compass-Serif-Regular">Work with {{ agentData.name }} to sell your home as a Compass Private Exclusive</h4>
                         <h6>Listing your home as a private exclusive allows you to control what information is shared about you and your home while still getting exposure to over 15,000 top agents.</h6>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
 
                 <div class="col-xs-12 col-md-6 q-pa-xl flex flex-center">
                     <div class="q-pa-sm">
-                        <h6 class="Compass-Serif-Regular">Richard Elias was recommended to me by a friend. I had interviewed three other realtors and decided on Rich. I am so glad I did. His knowledge of listing, terms and listing price were spot on. My house had 13 offers in 5 days. Closed escrow in 14 days with an all cash offer. $30,000.00 over listing price. Rich is very professional and friendly. I will recommend Rich to anyone who needs a realtor.</h6>
+                        <h6 class="Compass-Serif-Regular">The Richard Elias team was recommended to me by a friend. I had interviewed three other realtors and decided on Rich. I am so glad I did. His knowledge of listing, terms and listing price were spot on. My house had 13 offers in 5 days. Closed escrow in 14 days with an all cash offer. $30,000.00 over listing price. Rich is very professional and friendly. I will recommend Rich to anyone who needs a realtor.</h6>
                         <h6 class="q-mt-lg">Tina C.</h6>
                     </div>
                 </div>
@@ -140,6 +140,14 @@ export default {
         agentID() {
             return this.$store.state.agentID
         },
+
+        agentDataMap() {
+            return this.$store.state.agentDataMap
+        },
+
+        agentData() {
+            return this.agentDataMap[this.agentID]
+        }
     },
 
     methods: {
