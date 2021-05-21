@@ -106,8 +106,14 @@ export default {
                     date: '01/07/2021',
                 }
             ],
-            videoSlideIndex: 'QKI-gbPULk0',
+            videoSlideIndex: 'r5hsIKrIses',
             videoSlides: [
+                {
+                    id: 'r5hsIKrIses'
+                },
+                {
+                    id: '3dDirF1MRnE'
+                },
                 {
                     id: 'QKI-gbPULk0'
                 },
@@ -129,12 +135,12 @@ export default {
                 {
                     id: 'EATYFKUi9Uc'
                 },
-                {
-                    id: 'GvXz6px-QHo'
-                },
-                {
-                    id: 'mRAuqZJlXsk'
-                }
+                // {
+                //     id: 'GvXz6px-QHo'
+                // },
+                // {
+                //     id: 'mRAuqZJlXsk'
+                // }
                 // {
                 //     id: '2yr17zwNzfA'
                 // }
