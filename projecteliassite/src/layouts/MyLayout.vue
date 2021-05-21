@@ -192,7 +192,7 @@ export default {
 
     methods: {
         nav(item) {
-            console.log('nav: ', item)
+            // console.log('nav: ', item)
 
             if (item.sectionID) {
                 this.$router.push(`/#${item.sectionID}`)
@@ -226,7 +226,7 @@ export default {
         },
 
         formSuccess() {
-            console.log('formSuccess: ', this.globalInquiryType)
+            // console.log('formSuccess: ', this.globalInquiryType)
             if (this.globalInquiryType === 'Buying' || this.globalInquiryType === 'Selling') {
                 this.showPDFButton = true
                 this.scrollToElement('pdfbutton')
@@ -240,7 +240,7 @@ export default {
 
     mounted() {
         let currentRoute = this.$router.currentRoute
-        console.log('ROuter: ', currentRoute)
+        // console.log('ROuter: ', currentRoute)
 
         if (!localStorage.getItem('hideHomebotPopup') && currentRoute.path !== '/homedigest') {
             setTimeout(()=> {
@@ -253,8 +253,11 @@ export default {
         })
 
         if (currentRoute) {
+            // console.log('currentRoute: ', currentRoute)
             if (currentRoute.query) {
+                // console.log('currentRoute query: ', currentRoute.query)
                 if (currentRoute.query.agent && this.agentDataMap && this.agentDataMap[currentRoute.query.agent]) {
+                    // console.log('agentID: ', currentRoute.query.agent)
                     this.$store.commit('setAgentID', currentRoute.query.agent)
                 }
             }
